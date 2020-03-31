@@ -17,12 +17,12 @@
 |image|string|
 
 ### Association
-- has_many :buyed_goods, foreign_key: "buyer_id", class_name: "Good"
-- has_many :saling_goods, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name:  "Good"
-- has_many :sold_goods, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Good"
-- has_many :comments, through: :users_comments
-- has_many :users_comments
-- has_many :cards
+- has_many :buyed_goods, foreign_key: "buyer_id", class_name: "Good", dependent: :destroy
+- has_many :saling_goods, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name:  "Good", dependent: :destroy
+- has_many :sold_goods, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Good", dependent: :destroy
+- has_many :comments, through: :users_comments, dependent: :destroy
+- has_many :users_comments, dependent: :destroy
+- has_many :cards, dependent: :destroy
 - has_many :orders
 - belongs_to :user_address
 
@@ -63,7 +63,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|string|
-|group_id|integer|foreign_key: true|
+|good_id|integer|foreign_key: true|
 |user_id|integer|foreign_key: true|
 
 ### Association
@@ -76,7 +76,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|good_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :comment
@@ -106,8 +106,8 @@
 - belongs_to :buyer, class_name: "User"
 - belongs_to :category
 - belongs_to :size
-- has_many :comments
-- has_many :good_images
+- has_many :comments, dependent: :destroy
+- has_many :good_images, dependent: :destroy
 - has_many :orders
 
 ## ordersテーブル
