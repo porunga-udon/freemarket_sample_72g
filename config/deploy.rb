@@ -1,15 +1,8 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.12.1"
+lock "3.12.1"
 
 set :application, "freemarket_sample_72g"
-set :repo_url, 'git@github.com:porunga-udon/freemarket_sample_72g'
-
-
-# Capistranoのログの表示に利用する
-set :application, 'freemarket_sample_72g'
-
-# どのリポジトリからアプリをpullするかを指定する
-set :repo_url,  'git@github.com:porunga-udon/freemarket_sample_72g.git'
+set :repo_url, 'git@github.com:porunga-udon/freemarket_sample_72g.git'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
