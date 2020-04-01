@@ -71,8 +71,7 @@
 
       .feature__lists__list
         .feature__lists__list__pic
-          %span.mean__lists__list__pic__number 1
-          =image_tag "left-icon-01-7f6abf70ea7deaed9ab5d8b6d5cb796250e3e292b9ecdc559ebe6492c31fdab8.svg", size: "180x100"
+          =image_tag "left-icon-01-7f6abf70ea7deaed9ab5d8b6d5cb796250e3e292b9ecdc559ebe6492c31fdab8.svg", width: "70%"
         %h.mean__lists__list__text
           簡単に売り買いできる
         %p.mean__lists__list__description
@@ -80,8 +79,7 @@
 
       .feature__lists__list
         .feature__lists__list__pic
-          %span.mean__lists__list__pic__number 1
-          =image_tag "right-icon-04-c4052f85cd6e1f62ea8cac8c55277d7fa4bda971d924f8a2afe72eea6558fa85.svg", size: "180x100"
+          =image_tag "right-icon-04-c4052f85cd6e1f62ea8cac8c55277d7fa4bda971d924f8a2afe72eea6558fa85.svg", width: "70%"
         %h.mean__lists__list__text
           売上金は即日振込みに対応
         %p.mean__lists__list__description
@@ -91,14 +89,14 @@
 
       .feature__lists__list
         .feature__lists__list__pic
-          %span.mean__lists__list__pic__number 1
-          =image_tag "center-icon-03-9c0d78266a316fec7b738dcf5c68dd987afb9655b13fd2cd5d30bcf09e827694.svg", size: "180x100"
+          =image_tag "center-icon-03-9c0d78266a316fec7b738dcf5c68dd987afb9655b13fd2cd5d30bcf09e827694.svg", width: "70%"
         %h.mean__lists__list__text
           様々な支払いに対応
         %p.mean__lists__list__description
           お支払いは、クレジットカード
           だけでなく、ポイントや売上金
           など多彩な方法があります。
+
 
   .pick-ups
     .pick-ups__box
@@ -179,3 +177,8 @@
       %span.image
         = image_tag "logo-white.png", size:'134x36'
         %p  ©︎フリマ
+
+  %a{href: "#", class: "bottom-logo"}
+    %h.bottom-logo__text 出品する
+    .bottom-logo__img
+      =image_tag "camera-icon_camera-968c5ebaa05319bf1e2ad7508f852dd712504a4d26a1930d8bd87ec03ebcc37a.svg", width: "60%"
