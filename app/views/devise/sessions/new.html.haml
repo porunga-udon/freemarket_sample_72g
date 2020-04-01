@@ -11,8 +11,12 @@
         .group
           .group__form
             = f.password_field :password, class:'new_user_registration',placeholder:'パスワード', autocomplete: "off"
-        .registration__btn
-          = f.submit 'ログイン', class:'btn'
+        .login
+          .login__btn
+            = f.submit 'ログイン', class:'btn'
+          .login__forget
+            =link_to "#", class:"forget" do
+              パスワードをお忘れの方
 
   .footer
     = render "footer"

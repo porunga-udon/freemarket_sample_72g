@@ -127,6 +127,30 @@ $furima: #3CCACE;
         }
       }
     }
+    .login {
+      width: 400px;
+      height: 100px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      .btn {
+        margin: 0 auto;
+        width: 400px;
+        height: 60px;
+        color: white;
+        background-color: $furima;
+        text-decoration: none;
+        font-size: 20px;
+        outline: 0;
+      }
+      &__forget {
+        margin-top: 30px;
+        text-align: center;
+        .forget {
+          text-decoration: none;
+          color: gray;
+        }
+      }
+    }
   }
   .footer {
     height: 180px;
