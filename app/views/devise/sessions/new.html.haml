@@ -5,21 +5,11 @@
   .main
     .main__form
       .group
-        .group__text
-          .group__text__main
-            ニックネーム
-          .group__text__require
-            必須
         .group__form
-          %input.new_user_registration{placeholder:"例)フリマ太郎"}
+          %input.new_user_registration{placeholder:"メールアドレス"}
       .group
-        .group__text
-          .group__text__main
-            メールアドレス
-          .group__text__require
-            必須
         .group__form
-          %input.new_user_registration{placeholder:"PC・携帯どちらでも可"}
+          %input.new_user_registration{type:'password', placeholder:"パスワード"}
       .registration__btn
         =link_to "#", class:'btn' do
           %button.btn ログイン
