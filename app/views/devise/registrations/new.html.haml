@@ -1,9 +1,6 @@
 .wrapper
-
   .header
-    .header__icon
-      =link_to "/" do
-        = image_tag "logo.png", size: "300x80", alt: "icon"
+    = render "header"
 
   .main
     .main__top
@@ -124,20 +121,5 @@
         .registration__btn
           =link_to "#", class:'btn' do
             %button.btn 次へ進む
-
   .footer
-    .footer__text
-      .footer__text--1
-        =link_to "#", class:"text" do
-          プライバシーポリシー
-      .footer__text--2
-        =link_to "#", class:"text" do
-          フリマ利用規約
-      .footer__text--3
-        =link_to "#", class:"text" do
-          特定商取引に関する表記
-    .footer__icon
-      =link_to "/" do
-        = image_tag "logo.png", size: "200x50", alt: "icon"
-    .footer__inc
-      @ FURIMA, Inc.
+    = render "footer"
