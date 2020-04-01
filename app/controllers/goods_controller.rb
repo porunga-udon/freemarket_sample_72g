@@ -1,5 +1,5 @@
 class GoodsController < ApplicationController
   def index
-    @good = Good.new
+    @good = Good.all
   end
 end
