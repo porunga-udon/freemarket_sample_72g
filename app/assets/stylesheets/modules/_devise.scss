@@ -1,0 +1,155 @@
+$furima: #3CCACE;
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(233, 230, 230);
+  .header {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    &__icon {
+      width: 300px;
+      margin: 0px auto;
+    }
+  }
+  .main {
+    height: calc(100%-330px);
+    background-color: white;
+    width: 750px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    &__top {
+      border-bottom: solid rgb(233, 231, 231) 1px;
+      height: 120px;
+      font-size: 25px;
+      font-weight: bold;
+      color: rgb(77, 75, 75);
+      text-align: center;
+      line-height: 120px;
+    }
+    &__form {
+      padding-top: 80px;
+    }
+    .group {
+      width: 400px;
+      margin: 0px auto 50px;
+      &__text {
+        display: flex;
+        &__main {
+          font-weight: bold;
+        }
+        &__require {
+          background-color: $furima;
+          // background-color: rgb(228, 6, 6);
+          color: white;
+          font-size: 12px;
+          line-height: 20px;
+          border-radius: 3px;
+          margin-left: 10px;
+          padding: 2px 4px;
+        }
+      }
+      &__form {
+        margin: 8px 0px;
+        &--split {
+          display: flex;
+          margin: 8px 0px;
+        }
+        &--tag {
+          margin-top: 9px;
+          .select_tag {
+            // -webkit-appearance: none;
+            height: 60px;
+            width: 100px;
+          }
+        }
+      }
+      .new_user_registration {
+        height: 60px;
+        width: 400px;
+        border-radius: 15px;
+        border: solid 1px rgb(233, 230, 230);
+        padding-left: 20px;
+        outline: 0;
+        &--split {
+          width: 195px;
+          height: 60px;
+          border-radius: 15px;
+          border: solid 1px rgb(233, 230, 230);
+          padding-left: 20px;
+          outline: 0;
+          margin-right: 10px;
+        }
+      }
+    }
+    .identification {
+      width: 400px;
+      height: 100px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      &__top {
+        font-weight: bold;
+        font-size: 18px;
+      }
+    }
+    .registration {
+      width: 400px;
+      height: 100px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      &__text {
+        margin-bottom: 30px;
+        text-align: center;
+        .terms {
+          text-decoration: none;
+          color: rgb(101, 165, 238);
+        }
+      }
+      &__btn {
+        margin: 0 auto;
+        width: 400px;
+        height: 60px;
+        .btn {
+          margin: 0 auto;
+          width: 400px;
+          height: 60px;
+          color: white;
+          background-color: $furima;
+          text-decoration: none;
+          font-size: 20px;
+          outline: 0;
+        }
+      }
+    }
+  }
+  .footer {
+    height: 180px;
+    &__text {
+      width: 500px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: space-evenly;
+      font-size: 12px;
+      .text {
+        text-decoration: none;
+        color: gray;
+      }
+    }
+    &__icon {
+      width: 220px;
+      margin: 30px auto 0px;
+    }
+    &__inc {
+      width: 130px;
+      margin: 0px auto;
+    }
+  }
+}
+
+
