@@ -4,15 +4,15 @@
 
   .main
     .main__form
-      .group
-        .group__form
-          %input.new_user_registration{placeholder:"メールアドレス"}
-      .group
-        .group__form
-          %input.new_user_registration{type:'password', placeholder:"パスワード"}
-      .registration__btn
-        =link_to "#", class:'btn' do
-          %button.btn ログイン
-        
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .group
+          .group__form
+            = f.email_field :email, class:'new_user_registration',placeholder:'メールアドレス',autofocus: true
+        .group
+          .group__form
+            = f.password_field :password, class:'new_user_registration',placeholder:'パスワード', autocomplete: "off"
+        .registration__btn
+          = f.submit 'ログイン', class:'btn'
+
   .footer
     = render "footer"
