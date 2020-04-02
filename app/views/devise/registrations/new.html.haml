@@ -129,7 +129,7 @@
             に同意したものとみなします
           .registration__btn
             =link_to "#", class:'btn' do
-              %button.btn 次へ進む
+              = f.submit "次へ進む", class:'btn'
 
   .footer
     = render "footer"
