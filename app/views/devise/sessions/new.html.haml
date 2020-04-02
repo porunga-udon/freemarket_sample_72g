@@ -1,17 +1,22 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.wrapper
+  .header
+    = render "header"
+
+  .main
+    .main__form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .group
+          .group__form
+            = f.email_field :email, class:'new_user_registration',placeholder:'メールアドレス',autofocus: true
+        .group
+          .group__form
+            = f.password_field :password, class:'new_user_registration',placeholder:'パスワード', autocomplete: "off"
+        .login
+          .login__btn
+            = f.submit 'ログイン', class:'btn'
+          .login__forget
+            =link_to "#", class:"forget" do
+              パスワードをお忘れの方
+
+  .footer
+    = render "footer"
