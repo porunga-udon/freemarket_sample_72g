@@ -11,8 +11,7 @@ class User < ApplicationRecord
   # has_many :users_comments, dependent: :destroy
   # has_many :cards, dependent: :destroy
   # has_many :orders
-  belongs_to :user_address
-
+  has_many :user_addresses
 
   VALID_EMAIL_REGEX = /\A\S+@\S+\.\S+\z/
   VALID_PASSWORD_REGEX = /\A[a-zA-Z0-9]+\z/
