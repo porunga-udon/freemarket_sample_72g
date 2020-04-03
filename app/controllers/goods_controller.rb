@@ -11,9 +11,6 @@ class GoodsController < ApplicationController
 
   def new
     @good = Good.new
-   # @category = Category.new
-   # @size = Size.new
-   # @goog_image = Good_image.new
   end
 
 

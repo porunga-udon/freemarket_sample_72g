@@ -9,14 +9,14 @@
   }
 }
 .wrapperNew {
-  height: 1600px;
+  height: 2500px;
   width: 100%;
   background-color: rgb(240, 238, 238);
   position: relative;
 
   .setNewPage {
     background-color: #fff;
-    height: 100%;
+    height: 95%;
     width: 50%;
     position: absolute;
     left: 25%;
@@ -69,38 +69,135 @@
         margin: 7%;
         height: 90%;
         width: 95%;
-        &__block {
-          .putIncategory {
+        .putIncategory {
           height: 30px;
           width: 90%;
           background-color: #000;
-          }
-          .putInSize {
+        }
+        .putInSize {
           height: 30px;
           width: 90%;
           background-color: #000;
-          }
-          .putInState {
+        }
+        .putInState {
           height: 30px;
           width: 90%;
           background-color: #000;
-          }
         }
       }
     }
     &__deliveryZone {
-      height: 300px;
+      height: 370px;
       border-bottom: solid 1px rgb(221, 219, 219);
       &__main {
         margin: 7%;
         height: 90%;
         width: 95%;
+        .putInPostage {
+          height: 30px;
+          width: 90%;
+          background-color: #000;
+        }
+        .putInRegion {
+          height: 30px;
+          width: 90%;
+          background-color: #000;
+        }
+        .putInShipping {
+          height: 30px;
+          width: 90%;
+          background-color: #000;
+        }
       }
     }
-
-
+    &__priceZone {
+      height: 300px;
+      border-bottom: solid 1px rgb(221, 219, 219);
+      &__main {
+      margin: 7%;
+      height: 90%;
+      width: 95%;
+      .putInPrice {
+        display: flex;
+        justify-content: space-evenly;
+        .priceYen {
+          font-weight: bold;
+          font-size: 18px;
+          }
+        .priceForm {
+          height: 100px;
+          width: 300px;
+          background-color: #000;
+          }
+        }
+      }
+    }
+    &__submitZone {
+      height: 250px;
+      &__main {
+        margin: 7%;
+        height: 90%;
+        width: 90%;
+        &__submitBtn {
+          text-align: center;
+          border: 1px solid #000;
+        }
+        &__returnBtn {
+          text-align: center;
+        }
+        &__caution {
+          font-size: 12px;
+        }
+      }
+    }
   }
 }
+
+.footer{
+  width: 100%;
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  ul.contents{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+    h2.content__title{
+      margin: 0 0 20px;
+      font-size: 24px;
+    }
+    li{
+      padding-top: 10px;
+    }
+    a{
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}
+.bottom-logo{
+  width: 90px;
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 40px;
+  position: fixed;
+  padding: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  &__text{
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  &__img{
+    vertical-align: bottom;
+  }
+}
+
 .subTitleRepeat {
   margin: 15px 0;
   display: flex;
