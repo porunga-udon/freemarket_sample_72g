@@ -8,4 +8,15 @@ class GoodsController < ApplicationController
     @good_images = GoodImage.find_by_sql("SELECT image FROM good_images WHERE good_id IN (SELECT id FROM goods)")
   end
 
+  def new
+    @good = Good.new
+   # @category = Category.new
+   # @size = Size.new
+   # @goog_image = Good_image.new
+  end
+
+
+  def show
+
+  end
 end

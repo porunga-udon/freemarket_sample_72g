@@ -1,0 +1,120 @@
+.goRootPage {
+  background-color: rgb(240, 238, 238);
+  height: 180px;
+  width: 100%;
+  text-align: center;
+  line-height: 180px;
+  &__icon {
+    font-size: 30px;
+  }
+}
+.wrapperNew {
+  height: 1600px;
+  width: 100%;
+  background-color: rgb(240, 238, 238);
+  position: relative;
+
+  .setNewPage {
+    background-color: #fff;
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 25%;
+  
+    &__imageZone {
+      height: 300px;
+      border-bottom: solid 1px rgb(221, 219, 219);
+      &__main {
+        margin: 7%;
+        height: 90%;
+        width: 95%;
+        &__title {
+          display: flex;
+         
+        }
+        &__max {
+          font-size: 12px;
+          margin: 15px 0;
+        }
+        &__form {
+          background-color: #000;
+          height: 70%;
+          width: 90%;
+        }
+      }
+    }
+    &__detailZone {
+      height: 400px;
+      border-bottom: solid 1px rgb(221, 219, 219);
+      &__main {
+        margin: 7%;
+        height: 90%;
+        width: 95%;
+        .putInName {
+          height: 10%;
+          width: 90%;
+          background-color: #000;
+        }
+        .putInExplain {
+          height: 60%;
+          width: 90%;
+          background-color: #000;
+        }
+      }
+    }
+    &__conditionZone {
+      height: 370px;
+      border-bottom: solid 1px rgb(221, 219, 219);
+      &__main {
+        margin: 7%;
+        height: 90%;
+        width: 95%;
+        &__block {
+          .putIncategory {
+          height: 30px;
+          width: 90%;
+          background-color: #000;
+          }
+          .putInSize {
+          height: 30px;
+          width: 90%;
+          background-color: #000;
+          }
+          .putInState {
+          height: 30px;
+          width: 90%;
+          background-color: #000;
+          }
+        }
+      }
+    }
+    &__deliveryZone {
+      height: 300px;
+      border-bottom: solid 1px rgb(221, 219, 219);
+      &__main {
+        margin: 7%;
+        height: 90%;
+        width: 95%;
+      }
+    }
+
+
+  }
+}
+.subTitleRepeat {
+  margin: 15px 0;
+  display: flex;
+}
+.b {
+  background-color: #3CCACE;;
+  color: white;
+  font-size: 12px;
+  line-height: 20px;
+  border-radius: 3px;
+  margin-left: 10px;
+  padding: 2px 4px;
+}
+.f {
+  color: green;
+  margin-bottom: 40px;
+}
