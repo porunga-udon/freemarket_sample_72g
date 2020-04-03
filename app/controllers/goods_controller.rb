@@ -1,6 +1,6 @@
 class GoodsController < ApplicationController
   def index
-    @good_all = Good.all
+    @goods_all = Good.all
     @goods = Good.where(buyer_id: nil).limit(3).order(id: "DESC")
 
     @goods_a = Good.where(buyer_id: nil, category_id: '1').limit(3).order(id: "DESC")
