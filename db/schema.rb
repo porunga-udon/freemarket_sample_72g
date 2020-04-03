@@ -12,20 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_04_02_022056) do
 
-  create_table "user_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "last_name", default: "", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "postcode", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.string "block", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "state", null: false
@@ -41,6 +27,20 @@ ActiveRecord::Schema.define(version: 2020_04_02_022056) do
     t.integer "saler_id", null: false
     t.integer "size_id", null: false
     t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "last_name", default: "", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "postcode", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "block", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
