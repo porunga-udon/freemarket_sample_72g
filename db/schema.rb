@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_023207) do
     t.string "frading_conditions", null: false
     t.integer "price", null: false
     t.integer "category_id", null: false
-    t.integer "buyer_id"
+    t.integer "buyer_id", null: false
     t.integer "saler_id", null: false
     t.integer "size_id", null: false
     t.integer "user_id", null: false
