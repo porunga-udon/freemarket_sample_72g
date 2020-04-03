@@ -1,4 +1,4 @@
-$furima: #3CCACE;
+
 
 * {
   box-sizing: border-box;
@@ -25,7 +25,7 @@ $furima: #3CCACE;
     margin: 0 auto;
     padding-bottom: 100px;
     &__top {
-      border-bottom: solid rgb(233, 231, 231) 1px;
+      border-bottom: solid $bottom_border 1px;
       height: 120px;
       font-size: 25px;
       font-weight: bold;
@@ -45,7 +45,7 @@ $furima: #3CCACE;
           font-weight: bold;
         }
         &__require {
-          background-color: $furima;
+          background-color: $main_color;
           color: white;
           font-size: 12px;
           line-height: 20px;
@@ -118,7 +118,7 @@ $furima: #3CCACE;
           width: 400px;
           height: 60px;
           color: white;
-          background-color: $furima;
+          background-color: $main_color;
           text-decoration: none;
           font-size: 20px;
           outline: 0;
@@ -135,7 +135,7 @@ $furima: #3CCACE;
         width: 400px;
         height: 60px;
         color: white;
-        background-color: $furima;
+        background-color: $main_color;
         text-decoration: none;
         font-size: 20px;
         outline: 0;
