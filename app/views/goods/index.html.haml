@@ -1,4 +1,5 @@
-インデックスページです
+= render "header.html.haml"
+= render "indmain.html.haml"
 
 -if user_signed_in?
   = link_to "ログアウト", destroy_user_session_path, method: :delete

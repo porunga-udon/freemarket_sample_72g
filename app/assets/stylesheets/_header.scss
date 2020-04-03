@@ -1,0 +1,54 @@
+.top-header{
+  padding: 0 60px;
+  .main-header{
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    &__top{
+      position: relative;
+      display: flex;
+      align-items: center;
+      &__icon{
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px
+        
+      }
+      &__searchbox{
+        margin-left: auto;
+        width: 100%;
+        &__input-box{
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          &__text{
+            width: calc(100% - 26px);
+            height: 36px;
+            padding: 0 0 0 5px;
+          }
+          &__submit-btn{
+            background-color:  black;
+          }
+         }
+       }
+    } 
+    &__nav{
+      font-size: 14px;
+      display: flex;
+      margin-bottom: 10px;
+      &__left{
+        display: flex;
+        &__brand{
+          padding-left: 50px;
+        }
+      }
+      &__right{
+        display: flex;
+        margin-left: auto;
+        padding-left: 15px;
+      }
+    }
+  }
+}
