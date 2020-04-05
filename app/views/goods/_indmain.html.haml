@@ -9,10 +9,13 @@
         %br
         フリマアプリです
       .top-picture__body__btn
-        %a{href: "#", class: "top-picture__body__btn__btn-a"}
-          =image_tag "app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", size: "180x100"
-        %a{href: "#", class: "top-picture__body__btn__btn-b"}
-          =image_tag "google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", size: "180x100"
+        .top-picture__body__btn__btn-a
+          = link_to "#", class: "top-picture__body__btn__btn-a" do
+            =image_tag "app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", size: "180x100"
+        .top-picture__body__btn__btn-b
+          .top-picture__body__btn__btn-b
+            = link_to "#", class: "top-picture__body__btn__btn-b" do
+              =image_tag "google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", size: "180x100"
 
   .mean
     %h.mean__subtitle
@@ -60,10 +63,13 @@
         %br
         ほしかったあの商品に出会えるかもしれません。
       .middle-picture__body__btn
-        %a{href: "#", class: "middle-picture__body__btn__btn-a"}
-          =image_tag "app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", size: "180x100"
-        %a{href: "#", class: "middle-picture__body__btn__btn-b"}
-          =image_tag "google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", size: "180x100"
+        .middle-picture__body__btn__btn-a
+          = link_to "#", class: "middle-picture__body__btn__btn-a" do
+            =image_tag "app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", size: "180x100"
+        .middle-picture__body__btn__btn-b
+          .top-picture__body__btn__btn-b
+            = link_to "#", class: "middle-picture__body__btn__btn-b" do
+              =image_tag "google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", size: "180x100"
 
   .feature
     %h.feature__subtitle
@@ -102,23 +108,90 @@
     .pick-ups__box
       %h.pick-ups__box__title
         ピックアップカテゴリー
-      %a{href: "#", class: "pick-ups__box__link-title"}
-        新規投稿商品
-      .pick-ups__box__goods
-        %a{href: "#", class: "pick-ups__box__goods__list"}
-        %a{href: "#", class: "pick-ups__box__goods__list"}
-        %a{href: "#", class: "pick-ups__box__goods__list"}
+      .pick-ups__box__link-title
+        = link_to "#", class: "pick-ups__box__link-title" do
+          新規投稿商品
+          .pick-ups__box__goods
+            - @goods.each do |good|
+              .pick-ups__box__goods__list
+                = link_to "#", class: "pick-ups__box__goods__list" do
+                  %li.pick-ups__box__goods__list__pic
+                    - good.good_images.each do |good_images| 
+                      =image_tag good_images.image, size: "220x150"
+                  .pick-ups__box__goods__list__body
+                    %li.pick-ups__box__goods__list__body__name= good.name
+                    %li.pick-ups__box__goods__list__body__price
+                      = good.price 
+                      %span.pick-ups__box__goods__list__body__price 円
+                      %p.tax-included (税込)
+
+    .pick-ups__box
+      %h.pick-ups__box__title
+        ピックアップカテゴリー
+      .pick-ups__box__link-title
+        = link_to "#", class: "pick-ups__box__link-title" do
+          靴
+          .pick-ups__box__goods
+            - @goods_a.each do |good|
+              - if good.buyer_id == nil
+                .pick-ups__box__goods__list
+                  = link_to "#", class: "pick-ups__box__goods__list" do
+                    %li.pick-ups__box__goods__list__pic
+                      - good.good_images.each do |good_images| 
+                        =image_tag good_images.image, size: "220x150"
+                    .pick-ups__box__goods__list__body
+                      %li.pick-ups__box__goods__list__body__name= good.name
+                      %li.pick-ups__box__goods__list__body__price
+                        = good.price
+                        %span.pick-ups__box__goods__list__body__price 円
+                        %p.tax-included (税込)
+              - else
+
+    .pick-ups__box
+      %h.pick-ups__box__title
+        ピックアップカテゴリー
+      .pick-ups__box__link-title
+        = link_to "#", class: "pick-ups__box__link-title" do
+          バッグ
+          .pick-ups__box__goods
+            - @goods_b.each do |good|
+              - if good.buyer_id == nil 
+                .pick-ups__box__goods__list
+                  = link_to "#", class: "pick-ups__box__goods__list" do
+                    %li.pick-ups__box__goods__list__pic
+                      - good.good_images.each do |good_images| 
+                        =image_tag good_images.image, size: "220x150"
+                    .pick-ups__box__goods__list__body
+                      %li.pick-ups__box__goods__list__body__name= good.name
+                      %li.pick-ups__box__goods__list__body__price
+                        = good.price 
+                        %span.pick-ups__box__goods__list__body__price 円
+                        %p.tax-included (税込)
+              - else
+
 
   .brand
     .brand__container
       %h.brand__container__title
         ピックアップブランド
-      %a{href: "#", class: "brand__container__link-title"}
-        アーカイバ
+      .brand__container__link-title
+        = link_to "#", class: "brand__container__link-title" do
+          アーカイバ
       .brand__container__category
-        %a{href: "#", class: "brand__container__category__list"}
-        %a{href: "#", class: "brand__container__category__list"}
-        %a{href: "#", class: "brand__container__category__list"}
+        - @goods.zip(@good_images).each do |good, good_images|
+          - if good.buyer_id == nil
+            .brand__container__category__list
+              = link_to "#", class: "brand__container__category__list" do
+                %li.pick-ups__box__goods__list__pic
+                  - good.good_images.each do |good_images| 
+                    =image_tag good_images.image, size: "220x150"
+                .pick-ups__box__goods__list__body
+                  %li.pick-ups__box__goods__list__body__name= good.name
+                  %li.pick-ups__box__goods__list__body__price
+                    = good.price 
+                    %span.pick-ups__box__goods__list__body__price 円
+                    %p.tax-included (税込)
+          - else
 
   .bottom-picture
     .bottom-picture__body
@@ -128,57 +201,17 @@
       %p.bottom-picture__body__text
         今すぐ無料ダウンロード！
       .bottom-picture__body__btn
-        %a{href: "#", class: "bottom-picture__body__btn__btn-a"}
+        = link_to "#", class: "bottom-picture__body__btn__btn-a" do
           =image_tag "app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", size: "180x100"
-        %a{href: "#", class: "bottom-picture__body__btn__btn-b"}
-          =image_tag "google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", size: "180x100"
-  .footer
-    %ul.contents
-      %li.content
-        %h2.content__title
-          FURIMAについて
-        %ul
-          %li
-            = link_to "#" do
-              %span  会社概要
-          %li
-            = link_to "#" do
-              %span  プライバシーポリシー
-          %li
-            = link_to "#" do
-              %span  FURIMA利用規約
-          %li
-            = link_to "#" do
-              %span  ポイントに関する特約
-      %li.content
-        %h2.content__title
-          FURIMAを見る
-        %ul
-          %li
-            = link_to "#" do
-              %span  カテゴリー一覧
-          %li
-            = link_to "#" do
-              %span  ブランド一覧
-      %li.content
-        %h2.content__title
-          ヘルプ＆ガイド
-        %ul  
-          %li
-            = link_to "#" do
-              %span  FURIMAガイド
-          %li
-            = link_to "#" do
-              %span  FURIMAロゴ利用ガイドライン
-          %li
-            = link_to "#" do
-              %span  お知らせ
-    .footer__logo
-      %span.image
-        = image_tag "logo-white.png", size:'134x36'
-        %p  ©︎フリマ
-
-  %a{href: "#", class: "bottom-logo"}
-    %h.bottom-logo__text 出品する
-    .bottom-logo__img
-      =image_tag "camera-icon_camera-968c5ebaa05319bf1e2ad7508f852dd712504a4d26a1930d8bd87ec03ebcc37a.svg", width: "60%"
+        .bottom-picture__body__btn__btn-b
+          .bottom-picture__body__btn__btn-b
+            = link_to "#", class: "bottom-picture__body__btn__btn-b" do
+              =image_tag "google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", size: "180x100"
+  
+    .bottom-logo
+      = link_to new_good_path, class: "bottom-logo" do
+        %h.bottom-logo__text 出品する
+        .bottom-logo__img
+          =image_tag "camera-icon_camera-968c5ebaa05319bf1e2ad7508f852dd712504a4d26a1930d8bd87ec03ebcc37a.svg", width: "60%"
+  
+  = render "indfooter.html.haml"

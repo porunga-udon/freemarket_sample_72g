@@ -1,0 +1,214 @@
+.goRootPage {
+  background-color: rgb(240, 238, 238);
+  height: 180px;
+  width: 100%;
+  text-align: center;
+  line-height: 180px;
+  &__icon {
+    font-size: 30px;
+  }
+}
+.wrapperNew {
+  height: 2500px;
+  width: 100%;
+  background-color: rgb(240, 238, 238);
+  position: relative;
+
+  .setNewPage {
+    background-color: #fff;
+    height: 95%;
+    width: 50%;
+    position: absolute;
+    left: 25%;
+  
+    &__imageZone {
+      height: 300px;
+      border-bottom: solid 1px rgb(221, 219, 219);
+      &__main {
+        margin: 7%;
+        height: 90%;
+        width: 95%;
+        &__title {
+          display: flex;
+         
+        }
+        &__max {
+          font-size: 12px;
+          margin: 15px 0;
+        }
+        &__form {
+          height: 70%;
+          width: 90%;
+          border: 1px solid #000;
+        }
+      }
+    }
+    &__detailZone {
+      height: 400px;
+      border-bottom: solid 1px rgb(221, 219, 219);
+      &__main {
+        margin: 7%;
+        height: 90%;
+        width: 95%;
+        .detailArea {
+          height: 250px;
+          width: 80%;
+        }
+      }
+    }
+    &__conditionZone {
+      height: 370px;
+      border-bottom: solid 1px rgb(221, 219, 219);
+      &__main {
+        margin: 7%;
+        height: 90%;
+        width: 95%;
+        .putIncategory {
+          height: 30px;
+          width: 40%;
+          border: 1px solid #000;
+        }
+        .putInSize {
+          height: 30px;
+          width: 40%;
+          border: 1px solid #000;
+        }
+      }
+    }
+    &__deliveryZone {
+      height: 370px;
+      border-bottom: solid 1px rgb(221, 219, 219);
+      &__main {
+        margin: 7%;
+        height: 90%;
+        width: 95%;
+      }
+    }
+    &__priceZone {
+      height: 300px;
+      border-bottom: solid 1px rgb(221, 219, 219);
+      &__main {
+      margin: 7%;
+      height: 90%;
+      width: 95%;
+      .putInPrice {
+        text-align: right;
+        display: flex;
+        margin-left: 40px;
+        .priceYen {
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 60px;
+          }
+        .priceArea {
+          height: 60px;
+          width: 110%;
+          margin-left: 20px;
+        }
+        }
+      }
+    }
+    &__submitZone {
+      height: 250px;
+      &__main {
+        margin: 7%;
+        height: 90%;
+        width: 90%;
+        .form__btn {
+          height: 80px;
+          width: 95%;
+          background-color: red;
+          color: #fff;
+          font-size:30px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .form__btn:hover {
+          box-shadow: 0 0 5px rgb(63, 48, 48);
+        }
+        &__returnBtn {
+          text-align: center;
+          font-size: 20px;
+          margin: 40px 30px 50px 0;
+          a {
+            text-decoration: none;
+          }
+        }
+        &__caution {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.footer{
+  width: 100%;
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  ul.contents{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+    h2.content__title{
+      margin: 0 0 20px;
+      font-size: 24px;
+    }
+    li{
+      padding-top: 10px;
+    }
+    a{
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}
+.bottom-logo{
+  width: 90px;
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 40px;
+  position: fixed;
+  padding: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  &__text{
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  &__img{
+    vertical-align: bottom;
+  }
+}
+
+.subTitleRepeat {
+  margin: 15px 0;
+  display: flex;
+}
+.b {
+  background-color: #3CCACE;;
+  color: white;
+  font-size: 12px;
+  line-height: 20px;
+  border-radius: 3px;
+  margin-left: 10px;
+  padding: 2px 4px;
+}
+.f {
+  color: green;
+  margin-bottom: 40px;
+}
+.goodSelect {
+  height: 30px;
+  width: 40%;
+}
+.textArea {
+  height: 30px;
+  width: 40%;
+}

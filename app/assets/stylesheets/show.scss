@@ -1,0 +1,128 @@
+.item-details{
+  width: 100%;
+  background-color: #f8f8f8;
+  .item-detail{
+    padding: 40px;
+    &__breadcrumb{
+      display: flex;
+      padding-left: 10px;
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      &__list{
+        padding-left: 10px;
+      }
+    }
+    &__content{
+      text-align: center;
+      background-color: white;
+      width: 700px;
+      margin: 0 auto;
+      padding: 24px 40px 40px;
+      ul{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        }
+      &__price{
+        font-size: 40px;
+      }
+      &__buy{
+        height: 60px;
+        background-color: red;
+        a{
+          text-decoration: none;
+          span{
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 2.5;
+            color: white;
+          }
+        }
+       }
+      &__introduction{
+        margin: 20px 0 ;
+      }
+      .table{
+        margin-top: 20px;
+        table{
+          width: 500px;
+          margin: 0 auto;
+          th{
+            width: 40%;
+            background-color: #eee;
+            font-weight: 400;
+            padding: 8px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+            text-align: center;
+          }
+          td{
+            width: 60%;
+            padding: 15px 15px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+            text-align: left;
+          }
+        }
+      }
+      &__reactions{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px ;
+          &__fav{
+            margin-right: auto;
+            padding: 6px 10px;
+            border-radius: 40px;
+            color: #3CCACE;
+            border: 1px solid #ffb340;
+          }
+          &__report{
+            padding: 6px 10px;
+            display: inline-block;
+            border-radius: 4px;
+            color: #333;
+            border: 1px solid #333;
+            text-decoration: none;
+            a{
+              text-decoration: none;
+              span{
+                color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+  .coments{
+    padding: 20px;
+    background-color: white;
+    width: 700px;
+    margin: 0 auto;
+    .coment{
+      text-align: center;
+      padding: 10px;
+      &__zone{
+        width: 100%;
+        min-height: 104px;
+        margin: 0 auto;
+      }
+      
+      &__note{
+        background-color: #f8f8f8;
+        padding: 10px;
+        margin: 20px 0;
+      }
+      &__btn{
+        line-height: 48px;
+        background: #3CCACE;
+        border: 1px solid #3CCACE;
+        color: #fff;
+        width: 60%;
+        font-size: 18px;
+        border-radius: 100px;
+      }
+    }
+  }
+}
