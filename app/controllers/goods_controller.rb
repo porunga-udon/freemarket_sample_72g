@@ -11,6 +11,7 @@ class GoodsController < ApplicationController
 
   def new
     @good = Good.new
+    @good_image = Good_image.new
   end
 
 
