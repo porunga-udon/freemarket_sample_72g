@@ -132,7 +132,7 @@
         = link_to "#", class: "pick-ups__box__link-title" do
           靴
           .pick-ups__box__goods
-            - @goods_a.each do |good|
+            - @goods_mens_new.each do |good|
               - if good.buyer_id == nil
                 .pick-ups__box__goods__list
                   = link_to "#", class: "pick-ups__box__goods__list" do
@@ -154,7 +154,7 @@
         = link_to "#", class: "pick-ups__box__link-title" do
           バッグ
           .pick-ups__box__goods
-            - @goods_b.each do |good|
+            - @goods_women_new.each do |good|
               - if good.buyer_id == nil 
                 .pick-ups__box__goods__list
                   = link_to "#", class: "pick-ups__box__goods__list" do
