@@ -1,0 +1,111 @@
+// カード登録画面
+.main {
+  height: calc(100%-600px);
+  background-color: rgb(240, 238, 238);
+  padding: 40px 0px;
+  // display: none;
+  .card-content {
+    width: 1090px;
+    display: flex;
+    margin: 0 auto;
+    &__main{
+      height: 100%;
+      width: 750px;
+      margin-left: 40px;
+      background-color: $tab_list;
+      &__top {
+        height: 60px;
+        border-bottom: solid 1px $bottom_border;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 60px;
+        margin-bottom: 50px;
+      }
+    }
+  }
+  .group {
+    width: 400px;
+    margin: 0px auto 50px;
+    &__text {
+      display: flex;
+      &__main {
+        font-weight: bold;
+        font-size: 15px;
+      }
+      &__require {
+        background-color: $main_color;
+        color: white;
+        font-size: 12px;
+        line-height: 20px;
+        border-radius: 3px;
+        margin-left: 10px;
+        padding: 2px 4px;
+      }
+    }
+    &__form {
+      margin: 8px 0px;
+      &--split {
+        display: flex;
+        margin: 8px 0px;
+      }
+      &--tag {
+        margin-top: 9px;
+        .select_tag {
+          height: 60px;
+          width: 100px;
+        }
+      }
+      &--require {
+        margin-left: 230px;
+        .require {
+          text-decoration: none;
+          color: rgb(118, 172, 243);
+          font-size: 15px;
+        }
+      }
+    }
+    .card_registration {
+      height: 60px;
+      width: 400px;
+      border-radius: 15px;
+      border: solid 1px rgb(233, 230, 230);
+      padding-left: 20px;
+      outline: 0;
+    }
+    .card_lists {
+      display: flex;
+      margin-bottom: 40px;
+      .bland_logo {
+        width: 49px;
+        height: 20px;
+      }
+    }
+    .select_tag {
+      height: 60px;
+      width: 150px;
+    }
+  }
+  .registration {
+    width: 400px;
+    height: 100px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    &__btn {
+      margin: 0 auto;
+      width: 400px;
+      height: 60px;
+      .btn {
+        margin: 0 auto;
+        width: 400px;
+        height: 60px;
+        color: white;
+        background-color: $main_color;
+        text-decoration: none;
+        font-size: 20px;
+        outline: 0;
+      }
+    }
+  }
+  
+}
