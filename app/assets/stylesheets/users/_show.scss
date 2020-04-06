@@ -1,0 +1,227 @@
+.main {
+  height: calc(100%-600px);
+  background-color: rgb(240, 238, 238);
+  padding: 40px 0px;
+  .mypage {
+    width: 1090px;
+    display: flex;
+    margin: 0 auto;
+    &__side{
+      width: 300px;
+      &__option {
+        font-weight: bold;
+        margin: 0 0 5px 0px;
+      }
+      &__list {
+        margin-bottom: 30px;
+      }
+      &--item.active {
+        height: 60px;
+        background-color: rgb(230, 225, 225);
+        line-height: 60px;
+        padding-left: 20px;
+        border-bottom: solid 1px $bottom_border;
+        .item {
+          text-decoration: none;
+          color: black;
+        }
+      }
+      &--item {
+        height: 60px;
+        background-color: $tab_list;
+        line-height: 60px;
+        padding-left: 20px;
+        border-bottom: solid 1px $bottom_border;
+        .item {
+          text-decoration: none;
+          color: rgb(141, 140, 140);
+        }
+      }
+    }
+    &__main{
+      width: 750px;
+      margin-left: 40px;
+      
+      // メインコンテンツ上
+      &__user {
+        height: 890px;
+        margin-bottom: 40px;
+        background-color: $tab_list;
+        &__top{
+          height: 250px;
+          &__background {
+            position: relative;
+          }
+          &__box {
+            top: 21%;
+            padding-top: 10px;
+            position: absolute;
+            height: 140px;
+            width: 750px;
+            text-align: center;
+            align-items: center;
+            &__icon {
+              margin: 0 auto;
+              .icon {
+                width:  100px;
+                height: 100px;
+                border-radius: 50%;
+              }
+            }
+            &__name {
+              font-weight: bold;
+              margin-top: 10px;
+            }
+            &__info {
+              display: flex;
+              justify-content: space-between;
+              width: 160px;
+              margin: 0 auto;
+            }
+          }
+        }
+        // 未選択のタグ
+        &__tags {
+          height: 90px;
+          background-color: rgb(230, 225, 225);
+          display: flex;
+          text-align: center;
+          line-height: 90px;
+          font-weight: bold;
+          font-size: 18px;
+          &__tag{
+            width: 50%;
+          }
+          // 選択中のタグ
+          &__tag.active{
+            width: 50%;
+            background-color: $tab_list;
+            border-top: solid 2px $main_color;
+          }
+        }
+      &__lists {
+        height: 450px;
+        border-bottom: $bottom_border;
+        overflow: scroll;
+        .box {
+          height: 90px;
+          border-bottom: $bottom_border;
+          display: flex;
+          padding: 10px 0 0 20px;
+          display: none;
+          &__mark {
+            margin-top: 10px;
+          }
+          &__list {
+            width: 80%;
+            margin-left: 30px;
+            padding-top: 7px;
+            &__text {
+              color: black;
+              font-size: 15px;
+            }
+            &__date {
+              color: rgb(141, 140, 140);
+              font-size: 13px;
+              margin-left: 20px;
+            }
+          }
+        }
+        .none {
+          height: 450px;
+          text-align: center;
+          padding-top: 150px;
+          font-weight: bold;
+        }
+        .none__todo {
+          height: 450px;
+          text-align: center;
+          padding-top: 150px;
+          font-weight: bold;
+        }
+      }
+      &__index {
+        height: 100px;
+        &__btn {
+          height: 100%;
+          padding: 20px 30px;
+          .index_btn {
+            height: 100%;
+            width: 100%;
+            font-size: 15px;
+            background-color: rgb(240, 238, 238);
+          }
+        }
+    }
+    }
+    // メインコンテンツ下側
+      &__goods {
+        height: 450px;
+        margin-bottom: 40px;
+        background-color: $tab_list;
+        &__title {
+          height: 90px;
+          background-color: #fafafa;
+          line-height: 90px;
+          font-weight: bold;
+          font-size: 18px;
+          padding-left: 20px;
+        }
+        &__tags {
+          height: 90px;
+          background-color: rgb(230, 225, 225);
+          display: flex;
+          text-align: center;
+          line-height: 90px;
+          font-weight: bold;
+          font-size: 18px;
+          &__tag{
+            width: 50%;
+          }
+          // 選択中のタグ
+          &__tag.active{
+            width: 50%;
+            background-color: $tab_list;
+            border-top: solid 2px $main_color;
+          }
+        }
+        &__list {
+          height: 270px;
+          border-bottom: $bottom_border;
+          overflow: scroll;
+          .box {
+            height: 90px;
+            border-bottom: $bottom_border;
+            display: flex;
+            padding: 10px 0 0 20px;
+            display: none;
+            &__mark {
+              margin-top: 10px;
+            }
+            &__list {
+              width: 80%;
+              margin-left: 30px;
+              padding-top: 7px;
+              &__text {
+                color: black;
+                font-size: 15px;
+              }
+              &__date {
+                color: rgb(141, 140, 140);
+                font-size: 13px;
+                margin-left: 20px;
+              }
+            }
+          }
+        }
+        &__none {
+          height: 270px;
+          text-align: center;
+          padding-top: 70px;
+          font-weight: bold;
+          // display: none;
+        }
+      }
+    }
+  }
+}
