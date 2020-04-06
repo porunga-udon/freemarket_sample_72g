@@ -11,10 +11,20 @@ class GoodsController < ApplicationController
 
   def new
     @good = Good.new
-  end
 
+  end
+  def create
+    Good.create(good_params)
+    redirect_to root_path
+  end
 
   def show
 
+  end
+
+
+  private
+  def good_params
+    params.require(:good).permit(:name)
   end
 end
