@@ -1,9 +1,7 @@
-// カード登録画面
 .main {
   height: calc(100%-600px);
   background-color: rgb(240, 238, 238);
   padding: 40px 0px;
-  // display: none;
   .card-content {
     width: 1090px;
     display: flex;
@@ -107,5 +105,4 @@
       }
     }
   }
-  
 }

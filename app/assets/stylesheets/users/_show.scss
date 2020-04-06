@@ -42,7 +42,6 @@
       width: 750px;
       margin-left: 40px;
       
-      // メインコンテンツ上
       &__user {
         height: 890px;
         margin-bottom: 40px;
@@ -80,7 +79,6 @@
             }
           }
         }
-        // 未選択のタグ
         &__tags {
           height: 90px;
           background-color: rgb(230, 225, 225);
@@ -92,7 +90,6 @@
           &__tag{
             width: 50%;
           }
-          // 選択中のタグ
           &__tag.active{
             width: 50%;
             background-color: $tab_list;
@@ -152,9 +149,8 @@
             background-color: rgb(240, 238, 238);
           }
         }
+      }
     }
-    }
-    // メインコンテンツ下側
       &__goods {
         height: 450px;
         margin-bottom: 40px;
@@ -178,7 +174,6 @@
           &__tag{
             width: 50%;
           }
-          // 選択中のタグ
           &__tag.active{
             width: 50%;
             background-color: $tab_list;
@@ -219,7 +214,6 @@
           text-align: center;
           padding-top: 70px;
           font-weight: bold;
-          // display: none;
         }
       }
     }
