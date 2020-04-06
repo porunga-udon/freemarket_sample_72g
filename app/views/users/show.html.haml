@@ -1,0 +1,71 @@
+= render "goods/header"
+.main
+  .mypage
+    = render "mypage-side"
+
+    .mypage__main
+      .mypage__main__user
+        .mypage__main__user__top
+          .mypage__main__user__top__background
+            =image_tag "background2.png", size:'750x250'
+          .mypage__main__user__top__box
+            .mypage__main__user__top__box__icon
+              = image_tag "dog.png", class:"icon", size:'100x100'
+            .mypage__main__user__top__box__name
+              = current_user.nickname
+            .mypage__main__user__top__box__info
+              .mypage__main__user__top__box__info__review
+                評価：7
+              .mypage__main__user__top__box__info__exhibit
+                出品数：7
+          
+        .mypage__main__user__tags
+          .mypage__main__user__tags__tag.active
+            お知らせ
+          .mypage__main__user__tags__tag
+            やることリスト
+        %ul.mypage__main__user__lists
+          %li.none
+            .none__icon
+              = image_tag "mark.png", size:'100x100'
+            .none__text
+              お知らせはありません
+
+          -@todos.each do |todo|
+            %li.box
+              .box__mark
+                = image_tag "mark.png", size:'50x50'
+              .box__list
+                .box__list__text
+                  =todo
+                .box__list__date
+                  23時間前
+          
+        .mypage__main__user__index
+          .mypage__main__user__index__btn
+            =button_tag "一覧を見る", class:"index_btn"
+      .mypage__main__goods
+        .mypage__main__goods__title
+          購入した商品
+        .mypage__main__goods__tags
+          .mypage__main__goods__tags__tag.active
+            取引中
+          .mypage__main__goods__tags__tag
+            過去の取引
+        %ul.mypage__main__goods__list
+          -@goods.each do |good|
+            %li.box
+              .box__mark
+                = image_tag "mark.png", size:'50x50'
+              .box__list
+                .box__list__text
+                  =good
+                .box__list__date
+                  23時間前
+          %li.mypage__main__goods__none
+            .none__icon
+            = image_tag "mark.png", size:'100x100'
+            .none__text
+              取引中の商品がありません
+
+=render "goods/indfooter"

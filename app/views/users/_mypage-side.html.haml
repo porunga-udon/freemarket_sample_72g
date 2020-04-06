@@ -1,0 +1,26 @@
+.mypage__side
+  %ul.mypage__side__list
+    %li.mypage__side--item.active
+      =link_to "#", class:"item" do
+        マイページ
+    -@contents.each do |content|
+      %li.mypage__side--item
+        =link_to "#", class:"btn item" do
+          =content
+
+  .mypage__side__option
+    設定
+  %ul.mypage__side__list
+    -@options.each do |option|
+      -if option == "ログアウト"
+        %li.mypage__side--item
+          =link_to user_path(current_user), method: :delete, class:"item" do
+            =option
+      -elsif option == "支払い方法"
+        %li.mypage__side--item
+          =link_to new_card_path, class:"item" do
+            =option
+      -else
+        %li.mypage__side--item
+          =link_to "#", class:"item" do
+            =option

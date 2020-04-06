@@ -34,9 +34,10 @@ class User < ApplicationRecord
   validates :birth_year,         presence: true
   validates :birth_month,        presence: true
   validates :birth_day,          presence: true
-  validates :phone_number,       format: { with: VALID_NUMBER_REGEX }
   validates :postcode,           presence: true
   validates :prefecture,         presence: true
   validates :city,               presence: true
   validates :block,              presence: true
+
+
 end

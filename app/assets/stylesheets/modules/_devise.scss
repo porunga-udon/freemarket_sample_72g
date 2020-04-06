@@ -22,7 +22,7 @@
     height: calc(100%-330px);
     background-color: white;
     width: 750px;
-    margin: 0 auto;
+    margin: 0 auto 50px;
     padding-bottom: 100px;
     &__top {
       border-bottom: solid $bottom_border 1px;
@@ -150,8 +150,8 @@
       }
     }
   }
-  .footer {
-    height: 180px;
+  .user_footer {
+    height: 100%;
     &__text {
       width: 500px;
       margin: 20px auto;
