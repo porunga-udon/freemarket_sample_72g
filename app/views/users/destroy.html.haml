@@ -1,0 +1,12 @@
+= render "goods/header"
+
+.main
+  .logout-content
+    = render "mypage-side"
+    .logout-content__main
+      .logout-content__main__btn
+        =link_to "/users/sign_out",method: :delete, class:'btn' do
+          %button.btn
+            ログアウト
+
+= render "goods/indfooter"
