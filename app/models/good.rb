@@ -11,8 +11,5 @@ class Good < ApplicationRecord
   belongs_to :user_address
   belongs_to :category
 
-VALID_PRICE_REGEX = /\A[0-9]+\z/
 
-  validates :name, presence: true
-  validates :price, presence: true, format:{ with: VALID_PRICE_REGEX }
 end
