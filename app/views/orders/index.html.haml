@@ -1,0 +1,79 @@
+.goRootPage
+  %h1.goRootPage__icon
+    = link_to "/" do
+      = image_tag "logo.png",size: '134x36',alt:"FURIMA"
+      
+.mainContent
+  .setBuyPage
+    .setBuyPage__head
+      購入内容の確認
+    .setBuyPage__goods
+      .setBuyPage__goods__main
+        .setBuyPage__goods__main__image
+        .setBuyPage__goods__main__detail
+          .setBuyPage__goods__main__detail__price
+    .setBuyPage__price
+      .setBuyPage__price__main
+        .setBuyPage__price__main__word
+          お支払い金額
+        .setBuyPage__price__main__price
+          35億
+    .setBuyPage__howToPay
+      .setBuyPage__howToPay__word
+        お支払い方法　　　クレジットカード（一括）
+    .setBuyPage__adressZone
+      .setBuyPage__adressZone__word
+        お届け先
+      .setBuyPage__adressZone__adress
+        あなたの心
+    .setBuyPage__buyBtn
+      .setBuyPage__buyBtn__main
+        .setBuyPage__buyBtn__btn
+          '購入する'
+
+.footer
+  %ul.contents
+    %li.content
+      %h2.content__title
+        FURIMAについて
+      %ul
+        %li
+          = link_to "#" do
+            %span  会社概要
+        %li
+          = link_to "#" do
+            %span  プライバシーポリシー
+        %li
+          = link_to "#" do
+            %span  FURIMA利用規約
+        %li
+          = link_to "#" do
+            %span  ポイントに関する特約
+    %li.content
+      %h2.content__title
+        FURIMAを見る
+      %ul
+        %li
+          = link_to "#" do
+            %span  カテゴリー一覧
+        %li
+          = link_to "#" do
+            %span  ブランド一覧
+    %li.content
+      %h2.content__title
+        ヘルプ＆ガイド
+      %ul  
+        %li
+          = link_to "#" do
+            %span  FURIMAガイド
+        %li
+          = link_to "#" do
+            %span  FURIMAロゴ利用ガイドライン
+        %li
+          = link_to "#" do
+            %span  お知らせ
+  .footer__logo
+    %span.image
+      = image_tag "logo-white.png", size:'134x36'
+      %p  ©︎フリマ
+

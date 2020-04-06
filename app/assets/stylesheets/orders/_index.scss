@@ -1,0 +1,124 @@
+.goRootPage {
+  height: 180px;
+  width: 100%;
+  text-align: center;
+  line-height: 180px;
+  &__icon {
+    font-size: 30px;
+  }
+}
+.mainContent{
+  background-color: rgb(240, 238, 238);
+  height: 850px;
+  width: 100%;
+
+  .setBuyPage {
+    background-color: #fff;
+    height: 800px;
+    width: 600px;
+    margin: 0 auto 50px ;
+    &__head {
+      text-align: center;
+      line-height: 100px;
+      font-size: 25px;
+      font-weight: bold;
+      border-bottom: 1px solid rgb(221, 219, 219);
+    }
+    &__goods {
+      height: 150px;
+      border-bottom: 1px solid rgb(221, 219, 219);
+      &__main {
+        height: 80%;
+        width: 60%;
+        background-color: red;
+        margin: 10px auto;
+        position: relative;
+        &__image {
+          height: 100px;
+          width: 20%;
+          background-color: royalblue;
+          position: absolute;
+          top: 10px;
+          left: 20px;
+        }
+        &__detail {
+          height: 80%;
+          width: 60%;
+          background-color: green;
+          position: absolute;
+          top: 10px;
+          right: 20px;
+        }
+      }  
+    }
+    &__price {
+      height: 150px;
+      border-bottom: 1px solid rgb(221, 219, 219);
+      line-height: 150px;
+      &__main {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 100px;
+        font-weight: bold;
+        &__word {
+          margin-left: 10px;
+          font-size: 20px;
+        }
+        &__price {
+          font-size: 28px;
+        }
+      }
+    }
+    &__howToPay {
+      height: 100px;
+      border-bottom: 1px solid rgb(221, 219, 219);
+      text-align: center;
+      font-size: 18px;
+      line-height: 100px;
+    }
+    &__adressZone {
+      height: 100px;
+      border-bottom: 1px solid rgb(221, 219, 219);
+      text-align: center;
+      font-size: 18px;
+      line-height: 100px;
+      display: flex;
+      &__word {
+        margin-left: 110px;
+      }
+      &__adress{
+        margin-left: 50px;
+        font-weight: bold;
+      }
+    }
+    &__buyBtn {
+      height: 200px;
+      text-align: center;
+      line-height: 200px;
+    }
+  }
+}
+.footer{
+  width: 100%;
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  ul.contents{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+    h2.content__title{
+      margin: 0 0 20px;
+      font-size: 24px;
+    }
+    li{
+      padding-top: 10px;
+    }
+    a{
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}

@@ -15,6 +15,11 @@
 |birth_month|string|null: false|
 |birth_day|string|null: false|
 |image|string|
+|phone_number|string|
+|postcode|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|block|string|null: false|
 
 ### Association
 - has_many :buyed_goods, foreign_key: "buyer_id", class_name: "Good", dependent: :destroy
@@ -24,7 +29,7 @@
 - has_many :users_comments, dependent: :destroy
 - has_many :cards, dependent: :destroy
 - has_many :orders
-- belongs_to :user_address
+- has_many :user_address
 
 ## user_addressテーブル
 
@@ -95,7 +100,7 @@
 |delivery_method|string|null: false|
 |shipping_date|string|null: false|
 |expanation|string|null: false|
-|frading_conditions|string|null: false|
+|conditions|string|null: false|
 |saler_id|integer|null: false, foreign_key: true|
 |buyer_id|integer|foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
@@ -137,7 +142,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|string|null: false|
+|ancestry_id|integer|null: false|
 
 ### Association
 - has_many :goods

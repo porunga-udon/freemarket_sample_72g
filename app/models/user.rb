@@ -26,18 +26,19 @@ class User < ApplicationRecord
 
   validates :nickname,           presence: true, uniqueness: true
   validates :email,              presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  validates :password, presence: true, format: { with: VALID_PASSWORD_REGEX }, length: { minimum: 7 }
-  validates :last_name,          presence: true, format: { with: VALID_NAME_REGEX }
-  validates :first_name,         presence: true, format: { with: VALID_NAME_REGEX }
-  validates :last_name_kana,     presence: true, format: { with: VALID_KANA_REGEX }
-  validates :first_name_kana,    presence: true, format: { with: VALID_KANA_REGEX }
-  validates :birth_year,         presence: true
-  validates :birth_month,        presence: true
-  validates :birth_day,          presence: true
-  validates :postcode,           presence: true
-  validates :prefecture,         presence: true
-  validates :city,               presence: true
-  validates :block,              presence: true
-
-
+  validates :password,           format: { with: VALID_PASSWORD_REGEX }, length: { minimum: 7 }
+  validates :last_name,          format: { with: VALID_NAME_REGEX }
+  validates :first_name,         format: { with: VALID_NAME_REGEX }
+  validates :last_name_kana,     format: { with: VALID_KANA_REGEX }
+  validates :first_name_kana,    format: { with: VALID_KANA_REGEX }
+  validates :phone_number,       allow_blank: true, format: { with: VALID_NUMBER_REGEX }
+  with_options presence: true do
+    validates :birth_year
+    validates :birth_month
+    validates :birth_day
+    validates :postcode
+    validates :prefecture
+    validates :city
+    validates :block
+  end
 end

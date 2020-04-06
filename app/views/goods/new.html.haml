@@ -11,7 +11,7 @@
           .b
             必須
         .setNewPage__imageZone__main__max
-          最大10枚までアップロードできます
+          最大4枚までアップロードできます
         .setNewPage__imageZone__main__form
 
     .setNewPage__detailZone
@@ -21,7 +21,7 @@
           .b
             必須
         = form_with(model: @good, local: true, id:"goodName") do |form|
-          = form.text_field :name, placeholder: :商品名, class: :nameArea
+          = form.text_field :name, placeholder: :商品名, class: :textArea
         .subTitleRepeat
           商品の説明
           .b
@@ -42,7 +42,7 @@
           .b
             必須
         = form_with(model: @good, local: true, id:"goodName") do |form|
-          = form.select :state, ["新品，未使用", "未使用に近い", "目立った傷や汚れがない", "やや傷や汚れがある", "傷や汚れあり", "全体的状態が悪い"],{include_blank:"選択してください"}, class: :stateArea
+          = form.select :state, ["新品，未使用", "未使用に近い", "目立った傷や汚れがない", "やや傷や汚れがある", "傷や汚れあり", "全体的状態が悪い"],{include_blank:"選択してください"}, class: :goodSelect
         .subTitleRepeat
           サイズ
         .putInSize
@@ -55,19 +55,19 @@
           .b
             必須
         = form_with(model: @good, local: true, id:"goodName") do |form|
-          = form.select :postage, ["送料込み(出品者負担)","着払い(購入者負担)"],{include_blank: "選択してください"}, class: :PostageArea
+          = form.select :postage, ["送料込み(出品者負担)","着払い(購入者負担)"],{include_blank: "選択してください"}, class: :goodSelect
         .subTitleRepeat
           発送元の地域
           .b
             必須
         = form_with(model: @good, local: true, id:"goodName") do |form|
-          = form.select :region, ["1","2","3","4","5"],{include_blank: "選択してください"}, class: :regionArea 
+          = form.text_field :region, placeholder: :"例：東京", class: :textArea
         .subTitleRepeat
           配送に要する日数
           .b
             必須
         = form_with(model: @good, local: true, id:"goodName") do |form|
-          = form.select :region, ["1","2","3","4","5"],{include_blank: "選択してください"}, class: :regionArea 
+          = form.select :shipping_date, ["1~2日で発送","2~3日で発送","4~7日で発送"],{include_blank: "選択してください"}, class: :goodSelect 
     .setNewPage__priceZone
       .setNewPage__priceZone__main
         .f
@@ -78,16 +78,16 @@
             必須
         .putInPrice
           .priceYen
-            ¥¥¥
+            ¥
           .priceForm
-            ここに価格
+            = form_with(model: @good, local: true, id:"goodName") do |form|
+              = form.text_field :region, placeholder: :"　　　　　　　　　　　　0", class: :priceArea
     .setNewPage__submitZone
       .setNewPage__submitZone__main
         = form_with(model: @good, local: true, id: "new_comment") do |form| 
-          = form.submit "Send", class: :form__btn 
-          
+          = form.submit "出品する", class: :form__btn 
         .setNewPage__submitZone__main__returnBtn
-          return
+          = link_to "戻る", root_path,class:"returnBtn"
         .setNewPage__submitZone__main__caution
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 .footer
