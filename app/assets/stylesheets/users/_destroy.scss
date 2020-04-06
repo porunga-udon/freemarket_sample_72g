@@ -1,0 +1,33 @@
+// ログアウト画面
+.main {
+  height: calc(100%-600px);
+  background-color: rgb(240, 238, 238);
+  padding: 40px 0px;
+  // display: none;
+  .logout-content {
+    width: 1090px;
+    display: flex;
+    margin: 0 auto;
+    &__main{
+      padding: 90px 0;
+      height: 100%;
+      width: 750px;
+      margin-left: 40px;
+      background-color: $tab_list;
+      &__btn {
+        width: 400px;
+        height: 60px;
+        margin: 0 auto;
+        .btn {
+          width: 400px;
+          height: 60px;
+          color: white;
+          background-color: $main_color;
+          text-decoration: none;
+          font-size: 20px;
+          outline: 0;
+        }
+      }
+    }
+  }
+}
