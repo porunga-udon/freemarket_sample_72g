@@ -1,36 +1,59 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.wrapper
+  .header
+    = render "header"
+
+  .main
+    .main__top
+      会員情報変更
+    .main__form
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .edit-user
+          .edit-user__icon
+            -if current_user.image == "" or current_user.image == nil
+              = image_tag "no_icon.png", class:"edit-icon", size:'100x100'
+            -else
+              = image_tag current_user.image, class:"edit-icon", size:'100x100'
+          .edit-user__text
+            アイコン
+          .edit-user__form
+            = f.text_field :image, class: "user_edit_image", placeholder: "画像URL"
+        .group
+          .group__text
+            .group__text__main
+              ニックネーム
+          .group__form
+            = f.text_field :nickname, class: "new_user_registration", placeholder: "例)フリマ太郎"
+        .group
+          .group__text
+            .group__text__main
+              メールアドレス
+          .group__form
+            = f.email_field :email, class: "new_user_registration", placeholder: "PC・携帯どちらでも可"
+        .group
+          .group__text
+            .group__text__main
+              パスワード
+          .group__form
+            = f.password_field :password, class: "new_user_registration", type:'password', placeholder:"7文字以上の半角英数字"
+          .password_caution
+            ※ 英字と数字の両方を含めて設定してください
+        .group
+          .group__text
+            .group__text__main
+              パスワード（確認用）
+          .group__form
+            = f.password_field :password_confirmation, class:"new_user_registration", type:'password', placeholder:"同じパスワードを入力"
+        .group
+          .group__text
+            .group__text__main
+              現在のパスワード
+          .group__form
+            = f.password_field :current_password, class:"new_user_registration", type:'password', placeholder:"現在のパスワードを入力"
+        .registration
+          .registration__btn
+            =link_to "#", class:'btn' do
+              = f.submit "更新する", class:'btn'
+
+  .user_footer
+    = render "footer"
