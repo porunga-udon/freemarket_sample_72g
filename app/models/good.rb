@@ -9,9 +9,9 @@ class Good < ApplicationRecord
   belongs_to :buyer, class_name: "User"
   belongs_to :user_address
   belongs_to :category
-  has_many :good_images, allow_destroy: true
+  has_many :good_images, dependent: :destroy
 
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :good_images, allow_destroy: true
 
 
   VALID_PRICE_REGEX = /\A[0-9]+\z/

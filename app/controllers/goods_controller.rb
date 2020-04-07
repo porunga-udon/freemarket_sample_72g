@@ -17,8 +17,8 @@ class GoodsController < ApplicationController
 
 
   def create
-    @product = Product.new(product_params)
-    if @product.save
+    @good = Good.new(goods_params)
+    if @good.save
       redirect_to root_path
     else
       render :new
@@ -27,8 +27,8 @@ class GoodsController < ApplicationController
 
   private
 
-  def product_params
-    params.require(:product).permit(:name, :state, :region, :postage, :expanation, :shipping_date, :delivery_method, :frading_conditions, :price, :category_id, :buyer, good_images_attributes: [:image])
+  def goods_params
+    params.require(:good).permit(:name, :state, :region, :postage, :expanation, :shipping_date, :delivery_method, :frading_conditions, :price, :category_id, :buyer, good_images_attributes: [:image])
   end
 
 end
