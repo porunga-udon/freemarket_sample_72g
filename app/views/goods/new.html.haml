@@ -13,7 +13,9 @@
         .setNewPage__imageZone__main__max
           最大4枚までアップロードできます
         .setNewPage__imageZone__main__form
-
+          = form_with(model: @good, local: true, id:"goodImage") do |form|
+            = form.fields_for :good_images do |i|
+              = form.file_field :image, placeholder: :商品名
     .setNewPage__detailZone
       .setNewPage__detailZone__main
         .subTitleRepeat
@@ -81,7 +83,7 @@
             ¥
           .priceForm
             = form_with(model: @good, local: true, id:"goodName") do |form|
-              = form.text_field :region, placeholder: :"　　　　　　　　　　　　0", class: :priceArea
+              = form.text_field :price, placeholder: :"　　　　　　　　　　　　0", class: :priceArea
     .setNewPage__submitZone
       .setNewPage__submitZone__main
         = form_with(model: @good, local: true, id: "new_comment") do |form| 
