@@ -11,6 +11,7 @@ class GoodsController < ApplicationController
 
   def new
     @good = Good.new
+    @good_images = GoodImage.where(id: @goods_all.ids)
   end
 
 
