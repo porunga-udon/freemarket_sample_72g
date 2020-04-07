@@ -16,6 +16,7 @@ class GoodsController < ApplicationController
 
   def create
     @good = Good.new(good_params)
+
     if @good.save
       redirect_to root_path
     else
@@ -30,6 +31,6 @@ end
 
 private
 def good_params
-  params.permit(:name, :expanation, :price, :state, :shipping_date, :region, :delivery_method, :frading_conditions, postage:10, category_id:10, size_id:10, saler_id:10, igood_mages_attributes: [:image])
+  params.require(:good).permit(:name, :expanation, :price, :state, :shipping_date, :region, :delivery_method, :frading_conditions, good_images_attributes: [:image]).merge( saler_id: current_user.id,postage:"test",category_id: 1,size_id: 1)
 end
 

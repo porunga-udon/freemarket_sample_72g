@@ -4,94 +4,86 @@
       = image_tag "logo.png",size: '134x36',alt:"FURIMA"
 .wrapperNew
   .setNewPage
-    .setNewPage__imageZone
-      .setNewPage__imageZone__main
-        .subTitleRepeat
-          出品画像
-          .b
-            必須
-        .setNewPage__imageZone__main__max
-          最大4枚までアップロードできます
-        .setNewPage__imageZone__main__form
-          = form_with(model: @good, local: true, id:"goodImage") do |form|
+    = form_with(model: @good, local: true, id:"goodImage") do |form|
+      .setNewPage__imageZone
+        .setNewPage__imageZone__main
+          .subTitleRepeat
+            出品画像
+            .b
+              必須
+          .setNewPage__imageZone__main__max
+            最大4枚までアップロードできます
+          .setNewPage__imageZone__main__form
             = form.fields_for :good_images do |i|
               = form.file_field :image, placeholder: :商品名
-    .setNewPage__detailZone
-      .setNewPage__detailZone__main
-        .subTitleRepeat
-          商品名
-          .b
-            必須
-        = form_with(model: @good, local: true, id:"goodName") do |form|
+      .setNewPage__detailZone
+        .setNewPage__detailZone__main
+          .subTitleRepeat
+            商品名
+            .b
+              必須
           = form.text_field :name, placeholder: :商品名, class: :textArea
-        .subTitleRepeat
-          商品の説明
-          .b
-            必須
-        = form_with(model: @good, local: true, id:"goodName") do |form|
+          .subTitleRepeat
+            商品の説明
+            .b
+              必須
           = form.text_area :expanation, placeholder: :説明, class: :detailArea
-    .setNewPage__conditionZone
-      .setNewPage__conditionZone__main
-        .f
-          商品の詳細
-        .subTitleRepeat
-          カテゴリー
-          .b
-            必須
-        .putIncategory
-        .subTitleRepeat
-          状態
-          .b
-            必須
-        = form_with(model: @good, local: true, id:"goodName") do |form|
+      .setNewPage__conditionZone
+        .setNewPage__conditionZone__main
+          .f
+            商品の詳細
+          .subTitleRepeat
+            カテゴリー
+            .b
+              必須
+          .putIncategory
+          .subTitleRepeat
+            状態
+            .b
+              必須
           = form.select :state, ["新品，未使用", "未使用に近い", "目立った傷や汚れがない", "やや傷や汚れがある", "傷や汚れあり", "全体的状態が悪い"],{include_blank:"選択してください"}, class: :goodSelect
-        .subTitleRepeat
-          サイズ
-        .putInSize
-    .setNewPage__deliveryZone
-      .setNewPage__deliveryZone__main
-        .f
-          配送について
-        .subTitleRepeat
-          配送量の負担
-          .b
-            必須
-        = form_with(model: @good, local: true, id:"goodName") do |form|
+          .subTitleRepeat
+            サイズ
+          .putInSize
+      .setNewPage__deliveryZone
+        .setNewPage__deliveryZone__main
+          .f
+            配送について
+          .subTitleRepeat
+            配送量の負担
+            .b
+              必須
           = form.select :postage, ["送料込み(出品者負担)","着払い(購入者負担)"],{include_blank: "選択してください"}, class: :goodSelect
-        .subTitleRepeat
-          発送元の地域
-          .b
-            必須
-        = form_with(model: @good, local: true, id:"goodName") do |form|
+          .subTitleRepeat
+            発送元の地域
+            .b
+              必須
           = form.text_field :region, placeholder: :"例：東京", class: :textArea
-        .subTitleRepeat
-          配送に要する日数
-          .b
-            必須
-        = form_with(model: @good, local: true, id:"goodName") do |form|
+          .subTitleRepeat
+            配送に要する日数
+            .b
+              必須
           = form.select :shipping_date, ["1~2日で発送","2~3日で発送","4~7日で発送"],{include_blank: "選択してください"}, class: :goodSelect 
-    .setNewPage__priceZone
-      .setNewPage__priceZone__main
-        .f
-          価格（¥300〜9,999,999）
-        .subTitleRepeat
-          販売価格
-          .b
-            必須
-        .putInPrice
-          .priceYen
-            ¥
-          .priceForm
-            = form_with(model: @good, local: true, id:"goodName") do |form|
+      .setNewPage__priceZone
+        .setNewPage__priceZone__main
+          .f
+            価格（¥300〜9,999,999）
+          .subTitleRepeat
+            販売価格
+            .b
+              必須
+          .putInPrice
+            .priceYen
+              ¥
+            .priceForm
               = form.text_field :price, placeholder: :"　　　　　　　　　　　　0", class: :priceArea
-    .setNewPage__submitZone
-      .setNewPage__submitZone__main
-        = form_with(model: @good, local: true, id: "new_comment") do |form| 
+      .setNewPage__submitZone
+        .setNewPage__submitZone__main
           = form.submit "出品する", class: :form__btn 
-        .setNewPage__submitZone__main__returnBtn
-          = link_to "戻る", root_path,class:"returnBtn"
-        .setNewPage__submitZone__main__caution
-          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+          .setNewPage__submitZone__main__returnBtn
+            = link_to "戻る", root_path,class:"returnBtn"
+          .setNewPage__submitZone__main__caution
+            禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 .footer
   %ul.contents
     %li.content
