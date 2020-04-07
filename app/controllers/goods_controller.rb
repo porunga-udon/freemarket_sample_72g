@@ -11,10 +11,24 @@ class GoodsController < ApplicationController
 
   def new
     @good = Good.new
-    @good_images = GoodImage.where(id: @goods_all.ids)
+    @good.good_images.new
+    # @good_images = GoodImage.where(id: @goods_all.ids)
   end
 
 
-  def show
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:name, :state, :region, :postage, :expanation, :shipping_date, :delivery_method, :frading_conditions, :price, :category_id, :buyer, good_images_attributes: [:image])
+  end
+
 end
