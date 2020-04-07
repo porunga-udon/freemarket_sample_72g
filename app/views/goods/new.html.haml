@@ -49,6 +49,11 @@
           .f
             配送について
           .subTitleRepeat
+            配送方法
+            .b
+              必須
+          = f.select :delivery_method, ["未定","ゆうメール","レターパック","普通郵便(定形、定形外)","クロネコヤマト"],{include_blank: "選択してください"}, class: :goodSelect
+          .subTitleRepeat
             配送量の負担
             .b
               必須
@@ -75,7 +80,7 @@
             .priceYen
               ¥
             .priceForm
-              = f.text_field :region, placeholder: :"　　　　　　　　　　　　0", class: :priceArea
+              = f.text_field :price, placeholder: :"　　　　　　　　　　　　0", class: :priceArea
       .setNewPage__submitZone
         .setNewPage__submitZone__main
           = f.submit "出品する", class: :form__btn 
