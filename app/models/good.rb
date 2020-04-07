@@ -11,7 +11,7 @@ class Good < ApplicationRecord
   belongs_to :category
   has_many :good_images, dependent: :destroy
 
-VALID_PRICE_REGEX = /\A[0-9]+\z/
+  VALID_PRICE_REGEX = /\A[0-9]+\z/
 
   validates :name, presence: true
   validates :price, presence: true, format:{ with: VALID_PRICE_REGEX }
