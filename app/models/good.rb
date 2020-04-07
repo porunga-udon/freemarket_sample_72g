@@ -5,14 +5,14 @@ class Good < ApplicationRecord
  # has_many :users_comments, dependent: :destroy
  # has_many :cards, dependent: :destroy
  # has_many :orders
-  belongs_to :saler, class_name: "User"
-  belongs_to :buyer, class_name: "User"
-  belongs_to :user_address
+  #belongs_to :saler, class_name: "User"
+ # belongs_to :buyer, class_name: "User"
+ # belongs_to :user_address
   belongs_to :category
-  has_many :good_images, allow_destroy: true
+  has_many :good_images
 
-  accepts_nested_attributes_for :images
-
+  	
+accepts_nested_attributes_for :good_images, allow_destroy: true
 
   VALID_PRICE_REGEX = /\A[0-9]+\z/
 
