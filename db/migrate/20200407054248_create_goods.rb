@@ -11,6 +11,7 @@ class CreateGoods < ActiveRecord::Migration[5.2]
       t.string :trading_conditions, null:false, default: "未発送"
       t.integer :price,             null:false
       t.bigint :category_id,        null:false, foreign_key: true
+      t.integer :size_id,           foreign_key: true
       t.references :buyer,          foreign_key: { to_table: :users }
       t.references :saler,          foreign_key: { to_table: :users }
       t.timestamps

@@ -43,7 +43,7 @@
           = f.select :state, ["新品，未使用", "未使用に近い", "目立った傷や汚れがない", "やや傷や汚れがある", "傷や汚れあり", "全体的状態が悪い"],{include_blank:"選択してください"}, class: :goodSelect
           .subTitleRepeat
             サイズ
-          .putInSize
+          = f.select :size_id, [{id: 1, name: "S"}, "M", "L", "LL", "XL"],{include_blank:"選択してください"}
       .setNewPage__deliveryZone
         .setNewPage__deliveryZone__main
           .f
