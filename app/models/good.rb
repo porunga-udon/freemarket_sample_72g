@@ -6,8 +6,8 @@ class Good < ApplicationRecord
  # has_many :cards, dependent: :destroy
  # has_many :orders
   belongs_to :saler, class_name: "User"
-  belongs_to :buyer, class_name: "User"
-  belongs_to :user_address
+  # belongs_to :buyer, class_name: "User"
+  # belongs_to :user_address
   belongs_to :category
   has_many :good_images, dependent: :destroy
 
@@ -18,6 +18,6 @@ class Good < ApplicationRecord
 
   validates :name, presence: true
   validates :price, presence: true, format:{ with: VALID_PRICE_REGEX }
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :size
+  # extend ActiveHash::Associations::ActiveRecordExtensions
+  # belongs_to_active_hash :size
 end
