@@ -3,7 +3,6 @@ class Good < ApplicationRecord
  # has_many :buyed_goods, foreign_key: "buyer_id", class_name: "Good", dependent: :destroy
   # has_many :comments, through: :users_comments, dependent: :destroy
  # has_many :users_comments, dependent: :destroy
- # has_many :cards, dependent: :destroy
  # has_many :orders
   belongs_to :saler, class_name: "User"
   # belongs_to :buyer, class_name: "User"
