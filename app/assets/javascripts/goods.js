@@ -54,7 +54,7 @@ $(document).on('turbolinks:load', function(){
         $(`#preview-box__${id} img`).attr('src', `${image}`);
         var count = $('.preview-box').length;
         //プレビューが5個あったらラベルを隠す 
-        if (count == 5) { 
+        if (count == 3) { 
           $('.label-content').hide();
         }
 
@@ -83,12 +83,12 @@ $(document).on('turbolinks:load', function(){
       //削除時のラベル操作
       var count = $('.preview-box').length;
       //5個めが消されたらラベルを表示
-      if (count == 4) {
+      if (count == 2) {
         $('.label-content').show();
       }
       setLabel(count);
 
-      if(id < 5){
+      if(id < 3){
         //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
         $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
       }
