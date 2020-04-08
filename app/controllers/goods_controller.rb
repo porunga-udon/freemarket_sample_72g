@@ -11,6 +11,12 @@ class GoodsController < ApplicationController
 
   def new
     @good = Good.new
+
+    @category = Category.all.map { |category| [category.name, category.id, category.ancestry_id] }
+    @category_all = Category.all
+    @category_parents = Category.all.order("id ASC").limit(13)
+    @category_child = Category.where(ancestry_id: @category_all.ids)
+
     @good.good_images.new
     # @good_images = GoodImage.where(id: @goods_all.ids)
   end
@@ -24,6 +30,16 @@ class GoodsController < ApplicationController
       render :new
     end
   end
+
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+       @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+  
 
   private
 

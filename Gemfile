@@ -70,7 +70,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'payjp'
-gem 'jquery'
+gem 'jquery-rails'
 gem 'active_hash'
 
 group :production do

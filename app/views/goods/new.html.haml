@@ -35,7 +35,11 @@
             カテゴリー
             .b
               必須
-          .putIncategory
+        = form_with(model: @good, local: true, id:"category-form") do |form|
+          = form.collection_select :category_ids, @category_parents, :id, :name,{include_blank:"選択してください"}, class: :goodSelect, id: "category-form", name: "good[category_ids][]"
+        -# 親
+        = form_with(model: @good, local: true, id:"category-form-child") do |form|
+          = form.collection_select :category_ids, @category_child, :id, :name,{include_blank:"選択してください"}, class: :goodSelect, id: "category-form", name: "good[category_ids][]"
           .subTitleRepeat
             状態
             .b
