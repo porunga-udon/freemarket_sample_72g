@@ -19,4 +19,5 @@ class Good < ApplicationRecord
   validates :price, presence: true, format:{ with: VALID_PRICE_REGEX }
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :size
+  belongs_to_active_hash :delivery_method
 end
