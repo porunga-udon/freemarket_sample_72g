@@ -17,10 +17,18 @@ class GoodsController < ApplicationController
     @category_parents = Category.all.order("id ASC").limit(13)
     @category_child = Category.where(ancestry_id: @category_all.ids)
 
+    @good.good_images.new
+    # @good_images = GoodImage.where(id: @goods_all.ids)
   end
 
 
-  def show
+  def create
+    @good = Good.new(good_params)
+    if @good.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def search
@@ -33,5 +41,10 @@ class GoodsController < ApplicationController
   end
   
 
+  private
+
+  def good_params
+    params.require(:good).permit(:name, :state, :region, :postage, :expanation, :shipping_date, :delivery_method, :price, good_images_attributes: [:image]).merge( saler_id: current_user.id, trading_conditions: "non", category_id: 1)
+  end
 
 end

@@ -71,6 +71,7 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'payjp'
 gem 'jquery-rails'
+gem 'active_hash'
 
 group :production do
   gem 'unicorn','=5.4.1'
