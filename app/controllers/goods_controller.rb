@@ -6,14 +6,29 @@ class GoodsController < ApplicationController
     @goods_women_new  = Good.where(buyer_id: nil, category_id: '1').limit(3).order(id: "DESC")
     @goods_mens_new = Good.where(buyer_id: nil, category_id: '2').limit(3).order(id: "DESC")
 
-    @good_images = GoodImage.where(id: @goods_all.ids)
+    @good_images = GoodImage.where(id: @goods_all.ids).limit(1)
   end
 
   def new
     @good = Good.new
+    @good.good_images.new
+    # @good_images = GoodImage.where(id: @goods_all.ids)
   end
 
 
-  def show
+  def create
+    @good = Good.new(good_params)
+    if @good.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
+
+  private
+
+  def good_params
+    params.require(:good).permit(:name, :state, :region, :postage, :expanation, :shipping_date, :delivery_method, :price, good_images_attributes: [:image]).merge( saler_id: current_user.id, trading_conditions: "non", category_id: 1)
+  end
+
 end
