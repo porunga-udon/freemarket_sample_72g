@@ -43,7 +43,7 @@
           = f.select :state, ["新品，未使用", "未使用に近い", "目立った傷や汚れがない", "やや傷や汚れがある", "傷や汚れあり", "全体的状態が悪い"],{include_blank:"選択してください"}, class: :goodSelect
           .subTitleRepeat
             サイズ
-          = f.select :size_id, [{id: 1, name: "S"}, "M", "L", "LL", "XL"],{include_blank:"選択してください"}
+          = f.select :size_id, [["S",1], ["M",2], ["L", 3], ["LL", 4], ["XL", 5]],{include_blank:"選択してください"}
       .setNewPage__deliveryZone
         .setNewPage__deliveryZone__main
           .f
@@ -52,7 +52,7 @@
             配送方法
             .b
               必須
-          = f.select :delivery_method, ["未定","ゆうメール","レターパック","普通郵便(定形、定形外)","クロネコヤマト"],{include_blank: "選択してください"}, class: :goodSelect
+          = f.select :delivery_method_id, [["未定",1], ["ゆうメール",2], ["レターパック", 3], ["普通郵便(定形、定形外)", 4], ["クロネコヤマト", 5]],{include_blank:"選択してください"}, class: :goodSelect
           .subTitleRepeat
             配送量の負担
             .b
