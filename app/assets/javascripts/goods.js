@@ -23,7 +23,7 @@ $(document).on('turbolinks:load', function(){
     function setLabel() {
       //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
       var prevContent = $('.label-content').prev();
-      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+      labelWidth = (450 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
       $('.label-content').css('width', labelWidth);
     }
 
@@ -61,14 +61,14 @@ $(document).on('turbolinks:load', function(){
         //ラベルのwidth操作
         setLabel();
         //ラベルのidとforの値を変更
-        if(count < 5){
+        if(count < 3){
           //プレビューの数でラベルのオプションを更新する
           $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
         }
       }
     });
 
-    // 画像の削除
+    // 画像削除
     $(document).on('click', '.delete-box', function() {
       var count = $('.preview-box').length;
       setLabel(count);

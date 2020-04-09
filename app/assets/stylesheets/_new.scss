@@ -25,7 +25,7 @@
       height: 300px;
       border-bottom: solid 1px rgb(221, 219, 219);
       &__main {
-        margin: 5%;
+        margin: 7%;
         height: 90%;
         width: 95%;
         &__title {
@@ -76,7 +76,7 @@
       }
     }
     &__deliveryZone {
-      height: 370px;
+      height: 460px;
       border-bottom: solid 1px rgb(221, 219, 219);
       &__main {
         margin: 7%;
@@ -85,7 +85,7 @@
       }
     }
     &__priceZone {
-      height: 300px;
+      height: 270px;
       border-bottom: solid 1px rgb(221, 219, 219);
       &__main {
       margin: 7%;
@@ -187,10 +187,9 @@
   }
 }
 
-.subTitleRepeat {
-  margin: 15px 0;
-  display: flex;
-}
+
+
+  //必須ロゴのcss
 .b {
   background-color: #3CCACE;;
   color: white;
@@ -200,14 +199,22 @@
   margin-left: 10px;
   padding: 2px 4px;
 }
+  // 価格，配送方法などトピックのcss
 .f {
   color: green;
   margin-bottom: 40px;
 }
+  //トピックのサブタイトルのcss
+.subTitleRepeat {
+  margin: 15px 0;
+  display: flex;
+}
+  //セレクトフォームのcss
 .goodSelect {
   height: 30px;
   width: 40%;
 }
+  //textフォームのcss
 .textArea {
   height: 30px;
   width: 40%;
