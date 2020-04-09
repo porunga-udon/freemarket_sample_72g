@@ -4,92 +4,90 @@
       = image_tag "logo.png",size: '134x36',alt:"FURIMA"
 .wrapperNew
   .setNewPage
-    .setNewPage__imageZone
-      .setNewPage__imageZone__main
-        .subTitleRepeat
-          出品画像
-          .b
-            必須
-        .setNewPage__imageZone__main__max
-          最大4枚までアップロードできます
-        .setNewPage__imageZone__main__form
-
-    .setNewPage__detailZone
-      .setNewPage__detailZone__main
-        .subTitleRepeat
-          商品名
-          .b
-            必須
-        = form_with(model: @good, local: true, id:"goodName") do |form|
-          = form.text_field :name, placeholder: :商品名, class: :textArea
-        .subTitleRepeat
-          商品の説明
-          .b
-            必須
-        = form_with(model: @good, local: true, id:"goodName") do |form|
-          = form.text_area :expanation, placeholder: :説明, class: :detailArea
-    .setNewPage__conditionZone
-      .setNewPage__conditionZone__main
-        .f
-          商品の詳細
-        .subTitleRepeat
-          カテゴリー
-          .b
-            必須
-        .putIncategory
-        .subTitleRepeat
-          状態
-          .b
-            必須
-        = form_with(model: @good, local: true, id:"goodName") do |form|
-          = form.select :state, ["新品，未使用", "未使用に近い", "目立った傷や汚れがない", "やや傷や汚れがある", "傷や汚れあり", "全体的状態が悪い"],{include_blank:"選択してください"}, class: :goodSelect
-        .subTitleRepeat
-          サイズ
-        .putInSize
-    .setNewPage__deliveryZone
-      .setNewPage__deliveryZone__main
-        .f
-          配送について
-        .subTitleRepeat
-          配送量の負担
-          .b
-            必須
-        = form_with(model: @good, local: true, id:"goodName") do |form|
-          = form.select :postage, ["送料込み(出品者負担)","着払い(購入者負担)"],{include_blank: "選択してください"}, class: :goodSelect
-        .subTitleRepeat
-          発送元の地域
-          .b
-            必須
-        = form_with(model: @good, local: true, id:"goodName") do |form|
-          = form.text_field :region, placeholder: :"例：東京", class: :textArea
-        .subTitleRepeat
-          配送に要する日数
-          .b
-            必須
-        = form_with(model: @good, local: true, id:"goodName") do |form|
-          = form.select :shipping_date, ["1~2日で発送","2~3日で発送","4~7日で発送"],{include_blank: "選択してください"}, class: :goodSelect 
-    .setNewPage__priceZone
-      .setNewPage__priceZone__main
-        .f
-          価格（¥300〜9,999,999）
-        .subTitleRepeat
-          販売価格
-          .b
-            必須
-        .putInPrice
-          .priceYen
-            ¥
-          .priceForm
-            = form_with(model: @good, local: true, id:"goodName") do |form|
-              = form.text_field :region, placeholder: :"　　　　　　　　　　　　0", class: :priceArea
-    .setNewPage__submitZone
-      .setNewPage__submitZone__main
-        = form_with(model: @good, local: true, id: "new_comment") do |form| 
-          = form.submit "出品する", class: :form__btn 
-        .setNewPage__submitZone__main__returnBtn
-          = link_to "戻る", root_path,class:"returnBtn"
-        .setNewPage__submitZone__main__caution
-          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+    = form_for @good do |f|
+      .setNewPage__imageZone
+        .setNewPage__imageZone__main
+          .subTitleRepeat
+            出品画像
+            .b
+              必須
+          .setNewPage__imageZone__main__max
+            最大4枚までアップロードできます
+          = f.fields_for :good_images do |i|
+            = i.file_field :image, class: "setNewPage__imageZone__main__form"
+      .setNewPage__detailZone
+        .setNewPage__detailZone__main
+          .subTitleRepeat
+            商品名
+            .b
+              必須
+          = f.text_field :name, placeholder: :商品名, class: :textArea
+          .subTitleRepeat
+            商品の説明
+            .b
+              必須
+          = f.text_area :expanation, placeholder: :説明, class: :detailArea
+      .setNewPage__conditionZone
+        .setNewPage__conditionZone__main
+          .f
+            商品の詳細
+          .subTitleRepeat
+            カテゴリー
+            .b
+              必須
+          .putIncategory
+          .subTitleRepeat
+            状態
+            .b
+              必須
+          = f.select :state, ["新品，未使用", "未使用に近い", "目立った傷や汚れがない", "やや傷や汚れがある", "傷や汚れあり", "全体的状態が悪い"],{include_blank:"選択してください"}, class: :goodSelect
+          .subTitleRepeat
+            サイズ
+          = f.select :size_id, [["S",1], ["M",2], ["L", 3], ["LL", 4], ["XL", 5]],{include_blank:"選択してください"}
+      .setNewPage__deliveryZone
+        .setNewPage__deliveryZone__main
+          .f
+            配送について
+          .subTitleRepeat
+            配送方法
+            .b
+              必須
+          = f.select :delivery_method_id, [["未定",1], ["ゆうメール",2], ["レターパック", 3], ["普通郵便(定形、定形外)", 4], ["クロネコヤマト", 5]],{include_blank:"選択してください"}, class: :goodSelect
+          .subTitleRepeat
+            配送量の負担
+            .b
+              必須
+          = f.select :postage, ["送料込み(出品者負担)","着払い(購入者負担)"],{include_blank: "選択してください"}, class: :goodSelect
+          .subTitleRepeat
+            発送元の地域
+            .b
+              必須
+          = f.text_field :region, placeholder: :"例：東京", class: :textArea
+          .subTitleRepeat
+            配送に要する日数
+            .b
+              必須
+          = f.select :shipping_date, ["1~2日で発送","2~3日で発送","4~7日で発送"],{include_blank: "選択してください"}, class: :goodSelect 
+      .setNewPage__priceZone
+        .setNewPage__priceZone__main
+          .f
+            価格（¥300〜9,999,999）
+          .subTitleRepeat
+            販売価格
+            .b
+              必須
+          .putInPrice
+            .priceYen
+              ¥
+            .priceForm
+              = f.text_field :price, placeholder: :"　　　　　　　　　　　　0", class: :priceArea
+      .setNewPage__submitZone
+        .setNewPage__submitZone__main
+          = f.submit "出品する", class: :form__btn 
+          .setNewPage__submitZone__main__returnBtn
+            = link_to "戻る", root_path,class:"returnBtn"
+          .setNewPage__submitZone__main__caution
+            禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 .footer
   %ul.contents
     %li.content
@@ -131,7 +129,7 @@
         %li
           = link_to "#" do
             %span  お知らせ
-  .footer__logo
-    %span.image
-      = image_tag "logo-white.png", size:'134x36'
-      %p  ©︎フリマ
+.footer__logo
+  %span.image
+    = image_tag "logo-white.png", size:'134x36'
+    %p  ©︎フリマ

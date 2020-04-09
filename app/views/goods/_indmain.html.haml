@@ -117,7 +117,7 @@
                 = link_to good_path(good.id), class: "pick-ups__box__goods__list" do
                   %li.pick-ups__box__goods__list__pic
                     - good.good_images.each do |good_images| 
-                      =image_tag good_images.image, size: "220x150"
+                      =image_tag("#{good_images.image}", size: "220x150")
                   .pick-ups__box__goods__list__body
                     %li.pick-ups__box__goods__list__body__name= good.name
                     %li.pick-ups__box__goods__list__body__price
@@ -130,7 +130,7 @@
         ピックアップカテゴリー
       .pick-ups__box__link-title
         = link_to "#", class: "pick-ups__box__link-title" do
-          靴
+          レディース新着アイテム
           .pick-ups__box__goods
             - @goods_mens_new.each do |good|
               - if good.buyer_id == nil
@@ -152,15 +152,15 @@
         ピックアップカテゴリー
       .pick-ups__box__link-title
         = link_to "#", class: "pick-ups__box__link-title" do
-          バッグ
+          メンズ新着アイテム
           .pick-ups__box__goods
-            - @goods_women_new.each do |good|
+            - @goods_women_new.each do |good| 
               - if good.buyer_id == nil 
                 .pick-ups__box__goods__list
                   = link_to good_path(good.id), class: "pick-ups__box__goods__list" do
                     %li.pick-ups__box__goods__list__pic
                       - good.good_images.each do |good_images| 
-                        =image_tag good_images.image, size: "220x150"
+                        =image_tag("#{good_images.image}", size: "220x150")
                     .pick-ups__box__goods__list__body
                       %li.pick-ups__box__goods__list__body__name= good.name
                       %li.pick-ups__box__goods__list__body__price
@@ -184,7 +184,7 @@
               = link_to good_path(good.id), class: "brand__container__category__list" do
                 %li.pick-ups__box__goods__list__pic
                   - good.good_images.each do |good_images| 
-                    =image_tag good_images.image, size: "220x150"
+                    =image_tag("#{good_images.image}", size: "220x150")
                 .pick-ups__box__goods__list__body
                   %li.pick-ups__box__goods__list__body__name= good.name
                   %li.pick-ups__box__goods__list__body__price
