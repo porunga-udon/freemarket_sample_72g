@@ -23,7 +23,7 @@ $(document).on('turbolinks:load', function(){
     function setLabel() {
       //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
       var prevContent = $('.label-content').prev();
-      labelWidth = (450 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+      labelWidth = (520 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
       $('.label-content').css('width', labelWidth);
     }
 
@@ -54,14 +54,14 @@ $(document).on('turbolinks:load', function(){
         $(`#preview-box__${id} img`).attr('src', `${image}`);
         var count = $('.preview-box').length;
         //プレビューが5個あったらラベルを隠す 
-        if (count == 3) { 
+        if (count == 4) { 
           $('.label-content').hide();
         }
 
         //ラベルのwidth操作
         setLabel();
         //ラベルのidとforの値を変更
-        if(count < 3){
+        if(count < 4){
           //プレビューの数でラベルのオプションを更新する
           $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
         }
@@ -83,12 +83,12 @@ $(document).on('turbolinks:load', function(){
       //削除時のラベル操作
       var count = $('.preview-box').length;
       //5個めが消されたらラベルを表示
-      if (count == 2) {
+      if (count == 4) {
         $('.label-content').show();
       }
       setLabel(count);
 
-      if(id < 3){
+      if(id < 4){
         //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
         $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
       }
