@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'goods#index'
   resources :users, only:[:show, :destroy]
   resources :cards, only:[:new]
+
   resources :goods, only:[:index, :show, :new, :create] do
     resources :good_images, only: [:index, :new, :create]
   end
