@@ -20,12 +20,6 @@
       width: 700px;
       margin: 0 auto;
       padding: 24px 40px 40px;
-      &__img{
-        &__bottom{
-          justify-content: center;
-          display: flex;
-        }
-      }
       ul{
         display: flex;
         justify-content: center;
@@ -35,10 +29,8 @@
         font-size: 40px;
       }
       &__buy{
-        margin-top: 20px;
         height: 60px;
-        background-color: #3CCACE;
-
+        background-color: red;
         a{
           text-decoration: none;
           span{
@@ -49,34 +41,6 @@
           }
         }
        }
-      &__edit{
-        margin-top: 20px;
-        height: 40px;
-        background-color: #3CCACE;
-        a{
-          text-decoration: none;
-          span{
-            font-weight: 200;
-            font-size: 20px;
-            line-height: 2;
-            color: white;
-          }
-        }
-      }
-      &__destroy{
-        margin-top: 20px;
-        height: 40px;
-        background-color: #3CCACE;
-        a{
-          text-decoration: none;
-          span{
-            font-weight: 200;
-            font-size: 20px;
-            line-height: 2;
-            color: white;
-          }
-        }
-      }
       &__introduction{
         margin: 20px 0 ;
       }
