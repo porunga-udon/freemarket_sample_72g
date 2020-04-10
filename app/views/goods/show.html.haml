@@ -14,7 +14,7 @@
           %span バッグ > 
       %li.item-detail__breadcrumb__list
         = link_to "#" do
-          %span  ルイヴィトン ダミエ ネヴーフルMMトートバッグ
+          %span  ルイヴィトン  ダミエ ネヴーフルMMトートバッグ
     .item-detail__content
       %h2.item-detail__content__name
         = @good_detail.name
@@ -22,30 +22,28 @@
         - @good_detail.good_images.each_with_index do |img,i|
           - if i == 0
             .item-detail__content__img__top
-              = image_tag img.image,class:"",size:'450x450'
+              = image_tag("#{img.image}", size: "450x450")
         .item-detail__content__img__bottom
           - @good_detail.good_images.each_with_index do |img,i|
             - if i != 0
               .item-detail__content__img__bottom__b
-                = image_tag img.image,size:'100x100'
+                = image_tag("#{img.image}", size: "100x100")
       .item-detail__content__price
         ¥
         = @good_detail.price
       .item-detail__content__price__postsge
-      (税込)送料込み
-      - if user_signed_in? && current_user.id == @good_detail.good_id
+        (税込)送料込み
+      - if user_signed_in? && current_user.id == @good_detail.saler_id
         .item-detail__content__edit
           = link_to "#" do
             %span 商品を編集する
         .item-detail__content__destroy
-          = link_to "#" do
-            %span 商品を削除する
+          = link_to good_path(@good_detail), method: :delete, data: { confirm: '削除しますか？' } do
+            商品を削除する
       - else
         .item-detail__content__buy
           = link_to "#" do
             %span 購入画面に進む
-
-
       .item-detail__content__introduction
         = @good_detail.expanation
       .table

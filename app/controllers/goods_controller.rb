@@ -31,6 +31,11 @@ class GoodsController < ApplicationController
     end
   end
 
+  def destroy
+    good = Good.find(params[:id])
+    good.destroy
+  end
+
   private
 
   def good_params
