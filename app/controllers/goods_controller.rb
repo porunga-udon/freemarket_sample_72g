@@ -11,35 +11,20 @@ class GoodsController < ApplicationController
 
   def new
     @good = Good.new
-
-    @category = Category.all.map { |category| [category.name, category.id, category.ancestry_id] }
-    @category_all = Category.all
-    @category_parents = Category.all.order("id ASC").limit(13)
-    @category_child = Category.where(ancestry_id: @category_all.ids)
-
     @good.good_images.new
-    # @good_images = GoodImage.where(id: @goods_all.ids)
   end
 
 
   def create
     @good = Good.new(good_params)
     if @good.save
+      flash[:notice] = "出品が完了しました"
       redirect_to root_path
     else
+      flash[:alert] = '出品に失敗しました。必須項目を確認してください。'
       render :new
     end
   end
-
-  def search
-    respond_to do |format|
-      format.html
-      format.json do
-       @children = Category.find(params[:parent_id]).children
-      end
-    end
-  end
-  
 
   private
 
