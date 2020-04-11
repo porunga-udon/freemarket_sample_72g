@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root to: 'goods#index'
   resources :users, only:[:show, :destroy]
 
+ 
+
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'
@@ -12,7 +14,8 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
     end
   end
-
+  
+  
   resources :goods, only:[:index, :show, :new, :create] do
     resources :good_images, only: [:index, :new, :create]
   end
