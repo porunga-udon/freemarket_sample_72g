@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources controller: :goods, only: :child, defaults: { format: 'json' } do
+      collection do
         get 'child'
+      end
     end
     resources controller: :goods, only: :grand_child, defaults: { format: 'json' } do
       collection do
@@ -18,4 +20,5 @@ Rails.application.routes.draw do
       end
     end
   end
+  
 end
