@@ -1,12 +1,11 @@
 $(function() {
-  var buildPrompt = `<option value>---</option>`
+  var buildPrompt = `<option value>選択してください</option>`
   var buildHtmlOption = function(cat) {
-      var option = `<option value ="${cat.id}">${cat.name}</option>`
-      return option
+    var option = `<option value ="${cat.id}">${cat.name}</option>`
+    return option
   }
   $('#parent').change(function() {
     var parent_id = $(this).val();
-    console.log(location.href);
     $.ajax({
       type: 'GET',
       url: '/api/child',
@@ -24,10 +23,8 @@ $(function() {
         $('#child').append(html_option);
       });
     })
-    .fail(function(XMLHttpRequest, textStatus, errorThrown){
-      console.log(XMLHttpRequest.status);
-      console.log(textStatus);
-      console.log(errorThrown);
+    .fail(function(){
+      alert('error');
     })
   });
   $(this).on("change", "#child", function() {
@@ -39,7 +36,6 @@ $(function() {
       dataType: 'json'
     })
     .done(function(category) {
-      console.log("成功");
       $('.grand_child').css('display', 'block');
       $('#grand_child').empty();
       $('#grand_child').append(buildPrompt);
@@ -49,6 +45,7 @@ $(function() {
       });
     })
     .fail(function() {
+      alert('error');
     })
   });
 });
