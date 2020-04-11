@@ -13,7 +13,7 @@
               カード番号
             .group__text__require
               必須
-          = text_field_tag "number", "", class: "card_registration", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+          = text_field_tag "number", "", class: "card_registration", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number", value:"4242424242424242"
           %ul.card_lists
             -@bland.each do |bland|
               %li.card_lists__icon
@@ -25,7 +25,7 @@
               .group__text__require
                 必須
             .group__form
-              %select#exp_month{name: "exp_month", type: "text", class: "selecter"}
+              %select#exp_month{name: "exp_month", type: "text", class: "select_tag"}
                 %option{value: ""} --
                 %option{value: "1"}01
                 %option{value: "2"}02
@@ -40,7 +40,7 @@
                 %option{value: "11"}11
                 %option{value: "12"}12
               %span 月
-              %select#exp_year{name: "exp_year", type: "text", class: "selecter"}
+              %select#exp_year{name: "exp_year", type: "text", class: "select_tag"}
                 %option{value: ""} --
                 %option{value: "2019"}19
                 %option{value: "2020"}20
