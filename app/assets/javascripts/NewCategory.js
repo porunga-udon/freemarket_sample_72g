@@ -1,35 +1,54 @@
-window.addEventListener('DOMContentLoaded', function(){
+$(function() {
+  var buildPrompt = `<option value>---</option>`
   var buildHtmlOption = function(cat) {
-    var option = `<option value ="${cat.id}">${cat.name}</option>`
-    return option
+      var option = `<option value ="${cat.id}">${cat.name}</option>`
+      return option
   }
-
-  $("#category-form").on("change",function(){
-    var parentValue = $(this).val();
-    console.log(parentValue);
+  $('#parent').change(function() {
+    var parent_id = $(this).val();
+    console.log(location.href);
     $.ajax({
-      url: '/goods/search',
-      type: "GET",
-      data: {
-        parent_id: parentValue 
-      },
+      type: 'GET',
+      url: '/api/child',
+      data: {id: parent_id},
       dataType: 'json'
     })
-      .done(function(categories) {
-          $('.category-form-child').css('display', 'block');
-          $('#category-form-child').empty();
-          $('.grand_child').css('display', 'none');
-          $('#child').append(buildPrompt);
+    .done(function(category) {
+      $('.child').css('display', 'block');
+      $('#child').empty();
+      $('.grand_child').css('display', 'none');
+      $('#child').append(buildPrompt);
 
-          categories.forEach(function(cat) {
-              var html_option = buildHtmlOption(cat);
-              $('#child').append(html_option);
-          });
-        })
-        .fail(function() {
-        })
+      category.forEach(function(cat) {
+        var html_option = buildHtmlOption(cat);
+        $('#child').append(html_option);
+      });
+    })
+    .fail(function(XMLHttpRequest, textStatus, errorThrown){
+      console.log(XMLHttpRequest.status);
+      console.log(textStatus);
+      console.log(errorThrown);
+    })
   });
-  $("#category-form-child").on("change",function(){
-    var childValue = document.getElementById("category-form").value;
+  $(this).on("change", "#child", function() {
+    var child_id = $("#child").val();
+    $.ajax({
+      type: 'GET',
+      url: '/api/grand_child',
+      data: {id: child_id},
+      dataType: 'json'
+    })
+    .done(function(category) {
+      console.log("成功");
+      $('.grand_child').css('display', 'block');
+      $('#grand_child').empty();
+      $('#grand_child').append(buildPrompt);
+      category.forEach(function(cat) {
+        var html_option = buildHtmlOption(cat);
+        $('#grand_child').append(html_option);
+      });
+    })
+    .fail(function() {
+    })
   });
 });
