@@ -204,6 +204,9 @@
   color: green;
   margin-bottom: 40px;
 }
+.child, .grand_child {
+  display: none;
+}
 .goodSelect {
   height: 30px;
   width: 40%;
