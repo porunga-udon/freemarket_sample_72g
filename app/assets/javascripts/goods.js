@@ -1,6 +1,7 @@
 $(document).on('turbolinks:load', function(){
   $(function(){
-
+    var label_box = $('.label-box')
+    var label_content = $('.label-content')
     //プレビューのhtmlを定義
     function buildHTML(count) {
       var html = `<div class="preview-box" id="preview-box__${count}">
@@ -22,9 +23,9 @@ $(document).on('turbolinks:load', function(){
     // ラベルのwidth操作
     function setLabel() {
       //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
-      var prevContent = $('.label-content').prev();
+      var prevContent = label_content.prev();
       labelWidth = (520 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      $('.label-content').css('width', labelWidth);
+      label_content.css('width', labelWidth);
     }
 
     // プレビューの追加
@@ -34,6 +35,7 @@ $(document).on('turbolinks:load', function(){
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //labelボックスのidとforを更新
       $('.label-box').attr({id: `label-box--${id}`,for: `good_images_attributes_${id}_image`});
+
       //選択したfileのオブジェクトを取得
       var file = this.files[0];
       var reader = new FileReader();
@@ -47,7 +49,7 @@ $(document).on('turbolinks:load', function(){
           var count = $('.preview-box').length;
           var html = buildHTML(id);
           //ラベルの直前のプレビュー群にプレビューを追加
-          var prevContent = $('.label-content').prev();
+          var prevContent = label_content.prev();
           $(prevContent).append(html);
         }
         //イメージを追加
@@ -55,7 +57,7 @@ $(document).on('turbolinks:load', function(){
         var count = $('.preview-box').length;
         //プレビューが5個あったらラベルを隠す 
         if (count == 4) { 
-          $('.label-content').hide();
+          label_content.hide();
         }
 
         //ラベルのwidth操作
@@ -64,6 +66,7 @@ $(document).on('turbolinks:load', function(){
         if(count < 4){
           //プレビューの数でラベルのオプションを更新する
           $('.label-box').attr({id: `label-box--${count}`,for: `good_images_attributes_${count}_image`});
+
         }
       }
     });
@@ -85,12 +88,18 @@ $(document).on('turbolinks:load', function(){
       //4個めが消されたらラベルを表示
       if (count == 3) {
         $('.label-content').show();
+
+      //5個めが消されたらラベルを表示
+      if (count == 4) {
+        label_contentshow();
+
       }
       setLabel(count);
 
       if(id < 4){
         //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
         $('.label-box').attr({id: `label-box--${id}`,for: `good_images_attributes_${id}_image`});
+
       }
     });
   });
