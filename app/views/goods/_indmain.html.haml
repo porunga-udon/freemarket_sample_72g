@@ -121,7 +121,7 @@
                   .pick-ups__box__goods__list__body
                     %li.pick-ups__box__goods__list__body__name= good.name
                     %li.pick-ups__box__goods__list__body__price
-                      = good.price 
+                      = converting_to_jpy(good.price)
                       %span.pick-ups__box__goods__list__body__price 円
                       %p.tax-included (税込)
 
@@ -142,7 +142,7 @@
                     .pick-ups__box__goods__list__body
                       %li.pick-ups__box__goods__list__body__name= good.name
                       %li.pick-ups__box__goods__list__body__price
-                        = good.price
+                        = converting_to_jpy(good.price)
                         %span.pick-ups__box__goods__list__body__price 円
                         %p.tax-included (税込)
               - else
@@ -164,7 +164,7 @@
                     .pick-ups__box__goods__list__body
                       %li.pick-ups__box__goods__list__body__name= good.name
                       %li.pick-ups__box__goods__list__body__price
-                        = good.price 
+                        = converting_to_jpy(good.price) 
                         %span.pick-ups__box__goods__list__body__price 円
                         %p.tax-included (税込)
               - else
@@ -188,7 +188,7 @@
                 .pick-ups__box__goods__list__body
                   %li.pick-ups__box__goods__list__body__name= good.name
                   %li.pick-ups__box__goods__list__body__price
-                    = good.price 
+                    = converting_to_jpy(good.price)
                     %span.pick-ups__box__goods__list__body__price 円
                     %p.tax-included (税込)
           - else
