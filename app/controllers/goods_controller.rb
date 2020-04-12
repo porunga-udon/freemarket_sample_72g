@@ -12,7 +12,6 @@ class GoodsController < ApplicationController
   def new
     @good = Good.new
     @good.good_images.new
-    # @good_images = GoodImage.where(id: @goods_all.ids)
   end
 
 
@@ -20,11 +19,14 @@ class GoodsController < ApplicationController
     @good = Good.new(good_params)
     # binding.pry
     if @good.save
+      flash[:notice] = "出品が完了しました"
       redirect_to root_path
     else
+      flash[:alert] = '出品に失敗しました。必須項目を確認してください。'
       render :new
     end
   end
+  
 
   def show
     @good_detail = Good.find(params[:id])
@@ -44,7 +46,7 @@ class GoodsController < ApplicationController
   private
 
   def good_params
-    params.require(:good).permit(:name, :state, :size_id, :region, :postage, :expanation, :shipping_date, :delivery_method_id, :price, good_images_attributes: [:image]).merge( saler_id: current_user.id, trading_conditions: "non", category_id: 1)
+    params.require(:good).permit(:name, :state, :size_id, :region, :postage, :category_id, :expanation, :shipping_date, :delivery_method_id, :price, good_images_attributes: [:image]).merge( seller_id: current_user.id)
   end
 
 end
