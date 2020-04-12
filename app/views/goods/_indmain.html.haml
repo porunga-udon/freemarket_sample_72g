@@ -209,7 +209,7 @@
               =image_tag "google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", size: "180x100"
   
     .bottom-logo
-      = link_to new_good_path, class: "bottom-logo" do
+      = link_to new_good_path,data: {"turbolinks" => false}, class: "bottom-logo" do
         %h.bottom-logo__text 出品する
         .bottom-logo__img
           =image_tag "camera-icon_camera-968c5ebaa05319bf1e2ad7508f852dd712504a4d26a1930d8bd87ec03ebcc37a.svg", width: "60%"

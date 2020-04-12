@@ -25,11 +25,12 @@ class GoodsController < ApplicationController
       render :new
     end
   end
+  
 
   private
 
   def good_params
-    params.require(:good).permit(:name, :state, :size_id, :region, :postage, :expanation, :shipping_date, :delivery_method, :price, good_images_attributes: [:image]).merge( saler_id: current_user.id, trading_conditions: "non", category_id: 1)
+    params.require(:good).permit(:name, :state, :size_id, :region, :postage, :expanation, :shipping_date, :delivery_method_id, :category_id, :price, good_images_attributes: [:image]).merge( saler_id: current_user.id, trading_conditions: "non")
   end
 
 end
