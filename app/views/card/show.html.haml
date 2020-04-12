@@ -1,0 +1,38 @@
+
+
+= render "goods/header"
+
+.main
+
+  .card-content
+    = render "users/mypage-side"
+    .card-content__main
+      %h2.card-content__main__top 登録クレジットカード情報
+      .group
+        .group__text
+          .group__text__main
+            カード番号
+          .numberField
+            = "**** **** **** " + @default_card_information.last4
+        %ul.card_lists
+          -@bland.each do |bland|
+            %li.card_lists__icon
+              =image_tag bland, class:"bland_logo"
+        .group
+          .group__text
+            .group__text__main
+              有効期限
+          .group__form
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+            %span 月
+        .registration
+          .registration__btn
+            = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+              %input{ type: "hidden", name: "card_id", value: "" }
+              %button 削除する
+
+
+=render "goods/indfooter"
+
