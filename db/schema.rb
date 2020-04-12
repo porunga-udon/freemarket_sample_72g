@@ -42,11 +42,11 @@ ActiveRecord::Schema.define(version: 2020_04_09_051510) do
     t.string "postage", null: false
     t.string "expanation", null: false
     t.string "shipping_date", null: false
-    t.integer "delivery_method_id"
+    t.integer "delivery_method_id", null: false
     t.string "trading_conditions", default: "未発送", null: false
     t.integer "price", null: false
     t.bigint "category_id", null: false
-    t.integer "size_id"
+    t.integer "size_id", null: false
     t.bigint "buyer_id"
     t.bigint "saler_id"
     t.datetime "created_at", null: false

@@ -17,9 +17,8 @@
           %span  ルイヴィトン  ダミエ ネヴーフルMMトートバッグ
     .item-detail__content
       %h2.item-detail__content__name
-        ルイヴィトン ダミエ ネヴーフルMMトートバッグ
+        = @good_detail.name
       .item-detail__content__img
-
         - @good_detail.good_images.each_with_index do |img,i|
           - if i == 0
             .item-detail__content__img__top
@@ -30,21 +29,10 @@
               .item-detail__content__img__bottom__b
                 = image_tag("#{img.image}", size: "100x100")
 
-        %ul
-          %li.item-detail__content__img__top
-            = image_tag "/logo.png",size: '134x36',alt:"FURIMA"
-            %ul
-              %li
-                = image_tag "/logo.png",size: '134x36',alt:"FURIMA"
-              %li
-                = image_tag "/logo.png",size: '134x36',alt:"FURIMA"
-              %li
-                = image_tag "/logo.png",size: '134x36',alt:"FURIMA"
-
       .item-detail__content__price
-        ¥87000
+        ¥
+        = @good_detail.price
       .item-detail__content__price__postsge
-
         (税込)送料込み
       - if user_signed_in? && current_user.id == @good_detail.saler_id
         .item-detail__content__edit
@@ -58,42 +46,21 @@
           = link_to "#" do
             %span 購入画面に進む
       .item-detail__content__introduction
-        値下げお買い得⑅◡̈*
-        2〜３年前にルイヴィトンで購入した正規品です。
-        外観も中も綺麗な状態です。
-        持ち手部分のくたりも無くしっかり立ちます‼︎
-        私が使うには、少し大きめだったので
-        使用回数が少なく、
-        とても綺麗な状態で保管できてると思います。
-        目立つ汚れ、スレ、ベタつきなどありません。
-        自己検品なので、見落とし等あるかもしれませんが
-        写真をたくさん出しておりますので、
-        しっかり確認して購入されて下さい。
-        ポーチ付属ありません。
-        購入後の返品返金クレームは一切お受けしませんので
-        承知の上でのご購入をお願い致します。
-        すり替え防止のため返品、返金はお断りしています！
-        シリアルナンバー GI 4153
-        付属品はルイ・ヴィトン保管袋のみです。
-        素材 ダミエ.エベヌ
-        サイズ 31.0×28.5×17.0
-        素人の測り方なので、多少の誤差はお許し下さい。
-        自宅保管になります。
-        気になる方やご神経質なお方はお控え下さい‼︎
-        発送の際は折りたたんでの梱包となりますので
-        こちらもご了承頂ける方でお願い致します。
+        = @good_detail.expanation
       .table
         %table
           %tr
             %th
               出品者
             %td
+              -# = @good_detail.saler_id.name
               ジョナサン
           %tr
             %th
               カテゴリー
             %td
-              レディースバッグ
+              -# = @good_detail.category_id.name
+              失敗
           %tr
             %th
               ブランド
@@ -103,12 +70,13 @@
             %th
               商品のサイズ
             %td
+              -# = @good_detail.size_id.name
               m
           %tr
             %th
               商品の状態
             %td
-              新品/未使用
+              = @good_detail.state
           %tr
             %th
               配送料の負担
@@ -118,7 +86,7 @@
             %th
               発送元の地域
             %td
-              沖縄
+              = @good_detail.region
           %tr
             %th
               発送日の目安

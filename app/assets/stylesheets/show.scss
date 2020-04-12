@@ -20,6 +20,12 @@
       width: 700px;
       margin: 0 auto;
       padding: 24px 40px 40px;
+      &__img{
+        &__bottom{
+          justify-content: center;
+          display: flex;
+        }
+      }
       ul{
         display: flex;
         justify-content: center;
@@ -29,8 +35,9 @@
         font-size: 40px;
       }
       &__buy{
+        margin-top: 20px;
         height: 60px;
-        background-color: red;
+        background-color: #3CCACE;
         a{
           text-decoration: none;
           span{
