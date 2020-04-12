@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_051510) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "ancestry_id"
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,11 +48,11 @@ ActiveRecord::Schema.define(version: 2020_04_09_051510) do
     t.bigint "category_id", null: false
     t.integer "size_id", null: false
     t.bigint "buyer_id"
-    t.bigint "saler_id"
+    t.bigint "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_goods_on_buyer_id"
-    t.index ["saler_id"], name: "index_goods_on_saler_id"
+    t.index ["seller_id"], name: "index_goods_on_seller_id"
   end
 
   create_table "user_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -98,6 +98,6 @@ ActiveRecord::Schema.define(version: 2020_04_09_051510) do
 
   add_foreign_key "good_images", "goods"
   add_foreign_key "goods", "users", column: "buyer_id"
-  add_foreign_key "goods", "users", column: "saler_id"
+  add_foreign_key "goods", "users", column: "seller_id"
   add_foreign_key "user_addresses", "users"
 end
