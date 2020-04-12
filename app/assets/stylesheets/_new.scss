@@ -110,10 +110,13 @@
           }
         .priceArea {
           height: 60px;
-          width: 110%;
-          margin-left: 20px;
+          width: 400px;
+          border-radius: 15px;
+          border: solid 1px #e9e6e6;
+          padding-left: 20px;
+          outline: 0;
         }
-        }
+      }
       }
     }
     &__submitZone {
@@ -336,4 +339,5 @@
   padding-left: 20px;
   outline: 0;
   }
+
 
