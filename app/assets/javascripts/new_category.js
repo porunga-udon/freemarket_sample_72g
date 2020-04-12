@@ -6,6 +6,8 @@ $(function() {
   }
   $('#parent').change(function() {
     var parent_id = $(this).val();
+    var child_id = $('#child')
+
     $.ajax({
       type: 'GET',
       url: '/api/child',
@@ -14,9 +16,9 @@ $(function() {
     })
     .done(function(category) {
       $('.child').css('display', 'block');
-      $('#child').empty();
+      child_id.empty();
       $('.grand_child').css('display', 'none');
-      $('#child').append(buildPrompt);
+      child_id.append(buildPrompt);
 
       category.forEach(function(cat) {
         var html_option = buildHtmlOption(cat);
