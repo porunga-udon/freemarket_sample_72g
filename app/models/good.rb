@@ -4,7 +4,7 @@ class Good < ApplicationRecord
   # has_many :comments, through: :users_comments, dependent: :destroy
  # has_many :users_comments, dependent: :destroy
  # has_many :orders
-  belongs_to :saler, class_name: "User"
+  belongs_to :seller, class_name: "User"
   # belongs_to :buyer, class_name: "User"
   # belongs_to :user_address
   belongs_to :category
