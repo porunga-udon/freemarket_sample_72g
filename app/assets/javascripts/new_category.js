@@ -8,7 +8,6 @@ $(function() {
   }
   $('#parent').change(function() {
     var parent_id = $(this).val();
-    var child_id = $('#child')
 
     $.ajax({
       type: 'GET',
