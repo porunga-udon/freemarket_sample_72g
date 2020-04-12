@@ -9,9 +9,7 @@ $(document).on('turbolinks:load', function(){
                       <img src="" alt="preview">
                     </div>
                     <div class="lower-box">
-                      <div class="update-box">
-                        <label class="edit_btn">編集</label>
-                      </div>
+                      
                       <div class="delete-box" id="delete_btn_${count}">
                         <span>削除</span>
                       </div>
@@ -88,11 +86,6 @@ $(document).on('turbolinks:load', function(){
       //4個めが消されたらラベルを表示
       if (count == 3) {
         $('.label-content').show();
-
-      //5個めが消されたらラベルを表示
-      if (count == 4) {
-        label_contentshow();
-
       }
       setLabel(count);
 
