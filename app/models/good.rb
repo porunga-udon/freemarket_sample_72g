@@ -3,7 +3,7 @@ class Good < ApplicationRecord
  # has_many :buyed_goods, foreign_key: "buyer_id", class_name: "Good", dependent: :destroy
   # has_many :comments, through: :users_comments, dependent: :destroy
  # has_many :users_comments, dependent: :destroy
- # has_many :orders
+  has_many :orders
   belongs_to :saler, class_name: "User"
   # belongs_to :buyer, class_name: "User"
   # belongs_to :user_address
@@ -20,4 +20,5 @@ class Good < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :size
   belongs_to_active_hash :delivery_method
+
 end
