@@ -20,7 +20,8 @@
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               = f.fields_for :good_images do |i|
-                = i.file_field :image, class: "hidden-field", id:"good_images_attributes_0_image"
+
+                = i.file_field :image, class: "hidden-field", id:"item_images_attributes_0_image"
                 %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][1][image]", id: "item_images_attributes_1_image" }
                 %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][2][image]", id: "item_images_attributes_2_image" }
                 %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][3][image]", id: "item_images_attributes_3_image" }
@@ -99,7 +100,7 @@
             .priceYen
               ¥
             .priceForm
-              = f.text_field :price, placeholder: :"　　　　　　　　　　　　0", class: :priceArea
+              = f.number_field :price, min: 300, max: 9999999, placeholder: :"例)500", class: :priceArea
       .setNewPage__submitZone
         .setNewPage__submitZone__main
           = f.submit "出品する", class: :form__btn 
