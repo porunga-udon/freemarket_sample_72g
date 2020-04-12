@@ -73,6 +73,7 @@ gem 'payjp'
 gem 'jquery-rails'
 gem 'active_hash'
 gem 'ancestry'
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn','=5.4.1'
