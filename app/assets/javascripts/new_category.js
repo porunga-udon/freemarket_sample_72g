@@ -1,4 +1,6 @@
 $(function() {
+  var child_id = $('#child');
+  var grand_child_id = $('#grand_child');
   var buildPrompt = `<option value>選択してください</option>`
   var buildHtmlOption = function(cat) {
     var option = `<option value ="${cat.id}">${cat.name}</option>`
@@ -14,13 +16,13 @@ $(function() {
     })
     .done(function(category) {
       $('.child').css('display', 'block');
-      $('#child').empty();
+      child_id.empty();
       $('.grand_child').css('display', 'none');
-      $('#child').append(buildPrompt);
+      child_id.append(buildPrompt);
 
       category.forEach(function(cat) {
         var html_option = buildHtmlOption(cat);
-        $('#child').append(html_option);
+        child_id.append(html_option);
       });
     })
     .fail(function(){
@@ -37,11 +39,11 @@ $(function() {
     })
     .done(function(category) {
       $('.grand_child').css('display', 'block');
-      $('#grand_child').empty();
-      $('#grand_child').append(buildPrompt);
+      grand_child_id.empty();
+      grand_child_id.append(buildPrompt);
       category.forEach(function(cat) {
         var html_option = buildHtmlOption(cat);
-        $('#grand_child').append(html_option);
+        grand_child_id.append(html_option);
       });
     })
     .fail(function() {
