@@ -13,8 +13,18 @@
               必須
           .setNewPage__imageZone__main__max
             最大4枚までアップロードできます
-          = f.fields_for :good_images do |i|
-            = i.file_field :image, class: "setNewPage__imageZone__main__form"
+          .post__drop__box__container
+            .prev-content
+            .label-content
+              %label{for: "good_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :good_images do |i|
+
+                = i.file_field :image, class: "hidden-field", id:"good_images_attributes_0_image"
+                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][3][image]", id: "item_images_attributes_3_image" }
       .setNewPage__detailZone
         .setNewPage__detailZone__main
           .subTitleRepeat
@@ -35,7 +45,16 @@
             カテゴリー
             .b
               必須
-          .putIncategory
+          %select.goodSelect#parent
+            %option{value: 0} 選択してください
+            - Category.where('ancestry IS NULL').each do |cat|
+              %option{value: "#{cat.id}"} #{cat.name}
+          .child
+            %br
+            %select.goodSelect#child　
+          .grand_child
+            %br
+            = f.collection_select(:category_id, [], :id, :name, {prompt: "選択してください"}, {id: "grand_child"},)
           .subTitleRepeat
             状態
             .b
@@ -43,7 +62,8 @@
           = f.select :state, ["新品，未使用", "未使用に近い", "目立った傷や汚れがない", "やや傷や汚れがある", "傷や汚れあり", "全体的状態が悪い"],{include_blank:"選択してください"}, class: :goodSelect
           .subTitleRepeat
             サイズ
-          = f.select :size_id, [{id: 1, name: "S"}, "M", "L", "LL", "XL"],{include_blank:"選択してください"}
+          = f.select :size_id, [["S",1], ["M",2], ["L", 3], ["LL", 4], ["XL", 5]],{include_blank:"選択してください"}, class: :goodSelect
+
       .setNewPage__deliveryZone
         .setNewPage__deliveryZone__main
           .f
@@ -52,7 +72,7 @@
             配送方法
             .b
               必須
-          = f.select :delivery_method, ["未定","ゆうメール","レターパック","普通郵便(定形、定形外)","クロネコヤマト"],{include_blank: "選択してください"}, class: :goodSelect
+          = f.select :delivery_method_id, [["未定",1], ["ゆうメール",2], ["レターパック", 3], ["普通郵便(定形、定形外)", 4], ["クロネコヤマト", 5]],{include_blank:"選択してください"}, class: :goodSelect
           .subTitleRepeat
             配送量の負担
             .b
@@ -80,7 +100,7 @@
             .priceYen
               ¥
             .priceForm
-              = f.text_field :price, placeholder: :"　　　　　　　　　　　　0", class: :priceArea
+              = f.number_field :price, min: 300, max: 9999999, placeholder: :"例)500", class: :priceArea
       .setNewPage__submitZone
         .setNewPage__submitZone__main
           = f.submit "出品する", class: :form__btn 
@@ -88,6 +108,7 @@
             = link_to "戻る", root_path,class:"returnBtn"
           .setNewPage__submitZone__main__caution
             禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+          %br
 .footer
   %ul.contents
     %li.content
@@ -129,7 +150,7 @@
         %li
           = link_to "#" do
             %span  お知らせ
-.footer__logo
-  %span.image
-    = image_tag "logo-white.png", size:'134x36'
-    %p  ©︎フリマ
+  .footer__logo
+    %span.image
+      = image_tag "logo-white.png", size:'134x36'
+      %p  ©︎フリマ

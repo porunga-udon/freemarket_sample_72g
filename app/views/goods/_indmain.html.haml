@@ -116,12 +116,11 @@
               .pick-ups__box__goods__list
                 = link_to "#", class: "pick-ups__box__goods__list" do
                   %li.pick-ups__box__goods__list__pic
-                    - good.good_images.each do |good_images| 
-                      =image_tag("#{good_images.image}", size: "220x150")
+                    =image_tag good.good_images[0].image.url, size: "220x150"
                   .pick-ups__box__goods__list__body
                     %li.pick-ups__box__goods__list__body__name= good.name
                     %li.pick-ups__box__goods__list__body__price
-                      = good.price 
+                      = converting_to_jpy(good.price)
                       %span.pick-ups__box__goods__list__body__price 円
                       %p.tax-included (税込)
 
@@ -137,12 +136,11 @@
                 .pick-ups__box__goods__list
                   = link_to "#", class: "pick-ups__box__goods__list" do
                     %li.pick-ups__box__goods__list__pic
-                      - good.good_images.each do |good_images| 
-                        =image_tag good_images.image, size: "220x150"
+                      =image_tag good.good_images[0].image.url, size: "220x150"
                     .pick-ups__box__goods__list__body
                       %li.pick-ups__box__goods__list__body__name= good.name
                       %li.pick-ups__box__goods__list__body__price
-                        = good.price
+                        = converting_to_jpy(good.price)
                         %span.pick-ups__box__goods__list__body__price 円
                         %p.tax-included (税込)
               - else
@@ -159,12 +157,11 @@
                 .pick-ups__box__goods__list
                   = link_to good_path(good.id), class: "pick-ups__box__goods__list" do
                     %li.pick-ups__box__goods__list__pic
-                      - good.good_images.each do |good_images| 
-                        =image_tag("#{good_images.image}", size: "220x150")
+                      =image_tag good.good_images[0].image.url, size: "220x150"
                     .pick-ups__box__goods__list__body
                       %li.pick-ups__box__goods__list__body__name= good.name
                       %li.pick-ups__box__goods__list__body__price
-                        = good.price 
+                        = converting_to_jpy(good.price) 
                         %span.pick-ups__box__goods__list__body__price 円
                         %p.tax-included (税込)
               - else
@@ -183,12 +180,11 @@
             .brand__container__category__list
               = link_to "#", class: "brand__container__category__list" do
                 %li.pick-ups__box__goods__list__pic
-                  - good.good_images.each do |good_images| 
-                    =image_tag("#{good_images.image}", size: "220x150")
+                  =image_tag good.good_images[0].image.url, size: "220x150"
                 .pick-ups__box__goods__list__body
                   %li.pick-ups__box__goods__list__body__name= good.name
                   %li.pick-ups__box__goods__list__body__price
-                    = good.price 
+                    = converting_to_jpy(good.price)
                     %span.pick-ups__box__goods__list__body__price 円
                     %p.tax-included (税込)
           - else
@@ -209,7 +205,7 @@
               =image_tag "google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", size: "180x100"
   
     .bottom-logo
-      = link_to new_good_path, class: "bottom-logo" do
+      = link_to new_good_path,data: {"turbolinks" => false}, class: "bottom-logo" do
         %h.bottom-logo__text 出品する
         .bottom-logo__img
           =image_tag "camera-icon_camera-968c5ebaa05319bf1e2ad7508f852dd712504a4d26a1930d8bd87ec03ebcc37a.svg", width: "60%"
