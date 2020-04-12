@@ -33,14 +33,12 @@
         = @good_detail.price
       .item-detail__content__price__postsge
         (税込)送料込み
-      - if user_signed_in? && current_user.id == @good_detail.saler_id
         .item-detail__content__edit
           = link_to "#" do
             %span 商品を編集する
         .item-detail__content__destroy
           = link_to good_path(@good_detail), method: :delete, data: { confirm: '削除しますか？' } do
             商品を削除する
-      - else
         .item-detail__content__buy
           = link_to "#" do
             %span 購入画面に進む
