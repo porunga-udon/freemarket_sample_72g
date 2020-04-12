@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_051510) do
+ActiveRecord::Schema.define(version: 2020_04_11_030537) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -42,17 +42,25 @@ ActiveRecord::Schema.define(version: 2020_04_09_051510) do
     t.string "postage", null: false
     t.string "expanation", null: false
     t.string "shipping_date", null: false
-    t.integer "delivery_method_id"
+    t.integer "delivery_method_id", null: false
     t.string "trading_conditions", default: "未発送", null: false
     t.integer "price", null: false
     t.bigint "category_id", null: false
-    t.integer "size_id"
+    t.integer "size_id", null: false
     t.bigint "buyer_id"
     t.bigint "saler_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_goods_on_buyer_id"
     t.index ["saler_id"], name: "index_goods_on_saler_id"
+  end
+
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "good_id", null: false
+    t.integer "user_address_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
