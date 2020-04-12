@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root to: 'goods#index'
   resources :users, only:[:show, :destroy]
 
+ 
+
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'
@@ -12,10 +14,12 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
     end
   end
-
+  
+  
   resources :goods, only:[:index, :show, :new, :create] do
     resources :good_images, only: [:index, :new, :create]
   end
+
   
   resources :orders, only: [:index] do
     collection do
@@ -24,5 +28,19 @@ Rails.application.routes.draw do
       get 'done', to: 'orders#done'
     end
   end
+
+  namespace :api do
+    resources controller: :goods, only: :child, defaults: { format: 'json' } do
+      collection do
+        get 'child'
+      end
+    end
+    resources controller: :goods, only: :grand_child, defaults: { format: 'json' } do
+      collection do
+        get 'grand_child'
+      end
+    end
+  end
+  
 
 end
