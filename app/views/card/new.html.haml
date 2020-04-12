@@ -13,7 +13,7 @@
               カード番号
             .group__text__require
               必須
-          = text_field_tag "number", "", class: "card_registration", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number", value:"4242424242424242"
+          = text_field_tag "number", "", class: "card_registration", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
           %ul.card_lists
             -@bland.each do |bland|
               %li.card_lists__icon

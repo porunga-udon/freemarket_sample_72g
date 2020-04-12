@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   resources :goods, only:[:index, :show, :new, :create] do
     resources :good_images, only: [:index, :new, :create]
   end
-  resources :orders, only:[:index] # 商品購入確認画面へ
   
   resources :orders, only: [:index] do
     collection do
