@@ -1,0 +1,78 @@
+.main{
+  background-color: rgb(240, 238, 238);
+  width: 100%;
+  .done {
+    background-color: #fff;
+    width: 600px;
+    margin: 0 auto;
+    height: calc(100%-180px);
+    padding-bottom: 60px;
+    &__info {
+      height: 130px;
+      background-color: rgb(250, 230, 166);
+      text-align: center;
+      padding-top: 25px;
+      &__box {
+        display: flex;
+        color: rgb(216, 58, 58);
+        height: 50px;
+        width: 350px;
+        margin: 0 auto;
+        &--icon {
+          font-size: 35px;
+        }
+        &--text {
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 55px;
+          margin-left: 10px;
+        }
+      }
+    }
+    &__top {
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+      border-bottom: 1px solid rgb(221, 219, 219);
+      margin-bottom: 40px;
+    }
+    &__box {
+      text-align: center;
+      width: 100%;
+      margin: 0 auto;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgb(221, 219, 219);
+      &__image {
+        width: 150px;
+        margin: 0 auto 20px;
+      }
+      &__name {
+        font-size: 20px;
+      }
+    }
+    &__price {
+      font-weight: bold;
+      text-align: center;
+      // margin-top: 20px;
+      padding: 20px 0;
+      margin-bottom: 70px;
+      border-bottom: 1px solid rgb(221, 219, 219);
+    }
+    &__btn {
+      width: 400px;
+      margin: 30px auto;
+      .btn {
+        margin: 0 auto;
+        width: 400px;
+        height: 60px;
+        color: white;
+        background-color: $main_color;
+        text-decoration: none;
+        font-size: 20px;
+        outline: 0;
+      }
+    }
+  }
+}
