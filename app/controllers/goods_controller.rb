@@ -32,7 +32,6 @@ class GoodsController < ApplicationController
 
   def destroy
     good = Good.find(params[:id])
-    good.destroy
     if good.destroy
       flash[:notice] = "商品の削除が完了しました"
     else
