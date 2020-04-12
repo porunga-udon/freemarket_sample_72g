@@ -116,8 +116,7 @@
               .pick-ups__box__goods__list
                 = link_to "#", class: "pick-ups__box__goods__list" do
                   %li.pick-ups__box__goods__list__pic
-                    - good.good_images.each do |good_images| 
-                      =image_tag("#{good_images.image}", size: "220x150")
+                    =image_tag good.good_images[0].image.url, size: "220x150"
                   .pick-ups__box__goods__list__body
                     %li.pick-ups__box__goods__list__body__name= good.name
                     %li.pick-ups__box__goods__list__body__price
@@ -137,8 +136,7 @@
                 .pick-ups__box__goods__list
                   = link_to "#", class: "pick-ups__box__goods__list" do
                     %li.pick-ups__box__goods__list__pic
-                      - good.good_images.each do |good_images| 
-                        =image_tag good_images.image, size: "220x150"
+                      =image_tag good.good_images[0].image.url, size: "220x150"
                     .pick-ups__box__goods__list__body
                       %li.pick-ups__box__goods__list__body__name= good.name
                       %li.pick-ups__box__goods__list__body__price
@@ -159,8 +157,7 @@
                 .pick-ups__box__goods__list
                   = link_to good_path(good.id), class: "pick-ups__box__goods__list" do
                     %li.pick-ups__box__goods__list__pic
-                      - good.good_images.each do |good_images| 
-                        =image_tag("#{good_images.image}", size: "220x150")
+                      =image_tag good.good_images[0].image.url, size: "220x150"
                     .pick-ups__box__goods__list__body
                       %li.pick-ups__box__goods__list__body__name= good.name
                       %li.pick-ups__box__goods__list__body__price
@@ -183,8 +180,7 @@
             .brand__container__category__list
               = link_to "#", class: "brand__container__category__list" do
                 %li.pick-ups__box__goods__list__pic
-                  - good.good_images.each do |good_images| 
-                    =image_tag("#{good_images.image}", size: "220x150")
+                  =image_tag good.good_images[0].image.url, size: "220x150"
                 .pick-ups__box__goods__list__body
                   %li.pick-ups__box__goods__list__body__name= good.name
                   %li.pick-ups__box__goods__list__body__price
