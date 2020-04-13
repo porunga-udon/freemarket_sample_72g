@@ -1,12 +1,18 @@
 .mypage__side
   %ul.mypage__side__list
-    %li.mypage__side--item.active
-      =link_to "#", class:"item" do
-        マイページ
     -@contents.each do |content|
-      %li.mypage__side--item
-        =link_to "#", class:"btn item" do
-          =content
+      -if content == "マイページ"
+        %li.mypage__side--item
+          =link_to user_path(current_user), class:"btn item" do
+            =content
+      -elsif content == "出品した商品-出品中"
+        %li.mypage__side--item
+          =link_to goods_list_user_path(current_user), class:"btn item" do
+            =content
+      -else
+        %li.mypage__side--item
+          =link_to "#", class:"btn item" do
+            =content
 
   .mypage__side__option
     設定
