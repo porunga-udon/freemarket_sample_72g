@@ -4,7 +4,7 @@
   .item-detail
     %ul.item-detail__breadcrumb
       %li.item-detail__breadcrumb__list
-        = link_to "#" do
+        = link_to root_path do
           %span フリマ >
       %li.item-detail__breadcrumb__list
         = link_to "#" do
@@ -27,7 +27,7 @@
           - @good_detail.good_images.each_with_index do |img,i|
             - if i != 0
               .item-detail__content__img__bottom__b
-                = image_tag img.image,size:'100x100'
+                = image_tag("#{img.image}",size:'100x100')
                 
       .item-detail__content__price
         = @good_detail.price
@@ -38,7 +38,7 @@
         .item-detail__content__sold-out
           SOLD OUT
       -else
-        - if user_signed_in? && current_user.id == @good_detail.saler_id
+        - if user_signed_in? && current_user.id == @good_detail.seller_id
           .item-detail__content__edit
             = link_to "#" do
               %span 商品を編集する
@@ -58,12 +58,18 @@
             %th
               出品者
             %td
-              ジョナサン
+              = @good_user.nickname
           %tr
             %th
               カテゴリー
             %td
-              レディースバッグ
+              = @category_parent.name
+              %br
+              >
+              = @category_children.name
+              %br
+              >
+              = @category_grand_children.name
           %tr
             %th
               ブランド
@@ -73,7 +79,7 @@
             %th
               商品のサイズ
             %td
-              m
+              = @good_size.name
           %tr
             %th
               商品の状態
