@@ -14,6 +14,19 @@ class GoodsController < ApplicationController
     @good.good_images.new
   end
 
+  def show
+    @good_detail = Good.find(params[:id])
+  end
+
+  def destroy
+    good = Good.find(params[:id])
+    if good.destroy
+      flash[:notice] = "商品の削除が完了しました"
+    else
+      flash[:alert] = "商品の削除に失敗しました"
+      redirect_to good_path(@good_detail)
+    end
+  end
 
   def create
     @good = Good.new(good_params)
