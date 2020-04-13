@@ -114,7 +114,7 @@
           .pick-ups__box__goods
             - @goods.each do |good|
               .pick-ups__box__goods__list
-                = link_to "#", class: "pick-ups__box__goods__list" do
+                = link_to good_path(good.id), class: "pick-ups__box__goods__list" do
                   %li.pick-ups__box__goods__list__pic
                     =image_tag good.good_images[0].image.url, size: "220x150"
                   .pick-ups__box__goods__list__body
@@ -134,7 +134,7 @@
             - @goods_women_new.each do |good|
               - if good.buyer_id == nil
                 .pick-ups__box__goods__list
-                  = link_to "#", class: "pick-ups__box__goods__list" do
+                  = link_to good_path(good.id), class: "pick-ups__box__goods__list" do
                     %li.pick-ups__box__goods__list__pic
                       =image_tag good.good_images[0].image.url, size: "220x150"
                     .pick-ups__box__goods__list__body
