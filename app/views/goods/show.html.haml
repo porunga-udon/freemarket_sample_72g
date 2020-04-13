@@ -51,7 +51,7 @@
               %span 購入画面に進む
               
       .item-detail__content__introduction
-        
+        = @good_detail.expanation
       .table
         %table
           %tr
@@ -78,22 +78,22 @@
             %th
               商品の状態
             %td
-              新品/未使用
+              = @good_detail.state
           %tr
             %th
               配送料の負担
             %td
-              着払い
+              = @good_detail.postage
           %tr
             %th
               発送元の地域
             %td
-              沖縄
+              = @good_detail.region
           %tr
             %th
               発送日の目安
             %td
-              1-2日で発送
+              = @good_detail.shipping_date
       .item-detail__content__reactions
         %ul
           %li.item-detail__content__reactions__fav

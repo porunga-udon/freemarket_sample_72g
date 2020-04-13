@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
   
   
-  resources :goods, only:[:index, :show, :new, :create] do
+  resources :goods, only:[:index, :show, :new, :create :destroy] do
     resources :good_images, only: [:index, :new, :create]
   end
 
