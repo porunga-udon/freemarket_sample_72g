@@ -48,7 +48,9 @@
             %option{value: 0} 選択してください
           .child
             %br
-            %select.goodSelect#child　
+            %select.goodSelect#child
+            - Category.where('ancestry IS NULL').each do |cat|
+              %option{value: "#{cat.id}"} #{cat.name}
           .grand_child
             %br
             = f.collection_select(:category_id, [], :id, :name, {prompt: "選択してください"}, {id: "grand_child"},)
