@@ -27,7 +27,8 @@
           - @good_detail.good_images.each_with_index do |img,i|
             - if i != 0
               .item-detail__content__img__bottom__b
-                = image_tag img.image,size:'100x100'
+                = image_tag("#{img.image}",size:'100x100')
+
                 
       .item-detail__content__price
         = @good_detail.price
@@ -38,7 +39,7 @@
         .item-detail__content__sold-out
           SOLD OUT
       -else
-        - if user_signed_in? && current_user.id == @good_detail.saler_id
+        - if user_signed_in? && current_user.id == @good_detail.seller_id
           .item-detail__content__edit
             = link_to edit_good_path(@good_detail), method: :get do
               %span 商品を編集する
