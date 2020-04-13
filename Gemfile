@@ -74,6 +74,7 @@ gem 'jquery-rails'
 gem 'active_hash'
 gem 'ancestry'
 gem 'dotenv-rails'
+gem 'kaminari'
 
 group :production do
   gem 'unicorn','=5.4.1'
