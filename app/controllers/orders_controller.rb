@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   require 'payjp'
   before_action :set_good
-  before_action :set_user
+  before_action :set_address
   before_action :set_card
 
   def index
@@ -17,20 +17,24 @@ class OrdersController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    Payjp::Charge.create(
-    :amount => @good.price,
-    :customer => @card.customer_id,
-    :currency => 'jpy',
-    )
-    redirect_to done_orders_path(@good.id)
+    @good.buyer_id = current_user.id
+    if @good.save
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp::Charge.create(
+      :amount => @good.price,
+      :customer => @card.customer_id,
+      :currency => 'jpy',
+      )
+      flash[:notice] = "購入が完了しました。"
+      redirect_to done_orders_path(@good.id)
+    else
+      flash[:alert] = '購入できませんでした。'
+      redirect_to orders_path(@good.id)
+    end
   end
   
   def done
-    @good.buyer_id = @user.id
-    @good.save
   end
-
 
   private
 
@@ -39,9 +43,8 @@ class OrdersController < ApplicationController
     @image = GoodImage.where(good_id:@good.id).first
   end
 
-  def set_user
-    @user = current_user
-    @address = (@user.prefecture + @user.city + @user.block)
+  def set_address
+    @address = (current_user.prefecture + current_user.city + current_user.block)
   end
 
   def set_card
