@@ -20,6 +20,8 @@ class GoodsController < ApplicationController
 
   def edit
     @good = Good.find(params[:id])
+    require 'base64'
+
   end
 
   def update
