@@ -29,6 +29,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only:[:goods_list] do
+    member do
+      get 'goods_list'
+    end
+  end
+
   namespace :api do
     resources controller: :goods, only: :child, defaults: { format: 'json' } do
       collection do
