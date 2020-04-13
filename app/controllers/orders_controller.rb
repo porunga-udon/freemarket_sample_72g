@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
 
   def set_good
     @good = Good.find(params[:format])
-    @image = GoodImage.where(good_id:@good.id).first
+    @image = GoodImage.find_by(good_id:@good.id)
   end
 
   def set_address
@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
   end
 
   def set_card
-    @card = Card.where(user_id: current_user.id).first
+    @card = Card.find_by(user_id: current_user.id)
   end
 
 end

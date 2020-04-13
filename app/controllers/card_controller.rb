@@ -26,7 +26,7 @@ class CardController < ApplicationController
   end
 
   def delete
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -39,7 +39,7 @@ class CardController < ApplicationController
 
 
   def show
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to action: "new" 
     else
@@ -49,6 +49,7 @@ class CardController < ApplicationController
     end
   end
 
+  private
   def create_hash
     @contents = ["お知らせ","やることリスト","いいね！一覧","出品する","下書き一覧","出品した商品-取引中","出品した商品-取引中","出品した商品-売却済み","購入した商品-取引中","購入した商品-過去の取引","ニュース一覧","評価一覧","ガイド","お問い合わせ"]
     @options = ["プロフィール","発送元・お届先住所変更","支払い方法","メール/パスワード","本人情報","電話番号の確認","ログアウト"]
