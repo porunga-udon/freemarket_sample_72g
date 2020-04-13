@@ -25,36 +25,27 @@
       border-bottom: 1px solid rgb(221, 219, 219);
     }
     &__goods {
-      height: 150px;
-      border-bottom: 1px solid rgb(221, 219, 219);
+      height: 200px;
       &__main {
-        height: 80%;
-        width: 60%;
-        background-color: red;
-        margin: 10px auto;
-        position: relative;
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgb(221, 219, 219);
         &__image {
-          height: 100px;
-          width: 20%;
-          background-color: royalblue;
-          position: absolute;
-          top: 10px;
-          left: 20px;
+          width: 150px;
+          margin: 0 auto 20px;
         }
         &__detail {
-          height: 80%;
-          width: 60%;
-          background-color: green;
-          position: absolute;
-          top: 10px;
-          right: 20px;
+          font-size: 20px;
         }
       }  
     }
     &__price {
       height: 150px;
       border-bottom: 1px solid rgb(221, 219, 219);
-      line-height: 150px;
+      line-height: 200px;
       &__main {
         width: 60%;
         display: flex;
@@ -95,7 +86,17 @@
     &__buyBtn {
       height: 200px;
       text-align: center;
-      line-height: 200px;
+      line-height: 150px;
+      .btn {
+        margin: 0 auto;
+        width: 400px;
+        height: 60px;
+        color: white;
+        background-color: $main_color;
+        text-decoration: none;
+        font-size: 20px;
+        outline: 0;
+      }
     }
   }
 }
