@@ -14,4 +14,8 @@ class UsersController < ApplicationController
     @goods = ["スニーカー","プレイステーション4","iPhone11","MacBookPro"]
   end
 
+  def goods_list
+    @goods = Good.where(seller_id: current_user.id).order(id: "DESC").limit(5)
+  end
+
 end
