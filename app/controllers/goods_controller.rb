@@ -18,6 +18,15 @@ class GoodsController < ApplicationController
     @good_detail = Good.find(params[:id])
   end
 
+  def edit
+    @good = Good.find(params[:id])
+  end
+
+  def update
+    good = Good.find(params[:id])
+    good.update(good_params)
+  end
+
   def destroy
     good = Good.find(params[:id])
     if good.destroy
