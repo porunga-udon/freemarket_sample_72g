@@ -146,8 +146,7 @@
 
 ### Association
 - has_many :goods
-- has_many :sizes, through: :categories_sizes
-- has_many :categories_sizes
+- has_many :sizes
 
 ## sizesテーブル
 
@@ -157,16 +156,5 @@
 
 ### Association
 - has_many :goods
-- has_many :categories, through: :categories_sizes
-- has_many :categories_sizes
+- has_many :categories
 
-## catedories_sizesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|category_id|integer|null: false, foreign_key: true|
-|size_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :category
-- belongs_to :size
