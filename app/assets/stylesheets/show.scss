@@ -20,6 +20,21 @@
       width: 700px;
       margin: 0 auto;
       padding: 24px 40px 40px;
+      &__sold-out {
+        margin-top: 20px;
+        height: 60px;
+        background-color: rgb(233, 62, 62);
+        color: white;
+        line-height: 60px;
+        font-weight: 600;
+        font-size: 24px;
+      }
+      &__img{
+        &__bottom{
+          justify-content: center;
+          display: flex;
+        }
+      }
       ul{
         display: flex;
         justify-content: center;
@@ -29,6 +44,7 @@
         font-size: 40px;
       }
       &__buy{
+        margin-top: 20px;
         height: 60px;
         background-color: red;
         a{
@@ -41,6 +57,32 @@
           }
         }
        }
+       &__edit{
+        margin-top: 20px;
+        height: 40px;
+        background-color: #3CCACE;
+        a{
+          text-decoration: none;
+          span{
+            font-weight: 200;
+            font-size: 20px;
+            line-height: 2;
+            color: white;
+          }
+        }
+      }
+      &__destroy{
+        margin-top: 20px;
+        height: 40px;
+        background-color: #3CCACE;
+        a{
+          text-decoration: none;
+          font-weight: 200;
+            font-size: 20px;
+            line-height: 2;
+            color: white;
+        }
+      }
       &__introduction{
         margin: 20px 0 ;
       }
