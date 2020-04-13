@@ -20,6 +20,21 @@
       width: 700px;
       margin: 0 auto;
       padding: 24px 40px 40px;
+      &__sold-out {
+        margin-top: 20px;
+        height: 60px;
+        background-color: rgb(233, 62, 62);
+        color: white;
+        line-height: 60px;
+        font-weight: 600;
+        font-size: 24px;
+      }
+      &__img{
+        &__bottom{
+          justify-content: center;
+          display: flex;
+        }
+      }
       ul{
         display: flex;
         justify-content: center;

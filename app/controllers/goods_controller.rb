@@ -30,7 +30,6 @@ class GoodsController < ApplicationController
 
   def create
     @good = Good.new(good_params)
-    # binding.pry
     if @good.save
       flash[:notice] = "出品が完了しました"
       redirect_to root_path

@@ -31,7 +31,7 @@
           .registration__btn
             = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
               %input{ type: "hidden", name: "card_id", value: "" }
-              %button 削除する
+              %button.delete_btn 削除する
 
 
 =render "goods/indfooter"
