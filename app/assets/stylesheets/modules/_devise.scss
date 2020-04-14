@@ -36,6 +36,32 @@
     &__form {
       padding-top: 80px;
     }
+    h2 {
+      height: 40px;
+      width: 250px;
+      border-radius: 15px;
+      border: solid 1px rgb(233, 230, 230);
+      outline: 0;
+      margin: 0px auto 40px;
+      display: block;
+      color: #630015;
+      background-color: #ffd9e1;
+      text-align: center;
+      line-height: 40px;
+    }
+    li {
+      height: 40px;
+      width: 430px;
+      border-radius: 15px;
+      border: solid 1px rgb(233, 230, 230);
+      padding-left: 20px;
+      outline: 0;
+      margin: 0px auto 15px;
+      display: block;
+      color: #630015;
+      background-color: #ffd9e1;
+      line-height: 40px;
+    }
     .group {
       width: 400px;
       margin: 0px auto 50px;
