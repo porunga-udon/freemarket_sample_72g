@@ -26,7 +26,7 @@ class GoodsController < ApplicationController
 
   def update
     good = Good.find(params[:id])
-    good.update(good_params)
+    good.update(good_update_params)
   end
 
   def destroy
@@ -57,4 +57,7 @@ class GoodsController < ApplicationController
     params.require(:good).permit(:name, :state, :size_id, :region, :postage, :category_id, :expanation, :shipping_date, :delivery_method_id, :price, good_images_attributes: [:image]).merge( seller_id: current_user.id)
   end
 
+  def good_update_params
+    params.require(:good).permit(:name, :state, :size_id, :region, :postage, :category_id, :expanation, :shipping_date, :delivery_method_id, :price, good_images_attributes: [:image, :_destroy, :id]).merge( seller_id: current_user.id)
+  end
 end
