@@ -27,13 +27,12 @@
                       .delete-btn
                         %span 削除
             .label-content
-              = f.label :"good_images_attributes_#{@good.good_images.length}_image", class: "label-box", id: "label-box--#{@good.good_images.length}" do
+              %label{for: "good_images_attributes_#{@good.good_images.length}_image", class: "label-box", id: "label-box--#{@good.good_images.length}"}
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               = f.fields_for :good_images do |i|
-                = i.file_field :image, class: "hidden-field"
-                = i.check_box :_destroy, class: "hidden-checkbox", id: "good_images_attributes_#{i.id}__destroy"
-                
+                = i.file_field :image, class: "hidden-field", id: "good_images_attributes_#{0}_image"
+                = i.check_box :_destroy, class: "hidden-checkbox", id: "good_images_attributes_#{0}__destroy"
 
               - @good.good_images.length.upto(3) do |i|
                 %input{name: "good[good_images_attributes][#{i}][image]", id: "good_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
