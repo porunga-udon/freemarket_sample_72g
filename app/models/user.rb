@@ -25,15 +25,23 @@ class User < ApplicationRecord
   validates_confirmation_of :password  
   attr_accessor :password_confirmation
 
-  validates :nickname,           presence: true, uniqueness: true
-  validates :email,              presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  validates :password,           format: { with: VALID_PASSWORD_REGEX }, length: { minimum: 7 }
-  validates :last_name,          format: { with: VALID_NAME_REGEX }
-  validates :first_name,         format: { with: VALID_NAME_REGEX }
-  validates :last_name_kana,     format: { with: VALID_KANA_REGEX }
-  validates :first_name_kana,    format: { with: VALID_KANA_REGEX }
+  validates :nickname,           uniqueness: true
+  validates :email,              allow_blank: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  validates :password,           allow_blank: true, format: { with: VALID_PASSWORD_REGEX }, length: { minimum: 7 }
+  validates :last_name,          allow_blank: true, format: { with: VALID_NAME_REGEX }
+  validates :first_name,         allow_blank: true, format: { with: VALID_NAME_REGEX }
+  validates :last_name_kana,     allow_blank: true, format: { with: VALID_KANA_REGEX }
+  validates :first_name_kana,    allow_blank: true, format: { with: VALID_KANA_REGEX }
   validates :phone_number,       allow_blank: true, format: { with: VALID_NUMBER_REGEX }
+  
   with_options presence: true do
+    validates :nickname
+    validates :email
+    validates :password
+    validates :last_name
+    validates :first_name
+    validates :last_name_kana
+    validates :first_name_kana
     validates :birth_year
     validates :birth_month
     validates :birth_day
