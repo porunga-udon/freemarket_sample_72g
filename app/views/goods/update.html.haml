@@ -7,6 +7,9 @@
     .delete__top
       商品の編集が完了しました！
     .delete__btn
+      = link_to root_path do
+        = submit_tag "TOPページに戻る" ,class: "btn"
+    .delete__btn
       = link_to user_path(current_user.id), method: :get do
         = submit_tag "マイページに戻る" ,class: "btn"
 .goRootPage
