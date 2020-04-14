@@ -51,7 +51,7 @@
               %option{value: "#{cat.id}"} #{cat.name}
           .child
             %br
-            %select.goodSelect#child　
+            %select.goodSelect#child
           .grand_child
             %br
             = f.collection_select(:category_id, [], :id, :name, {prompt: "選択してください"}, {id: "grand_child"},)
