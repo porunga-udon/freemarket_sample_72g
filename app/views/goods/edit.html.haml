@@ -34,6 +34,8 @@
                 %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][1][image]", id: "item_images_attributes_1_image" }
                 %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][2][image]", id: "item_images_attributes_2_image" }
                 %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][3][image]", id: "item_images_attributes_3_image" }
+              - @good.good_images.length.upto(3) do |i|
+                %input{name: "good[good_images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
       .setNewPage__detailZone
         .setNewPage__detailZone__main
           .subTitleRepeat
@@ -56,11 +58,11 @@
               必須
           %select.goodSelect#parent
             %option{value: 0} 選択してください
+            - Category.where('ancestry IS NULL').each do |cat|
+              %option{value: "#{cat.id}"} #{cat.name}
           .child
             %br
             %select.goodSelect#child
-            - Category.where('ancestry IS NULL').each do |cat|
-              %option{value: "#{cat.id}"} #{cat.name}
           .grand_child
             %br
             = f.collection_select(:category_id, [], :id, :name, {prompt: "選択してください"}, {id: "grand_child"},)
