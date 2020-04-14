@@ -26,7 +26,13 @@ class GoodsController < ApplicationController
 
   def update
     good = Good.find(params[:id])
-    good.update(good_update_params)
+    
+    if good.update(good_update_params)
+      flash[:notice] = "商品の編集が完了しました"
+    else
+      flash[:alert] = "商品の編集に失敗しました"
+      redirect_to good_path(@good_detail)
+    end
   end
 
   def destroy
