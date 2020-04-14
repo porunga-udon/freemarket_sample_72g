@@ -27,16 +27,16 @@
                       .delete-btn
                         %span 削除
             .label-content
-              %label{for: "good_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+              = f.label :"good_images_attributes_#{@good.good_images.length}_image", class: "label-box", id: "label-box--#{@good.good_images.length}" do
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               = f.fields_for :good_images do |i|
-                = i.file_field :image, class: "hidden-field", id:"good_images_attributes_0_image"
-                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][1][image]", id: "item_images_attributes_1_image" }
-                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][2][image]", id: "item_images_attributes_2_image" }
-                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                = i.file_field :image, class: "hidden-field"
+                = i.check_box :_destroy, class: "hidden-checkbox", id: "good_images_attributes_#{i.id}__destroy"
+                
+
               - @good.good_images.length.upto(3) do |i|
-                %input{name: "good[good_images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+                %input{name: "good[good_images_attributes][#{i}][image]", id: "good_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
       .setNewPage__detailZone
         .setNewPage__detailZone__main
           .subTitleRepeat
