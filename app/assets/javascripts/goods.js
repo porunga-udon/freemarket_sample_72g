@@ -22,9 +22,9 @@ $(document).on('turbolinks:load', function(){
 
     if (window.location.href.match(/\/goods\/\d+\/edit/)){
       //登録済み画像のプレビュー表示欄の要素を取得する
-      var prevContent = $('.label-content').prev();
+      var prevContent = label_content.prev();
       labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      $('.label-content').css('width', labelWidth);
+      label_content.css('width', labelWidth);
       //プレビューにidを追加
       $('.preview-box').each(function(index, box){
         $(box).attr('id', `preview-box__${index}`);
@@ -36,7 +36,7 @@ $(document).on('turbolinks:load', function(){
       var count = $('.preview-box').length;
       //プレビューが4あるときは、投稿ボックスを消しておく
       if (count == 4) {
-        $('.label-content').hide();
+        label_content.hide();
       }
     }
 
@@ -54,7 +54,7 @@ $(document).on('turbolinks:load', function(){
       //hidden-fieldのidの数値のみ取得
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //labelボックスのidとforを更新
-      label_box.attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      label_box.attr({id: `label-box--${id}`,for: `good_images_attributes_${id}_image`});
       //選択したfileのオブジェクトを取得
       var file = this.files[0];
       var reader = new FileReader();
@@ -79,8 +79,8 @@ $(document).on('turbolinks:load', function(){
           label_content.hide();
         }
 
-        if ($(`#item_images_attributes_${id}__destroy`)){
-          $(`#item_images_attributes_${id}__destroy`).prop('checked',false);
+        if ($(`#good_images_attributes_${id}__destroy`)){
+          $(`#good_images_attributes_${id}__destroy`).prop('checked',false);
         } 
 
         //ラベルのwidth操作
@@ -88,7 +88,7 @@ $(document).on('turbolinks:load', function(){
         //ラベルのidとforの値を変更
         if(count < 4){
           //プレビューの数でラベルのオプションを更新する
-          label_box.attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
+          label_box.attr({id: `label-box--${count}`,for: `good_images_attributes_${count}_image`});
         }
       }
     });
@@ -101,8 +101,8 @@ $(document).on('turbolinks:load', function(){
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
       //新規投稿
-      if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
-        $(`#item_images_attributes_${id}_image`).val("");
+      if ($(`#good_images_attributes_${id}__destroy`).length == 0) {
+        $(`#good_images_attributes_${id}_image`).val("");
         //削除時のラベル操作
         var count = $('.preview-box').length;
         //4個めが消されたらラベルを表示
@@ -112,22 +112,22 @@ $(document).on('turbolinks:load', function(){
         setLabel(count);
         if(id < 4){
           //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
-          label_box.attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+          label_box.attr({id: `label-box--${id}`,for: `good_images_attributes_${id}_image`});
         }
 
       //編集
       } else {
-        $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
+        $(`#good_images_attributes_${id}__destroy`).prop('checked',true);
         //4個めが消されたらラベルを表示
         if (count == 3) {
-          $('.label-content').show();
+          label_content.show();
         }
         //ラベルのwidth操作
         setLabel();
         //ラベルのidとforの値を変更
         //削除したプレビューのidによって、ラベルのidを変更する
-        if(id < 5){
-          $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+        if(id < 4){
+          label_box.attr({id: `label-box--${id}`,for: `good_images_attributes_${id}_image`});
         }
       }    
     })
