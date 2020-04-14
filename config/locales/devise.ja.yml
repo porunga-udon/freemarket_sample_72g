@@ -1,6 +1,11 @@
 ja:
   errors:
     messages:
+      not_saved:
+        one: "1件のエラーが発生しました"
+#        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count}件のエラーが発生しました"
+#        other: "%{count} errors prohibited this %{resource} from being saved:"
       not_found: "は見つかりませんでした"
 #      not_found: "not found"
       already_confirmed: "は既に登録済みです"
