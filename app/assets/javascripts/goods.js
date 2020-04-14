@@ -107,17 +107,18 @@ $(document).on('turbolinks:load', function(){
         var count = $('.preview-box').length;
         //4個めが消されたらラベルを表示
         if (count == 3) {
-          label_contentshow();
+          label_content.show();
         }
         setLabel(count);
         if(id < 4){
           //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
           label_box.attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
         }
+
       //編集
       } else {
         $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
-        //5個めが消されたらラベルを表示
+        //4個めが消されたらラベルを表示
         if (count == 3) {
           $('.label-content').show();
         }
@@ -125,7 +126,7 @@ $(document).on('turbolinks:load', function(){
         setLabel();
         //ラベルのidとforの値を変更
         //削除したプレビューのidによって、ラベルのidを変更する
-        if(id < 4){
+        if(id < 5){
           $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
         }
       }    
