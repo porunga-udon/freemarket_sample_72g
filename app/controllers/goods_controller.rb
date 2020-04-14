@@ -62,6 +62,6 @@ class GoodsController < ApplicationController
   end
 
   def good_update_params
-    params.require(:good).permit(:name, :state, :size_id, :region, :postage, :category_id, :expanation, :shipping_date, :delivery_method_id, :price, [good_images_attributes: [:image, :_destroy, :id]]).merge( seller_id: current_user.id)
+    params.require(:good).permit(:name, :state, :size_id, :region, :postage, :category_id, :expanation, :shipping_date, :delivery_method_id, :price, good_images_attributes: [:image, :_destroy, :id]).merge( seller_id: current_user.id)
   end
 end
