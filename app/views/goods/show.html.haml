@@ -40,7 +40,7 @@
       -else
         - if user_signed_in? && current_user.id == @good_detail.seller_id
           .item-detail__content__edit
-            = link_to edit_good_path(@good_detail), method: :get do
+            = link_to edit_good_path(@good_detail),data: {"turbolinks" => false}, method: :get do
               %span 商品を編集する
           .item-detail__content__destroy
             = link_to good_path(@good_detail), method: :delete, data: { confirm: '削除しますか？' } do
