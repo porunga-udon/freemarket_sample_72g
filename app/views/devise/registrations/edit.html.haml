@@ -59,52 +59,32 @@
 
 :javascript
   function onFileSelected(input) {
-  
       var file = input.files[0];
-  
       var reader = new FileReader();
-  
       reader.onload = onFileLoaded;
-  
       reader.readAsDataURL(file);
-  
   }
   
   function onFileLoaded(e) {
-
     $('.icon').addClass('hidden')
     $('#test_canvas.hidden').removeClass('hidden')
-  
       var src_data = e.target.result;
-  
       var img = new Image();
-  
       img.onload = onImageSetted;
       img.src = src_data;
-  
   }
   
   function onImageSetted(e) {
-  
       var data = createImageData(e.target);
-  
       document.getElementById('test_canvas').getContext('2d').putImageData(data, 0, 0);
-  
   }
   
   function createImageData(img) {
-  
-      var cv = document.createElement('canvas');
-  
-      cv.width = img.naturalWidth;
-      cv.height = img.naturalHeight;
-  
-      var ct = cv.getContext('2d');
-  
-      ct.drawImage(img, 0, 0, 120, 120);
-  
-      var data = ct.getImageData(0, 0, cv.width, cv.height);
-  
-      return data;
-  
+    var cv = document.createElement('canvas');
+    cv.width = img.naturalWidth;
+    cv.height = img.naturalHeight;
+    var ct = cv.getContext('2d');
+    ct.drawImage(img, 0, 0, 120, 120);
+    var data = ct.getImageData(0, 0, cv.width, cv.height);
+    return data;
   }
