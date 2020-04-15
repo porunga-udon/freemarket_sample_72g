@@ -85,7 +85,7 @@ $(document).on('turbolinks:load', function(){
       if ($(`#good_images_attributes_${id}__destroy`).length == 0) {
         $(`#good_images_attributes_${id}_image`).val("");
         var count = $('.preview-box').length;
-        if (count == 3) {
+        if (count == 4) {
           label_content.show();
         }
         setLabel(count);
@@ -97,7 +97,7 @@ $(document).on('turbolinks:load', function(){
       } else {
         $(`#good_images_attributes_${id}__destroy`).prop('checked',true);
         var checkbox = $("input[type=checkbox]:not(:checked)").size() == 0 ;
-        if (count == 3) {
+        if (count == 4) {
           label_content.show();
         }
         setLabel();
