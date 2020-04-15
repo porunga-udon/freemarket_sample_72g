@@ -24,7 +24,6 @@ class GoodsController < ApplicationController
 
   def update
     @good = Good.find(params[:id])
-    upload_file = params[:good][:image1]
     if @good.update(good_update_params)
       flash[:notice] = "商品の編集が完了しました"
     elsif upload_file.present?
@@ -45,7 +44,8 @@ class GoodsController < ApplicationController
 
   def create
     @good = Good.new(good_params)
-    if @good.save
+    @good_image = GoodImage.new
+    if @good.save 
       flash[:notice] = "出品が完了しました"
       redirect_to root_path
     else
