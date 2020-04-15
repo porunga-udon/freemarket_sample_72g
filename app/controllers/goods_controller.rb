@@ -20,10 +20,14 @@ class GoodsController < ApplicationController
 
   def edit
     @good = Good.find(params[:id])
+    @category_grandchild = Category.find_by(id:@good.category_id)
+    @category_child = @category_grandchild.parent
+    @category_parent = @category_child.parent
   end
 
   def update
     @good = Good.find(params[:id])
+    @good.update_attributes(good_update_params)
     if @good.update(good_update_params)
       flash[:notice] = "商品の編集が完了しました"
     elsif upload_file.present?
