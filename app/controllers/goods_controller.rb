@@ -21,7 +21,7 @@ class GoodsController < ApplicationController
   end
 
   def edit
-    @category_grandchild = Category.find(id: @good.category_id)
+    @category_grandchild = Category.find(@good.category_id)
     @category_child = @category_grandchild.parent
     @category_parent = @category_child.parent
   end
