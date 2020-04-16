@@ -9,7 +9,7 @@
   }
 }
 .wrapperNew {
-  height: 370vh;
+  height: 390vh;
   width: 100%;
   background-color: rgb(240, 238, 238);
   position: relative;
@@ -24,7 +24,7 @@
       height: 300px;
       border-bottom: solid 1px rgb(221, 219, 219);
       &__main {
-        margin: 7%;
+        margin: auto;
         height: 90%;
         width: 95%;
         &__title {
@@ -55,12 +55,13 @@
           height: 250px;
           width: 80%;
           border: solid 1px #e9e6e6;
+          padding: 10px;
         }
       }
     }
     #grand_child{
     height: 60px;
-    width: 400px;
+    width: 70%;
     border-radius: 15px;
     border: solid 1px #e9e6e6;
     padding-left: 20px;
@@ -98,8 +99,9 @@
       &__main {
       margin: 7%;
       height: 90%;
-      width: 95%;
+      width: 70%;
       .putInPrice {
+        width: 90%;
         text-align: right;
         display: flex;
         margin-left: 40px;
@@ -109,8 +111,8 @@
           line-height: 60px;
           }
         .priceArea {
+          width: 100%;
           height: 60px;
-          width: 400px;
           border-radius: 15px;
           border: solid 1px #e9e6e6;
           padding-left: 20px;
@@ -258,18 +260,9 @@
       .lower-box {
         display: flex;
         text-align: center;
-        .update-box {
-          color: #00b0ff;
-          width: 50%;
-          height: 50px;
-          line-height: 50px;
-          border: 1px solid #eee;
-          background: #f5f5f5;
-          cursor: pointer;
-        }
         .delete-box {
           color: #00b0ff;
-          width: 50%;
+          width: 100%;
           height: 50px;
           line-height: 50px;
           border: 1px solid #eee;
@@ -283,6 +276,7 @@
   //投稿クリックエリアのCSS
   .label-content{
     margin-bottom: 10px;
+    margin: auto;
     width: 450px;
     .label-box {
       display: block;
@@ -325,7 +319,7 @@
 }
 .goodSelect {
   height: 60px;
-  width: 400px;
+  width: 70%;
   border-radius: 15px;
   border: solid 1px #e9e6e6;
   padding-left: 20px;
@@ -333,7 +327,7 @@
   }
 .textArea {
   height: 60px;
-  width: 400px;
+  width: 70%;
   border-radius: 15px;
   border: solid 1px #e9e6e6;
   padding-left: 20px;

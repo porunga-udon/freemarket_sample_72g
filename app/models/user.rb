@@ -53,4 +53,7 @@ class User < ApplicationRecord
     validates :city
     validates :block
   end
+
+  mount_uploader :image, ImageUploader
+
 end
