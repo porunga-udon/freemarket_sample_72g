@@ -19,13 +19,13 @@
             %span ブランド
       %ul.main-header__nav__right
         -if user_signed_in?
-          %li.main-header__nav__right
+          %li.main-header__nav__right__page
             = link_to "マイページ", user_path(current_user)
-          %li.main-header__nav__right
+          %li.main-header__nav__right__log
             = link_to "ログアウト", destroy_user_session_path, method: :delete
         -else 
-          %li.main-header__nav__right
+          %li.main-header__nav__right__page
             =link_to "新規登録", new_user_registration_path
-          %li.main-header__nav__right
+          %li.main-header__nav__right__log
             = link_to "ログイン", new_user_session_path 
        
