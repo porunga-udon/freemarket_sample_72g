@@ -1,0 +1,24 @@
+= render "goods/header"
+.main
+  .mypage
+    = render "mypage-side"
+
+    .goods
+      .goods__top
+        売却した商品
+      %ul.goods__list
+        -@goods.each do |good|
+          = link_to good_path(good.id), method: :get, class:"good_link" do
+            %li.goods__list__box
+              -if good.buyer_id != nil
+                .goods__list__box--image
+                  = image_tag good.good_images[0].image.url, size: "60x60"
+                .goods__list__box--text
+                  .goods__list__box--text__name
+                    = good.name
+                    .goods__list__box--text__sold-out
+                      SOLD OUT
+        .paginate            
+          = paginate(@goods)
+
+=render "goods/indfooter"

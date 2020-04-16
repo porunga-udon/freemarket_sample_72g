@@ -5,10 +5,23 @@
         %li.mypage__side--item
           =link_to user_path(current_user), class:"btn item" do
             =content
+      -if content == "出品する"
+        %li.mypage__side--item
+          =link_to new_good_path, class:"btn item" do
+            =content
       -elsif content == "出品した商品-出品中"
         %li.mypage__side--item
           =link_to goods_list_user_path(current_user), class:"btn item" do
             =content
+      -elsif content == "出品した商品-売却済み"
+        %li.mypage__side--item
+          =link_to goods_sale_user_path(current_user), class:"btn item" do
+            =content
+      -elsif content == "購入した商品-過去の取引"
+        %li.mypage__side--item
+          =link_to goods_buy_user_path(current_user), class:"btn item" do
+            =content
+            
       -else
         %li.mypage__side--item
           =link_to "#", class:"btn item" do
