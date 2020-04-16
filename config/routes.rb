@@ -29,6 +29,18 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only:[:goods_sale] do
+    member do
+      get 'goods_sale'
+    end
+  end
+
+  resources :users, only:[:goods_buy] do
+    member do
+      get 'goods_buy'
+    end
+  end
+
   resources :users, only:[:goods_list] do
     member do
       get 'goods_list'
