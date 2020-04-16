@@ -15,16 +15,24 @@
             最大4枚までアップロードできます
           .post__drop__box__container
             .prev-content
+              - @good.good_images.each do |image|
+                .preview-box
+                  .upper-box
+                    = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .delete-box
+                      .delete-btn
+                        %span 削除
             .label-content
-              %label{for: "good_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+              %label{for: "good_images_attributes_#{@good.good_images.length}_image", class: "label-box", id: "label-box--#{@good.good_images.length}"}
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               = f.fields_for :good_images do |i|
+                = i.file_field :image, class: "hidden-field", id: "good_images_attributes_#{0}_image"
+                = i.check_box :_destroy, class: "hidden-checkbox", id: "good_images_attributes_#{0}__destroy"
 
-                = i.file_field :image, class: "hidden-field", id:"good_images_attributes_0_image"
-                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][1][image]", id: "good_images_attributes_1_image" }
-                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][2][image]", id: "good_images_attributes_2_image" }
-                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][3][image]", id: "good_images_attributes_3_image" }
+              - @good.good_images.length.upto(3) do |i|
+                %input{name: "good[good_images_attributes][#{i}][image]", id: "good_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
       .setNewPage__detailZone
         .setNewPage__detailZone__main
           .subTitleRepeat
@@ -45,16 +53,17 @@
             カテゴリー
             .b
               必須
-          %select.goodSelect#parent
+          %select.goodSelect#parent{name: @category_parent.id}
             %option{value: 0} 選択してください
             - Category.where('ancestry IS NULL').each do |cat|
               %option{value: "#{cat.id}"} #{cat.name}
           .child
             %br
-            %select.goodSelect#child
+            %select.goodSelect#child{name: @category_child.id}
           .grand_child
             %br
-            = f.collection_select(:category_id, [], :id, :name, {prompt: "選択してください"}, {id: "grand_child"},)
+            = f.collection_select(:category_id, [], :id, :name , {prompt: "選択してください"}, {id: "grand_child"})
+            .grand_child_select{name: @category_grandchild.id}
           .subTitleRepeat
             状態
             .b
@@ -102,7 +111,7 @@
             = f.number_field :price, min: 300, max: 9999999, placeholder: :"例)500", class: :priceArea
       .setNewPage__submitZone
         .setNewPage__submitZone__main
-          = f.submit "出品する", class: :form__btn 
+          = f.submit "編集を完了する", class: :form__btn 
           .setNewPage__submitZone__main__returnBtn
             = link_to "戻る", root_path,class:"returnBtn"
           .setNewPage__submitZone__main__caution
