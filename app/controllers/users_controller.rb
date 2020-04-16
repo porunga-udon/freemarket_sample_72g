@@ -6,11 +6,18 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
 
+  def goods_sale
+    @goods = Good.where(seller_id: current_user.id).order(id: "DESC").page(params[:page])
   end
 
   def goods_list
     @goods = Good.where(seller_id: current_user.id).order(id: "DESC").page(params[:page]).per(5)
+  end
+
+  def goods_buy
+    @goods = Good.where(buyer_id: current_user.id).order(id: "DESC").page(params[:page])
   end
 
   private
