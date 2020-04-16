@@ -16,19 +16,16 @@ class Good < ApplicationRecord
 
   VALID_PRICE_REGEX = /\A[0-9]+\z/
 
-  validates :name, presence: true
-  validates :state, presence: true
-  validates :region, presence: true
-  validates :postage, presence: true
-  validates :expanation, presence: true
-  validates :shipping_date, presence: true
-  validates :delivery_method_id, presence: true
-  validates :trading_conditions, presence: true
-  validates :price, presence: true, format:{ with: VALID_PRICE_REGEX }
-  validates :category_id, presence: true
-  validates :size_id, presence: true
-  validates :buyer, presence: true
-  validates :seller, presence: true
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :price, presence: true, format:{ with: VALID_PRICE_REGEX }, inclusion: 300..9999999
+  validates :state,                 presence: true
+  validates :region,                presence: true
+  validates :postage,               presence: true
+  validates :expanation,            presence: true, length: { maximum: 1000 }
+  validates :shipping_date,         presence: true
+  validates :delivery_method_id,    presence: true
+  validates :category_id,           presence: true
+  validates :seller_id,             presence: true
 
 
 
