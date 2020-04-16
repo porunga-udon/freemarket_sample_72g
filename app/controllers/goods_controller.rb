@@ -19,10 +19,10 @@ class GoodsController < ApplicationController
   def show
     @good_detail = Good.find(params[:id])
 
-    @good_user = User.find_by(id: @good_detail.seller_id)
-    @good_size = Size.find_by(id: @good_detail.size_id) 
+    @good_user = User.find(@good_detail.seller_id)
+    @good_size = Size.find(@good_detail.size_id) 
 
-    @category_grand_children = Category.find_by(id: @good_detail.category_id)
+    @category_grand_children = Category.find(@good_detail.category_id)
     @category_children = @category_grand_children.parent
     @category_parent = @category_children.parent
 
