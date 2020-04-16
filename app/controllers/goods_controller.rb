@@ -1,4 +1,6 @@
 class GoodsController < ApplicationController
+  before_action :find_good, only: [:edit, :update, :destroy]
+
   def index
     @goods_all = Good.all
     @goods = Good.where(buyer_id: nil).limit(3).order(id: "DESC")
@@ -19,14 +21,12 @@ class GoodsController < ApplicationController
   end
 
   def edit
-    @good = Good.find(params[:id])
     @category_grandchild = Category.find_by(id:@good.category_id)
     @category_child = @category_grandchild.parent
     @category_parent = @category_child.parent
   end
 
   def update
-    @good = Good.find(params[:id])
     @good.update_attributes(good_update_params)
     if @good.update(good_update_params)
       flash[:notice] = "商品の編集が完了しました"
@@ -37,8 +37,7 @@ class GoodsController < ApplicationController
   end
 
   def destroy
-    good = Good.find(params[:id])
-    if good.destroy
+    if @good.destroy
       flash[:notice] = "商品の削除が完了しました"
     else
       flash[:alert] = "商品の削除に失敗しました"
@@ -67,5 +66,9 @@ class GoodsController < ApplicationController
 
   def good_update_params
     params.require(:good).permit(:name, :state, :size_id, :region, :postage, :category_id, :expanation, :shipping_date, :delivery_method_id, :price, good_images_attributes: [:image, :_destroy, :id]).merge( seller_id: current_user.id)
+  end
+
+  def find_good
+    @good = Good.find(params[:id])
   end
 end
