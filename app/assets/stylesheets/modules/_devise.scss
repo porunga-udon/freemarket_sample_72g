@@ -200,4 +200,28 @@
   }
 }
 
-
+.edit-user {
+  padding-bottom: 30px;
+  &__icon{
+    width: 120px;
+    margin: 0 auto 30px;
+    position: relative;
+    .icon {
+      border-radius: 50%;
+      border: solid $bottom_border 1px;
+    }
+  }
+  #test_canvas {
+    border-radius: 50%;
+    border: solid $bottom_border 1px;
+  }
+  .hidden {
+    display: none;
+  }
+  .label {
+    cursor: pointer;
+  }
+  .hidden {
+    display: none;
+  }
+}
