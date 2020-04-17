@@ -41,6 +41,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only:[:goods_buy_fin] do
+    member do
+      get 'goods_buy_fin'
+    end
+  end
+
   resources :users, only:[:goods_list] do
     member do
       get 'goods_list'

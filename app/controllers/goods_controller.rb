@@ -36,12 +36,14 @@ class GoodsController < ApplicationController
 
   def update
     @good.update_attributes(good_update_params)
+
     if @good.update(good_update_params)
       flash[:notice] = "商品の編集が完了しました"
     elsif upload_file.present?
       flash[:alert] = "商品の編集に失敗しました"
       redirect_to edit_good_path(@good.id)
     end
+    
   end
 
   def destroy
@@ -69,11 +71,11 @@ class GoodsController < ApplicationController
   private
 
   def good_params
-    params.require(:good).permit(:name, :state, :size_id, :region, :postage, :category_id, :expanation, :shipping_date, :delivery_method_id, :price, good_images_attributes: [:image]).merge( seller_id: current_user.id)
+    params.require(:good).permit(:name, :state, :size_id, :region, :postage, :category_id, :expanation, :shipping_date, :delivery_method_id, :price,good_images_attributes: [:image]).merge( seller_id: current_user.id)
   end
 
   def good_update_params
-    params.require(:good).permit(:name, :state, :size_id, :region, :postage, :category_id, :expanation, :shipping_date, :delivery_method_id, :price, good_images_attributes: [:image, :_destroy, :id]).merge( seller_id: current_user.id)
+    params.require(:good).permit(:name, :state, :size_id, :region, :postage, :category_id, :expanation, :shipping_date, :delivery_method_id, :price,:trading_conditions, good_images_attributes: [:image, :_destroy, :id]).merge( seller_id: current_user.id)
   end
 
   def find_good
