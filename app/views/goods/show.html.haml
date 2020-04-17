@@ -4,17 +4,14 @@
   .item-detail
     %ul.item-detail__breadcrumb
       %li.item-detail__breadcrumb__list
-        = link_to root_path do
-          %span フリマ >
+        = link_to "#" do
+          %span #{@category_parent.name} >
       %li.item-detail__breadcrumb__list
         = link_to "#" do
-          %span レディース >
+          %span #{@category_children.name} >
       %li.item-detail__breadcrumb__list
         = link_to "#" do
-          %span バッグ > 
-      %li.item-detail__breadcrumb__list
-        = link_to "#" do
-          %span  ルイヴィトン ダミエ ネヴーフルMMトートバッグ
+          %span #{@category_grand_children.name}
     .item-detail__content
       %h2.item-detail__content__name
         = @good_detail.name
@@ -30,7 +27,7 @@
                 = image_tag("#{img.image}",size:'100x100')
                 
       .item-detail__content__price
-        = @good_detail.price
+        = converting_to_jpy(@good_detail.price)
       .item-detail__content__price__postsge
       (税込)送料込み
 
@@ -51,7 +48,10 @@
               %span 購入画面に進む
               
       .item-detail__content__introduction
-        = @good_detail.expanation
+        .item-detail__content__introduction__title
+          商品説明
+        .item-detail__content__introduction__t
+          = @good_detail.expanation
       .table
         %table
           %tr
