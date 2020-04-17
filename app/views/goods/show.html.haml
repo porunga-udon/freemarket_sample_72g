@@ -19,7 +19,7 @@
         - @good_detail.good_images.each_with_index do |img,i|
           - if i == 0
             .item-detail__content__img__top
-              = image_tag("#{img.image}",class:"",size:'450x450')
+              = image_tag("#{img.image}",size:'450x450')
         .item-detail__content__img__bottom
           - @good_detail.good_images.each_with_index do |img,i|
             - if i != 0
@@ -28,6 +28,7 @@
                 
       .item-detail__content__price
         = converting_to_jpy(@good_detail.price)
+        %span 円
       .item-detail__content__price__postsge
       (税込)送料込み
 
@@ -50,7 +51,7 @@
       .item-detail__content__introduction
         .item-detail__content__introduction__title
           商品説明
-        .item-detail__content__introduction__t
+        .item-detail__content__introduction__text
           = @good_detail.expanation
       .table
         %table
@@ -74,7 +75,7 @@
             %th
               ブランド
             %td
-              ルイヴィトン
+              なし
           %tr
             %th
               商品のサイズ
