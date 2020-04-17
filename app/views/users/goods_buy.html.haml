@@ -8,7 +8,7 @@
         取引中の商品
       %ul.goods__list
         -@goods.each do |good|
-          -if good.trading_conditions == "未発送"
+          -if good.trading_conditions == 1
             = link_to good_path(good.id), method: :get, class:"good_link" do
               %li.goods__list__box
                 .goods__list__box--image
@@ -20,7 +20,7 @@
                     購入
             .goods__list__box__btn
               = form_for good do |f|
-                = f.text_field :trading_conditions,value:"取引終了", class: :textArea
+                = f.text_field :trading_conditions,value:3, class: :textArea
                 = f.submit "受け取り", class: :change_condition
         .paginate            
           = paginate(@goods)

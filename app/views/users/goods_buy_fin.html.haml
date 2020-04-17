@@ -8,7 +8,7 @@
         取引中の商品
       %ul.goods__list
         -@goods.each do |good|
-          -if good.trading_conditions != "未発送"
+          -if good.trading_conditions == 3
             = link_to good_path(good.id), method: :get, class:"good_link" do
               %li.goods__list__box
                 .goods__list__box--image
