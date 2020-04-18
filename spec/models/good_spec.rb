@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Good, type: :model do
+describe Good do
   let(:user){create(:user)}
   let(:category){create(:category)}
   describe '#create' do
