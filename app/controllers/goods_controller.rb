@@ -12,8 +12,13 @@ class GoodsController < ApplicationController
   end
 
   def new
-    @good = Good.new
-    @good.good_images.new
+    if user_signed_in?
+      @good = Good.new
+      @good.good_images.new
+    else
+      flash[:alert] = "ログインしてください"
+      redirect_to root_path
+    end
   end
 
   def show
@@ -35,8 +40,7 @@ class GoodsController < ApplicationController
   end
 
   def update
-    @good.update_attributes(good_update_params)
-    if @good.update(good_update_params)
+    if @good.update_attributes(good_update_params)
       flash[:notice] = "商品の編集が完了しました"
     elsif upload_file.present?
       flash[:alert] = "商品の編集に失敗しました"
