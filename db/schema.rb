@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_030537) do
     t.string "expanation", null: false
     t.string "shipping_date", null: false
     t.integer "delivery_method_id", null: false
-    t.string "trading_conditions", default: "未発送", null: false
+    t.integer "trading_conditions_id", default: 1, null: false
     t.integer "price", null: false
     t.bigint "category_id", null: false
     t.integer "size_id", null: false
