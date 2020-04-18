@@ -6,7 +6,7 @@ class Good < ApplicationRecord
 
   has_many :orders
   belongs_to :seller, class_name: "User"
-  # belongs_to :buyer, class_name: "User"
+  belongs_to :buyer, class_name: "User", optional: true
   # belongs_to :user_address
   belongs_to :category
   
