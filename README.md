@@ -2,25 +2,25 @@
 
 ## usersテーブル
 
-|Column|Type|Options|
-|------|----|-------|
-|nickname|string|null: false, unique: true|
-|email|string|null: false, unique: true|
-|password|string|null: false|
-|last_name|string|null: false|
-|first_name|string|null: false|
-|last_name_kana|string|null: false|
-|first_name_kana|string|null: false|
-|birth_year|string|null: false|
-|birth_month|string|null: false|
-|birth_day|string|null: false|
-|image|string|
-|phone_number|string|
-|postcode|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|block|string|null: false|
-
+|Column         |Type  |Options                  |
+|---------------|------|-------------------------|
+|nickname       |string|null: false, unique: true|
+|email          |string|null: false, unique: true|
+|password       |string|null: false              |
+|last_name      |string|null: false              |
+|first_name     |string|null: false              |
+|last_name_kana |string|null: false              |
+|first_name_kana|string|null: false              |
+|birth_year     |string|null: false              |
+|birth_month    |string|null: false              |
+|birth_day      |string|null: false              |
+|image          |string|
+|phone_number   |string|
+|postcode       |string|null: false              |
+|prefecture     |string|null: false              |
+|city           |string|null: false              |
+|block          |string|null: false              |
+              
 ### Association
 - has_many :buyed_goods, foreign_key: "buyer_id", class_name: "Good", dependent: :destroy
 - has_many :saling_goods, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name:  "Good", dependent: :destroy

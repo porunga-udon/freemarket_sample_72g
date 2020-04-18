@@ -8,7 +8,7 @@ class Good < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User", optional: true
   # belongs_to :user_address
-  belongs_to :category
+  has_one :category
   
   has_many :good_images, dependent: :destroy
   accepts_nested_attributes_for :good_images, allow_destroy: true
@@ -32,5 +32,6 @@ class Good < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :size
   belongs_to_active_hash :delivery_method
+  belongs_to_active_hash :trading_conditions
 
 end
