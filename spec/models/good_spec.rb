@@ -1,5 +1,8 @@
 require 'rails_helper'
-describe Good do
+
+RSpec.describe Good, type: :model do
+  let(:user){create(:user)}
+  let(:category){create(:category)}
   describe '#create' do
     it "nameが空の場合は登録できないという事" do
       good = build(:good, name: "")
@@ -46,13 +49,15 @@ describe Good do
       good.valid?
       expect(good.errors[:price]).to include("は一覧にありません")
      end
-     it "priceが300以上の場合は登録できるという事 " do
-      good = build(:good, price: "301")
+
+
+     it "priceが300以上の場合は登録可能という事 " do
+      good = build(:good, id: 1, price: "301",category_id: category.id , seller_id: user.id)
       good.valid?
       expect(good).to be_valid
      end
      it "全て揃っていれば登録できるという事 " do
-      good = build(:good)
+      good = build(:good, id: 1,category_id: category.id , seller_id: user.id)
       good.valid?
       expect(good).to be_valid
      end
