@@ -65,7 +65,7 @@ class GoodsController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = '出品に失敗しました。必須項目を確認してください。'
-      render :new
+      redirect_to new_good_path
     end
   end
   
