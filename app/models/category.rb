@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  belongs_to :good
+  has_one :good
   has_ancestry
 end
