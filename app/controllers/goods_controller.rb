@@ -54,8 +54,8 @@ class GoodsController < ApplicationController
   end
 
   def create
-    @good = Good.new(good_params)
     @good_image = GoodImage.new
+    @good = Good.new(good_params)
     if @good.save 
       flash[:notice] = "出品が完了しました"
       redirect_to root_path
