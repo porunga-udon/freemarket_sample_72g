@@ -135,6 +135,7 @@
 
 ## categoriesテーブル
 
+
 |Column  |Type  |Options    |
 |--------|------|-------    |
 |name    |string|null: false|
@@ -143,5 +144,4 @@
 ### Association
 - has_one :good
 - has_ancestry
-
 
