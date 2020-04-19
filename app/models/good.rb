@@ -3,13 +3,13 @@ class Good < ApplicationRecord
  # has_many :buyed_goods, foreign_key: "buyer_id", class_name: "Good", dependent: :destroy
   # has_many :comments, through: :users_comments, dependent: :destroy
  # has_many :users_comments, dependent: :destroy
+ # belongs_to :user_address
 
-  has_many :orders
+ 
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User", optional: true
-  # belongs_to :user_address
   has_one :category
-  
+  has_many :orders
   has_many :good_images, dependent: :destroy
   accepts_nested_attributes_for :good_images, allow_destroy: true
 
