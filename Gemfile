@@ -70,7 +70,7 @@ gem 'ancestry'
 gem 'dotenv-rails'
 gem 'kaminari'
 gem 'rspec-rails'
-
+gem 'devise'
 
 
 
@@ -86,7 +86,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
   gem 'rails-controller-testing'
-  gem 'devise'
+
   gem 'pry-rails'
   gem 'factory_bot_rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
