@@ -40,7 +40,7 @@ class GoodsController < ApplicationController
   end
 
   def update
-    if @good.update_attributes(good_update_params)
+    if @good.update(good_update_params)
       flash[:notice] = "商品の編集が完了しました"
     elsif upload_file.present?
       flash[:alert] = "商品の編集に失敗しました"
