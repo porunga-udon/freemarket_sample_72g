@@ -1,0 +1,164 @@
+.goRootPage
+  %h1.goRootPage__icon
+    = link_to "/" do
+      = image_tag "logo.png",size: '134x36',alt:"FURIMA"
+.wrapperNew
+  .setNewPage
+    = form_for @good do |f|
+      .setNewPage__imageZone
+        .setNewPage__imageZone__main
+          .subTitleRepeat
+            出品画像
+            .b
+              必須
+          .setNewPage__imageZone__main__max
+            最大4枚までアップロードできます
+          .post__drop__box__container
+            .prev-content
+              - @good.good_images.each do |image|
+                .preview-box
+                  .upper-box
+                    = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .delete-box
+                      .delete-btn
+                        %span 削除
+            .label-content
+              %label{for: "good_images_attributes_#{@good.good_images.length}_image", class: "label-box", id: "label-box--#{@good.good_images.length}"}
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :good_images do |i|
+                = i.file_field :image, class: "hidden-field", id: "good_images_attributes_#{0}_image"
+                = i.check_box :_destroy, class: "hidden-checkbox", id: "good_images_attributes_#{0}__destroy"
+
+              - @good.good_images.length.upto(3) do |i|
+                %input{name: "good[good_images_attributes][#{i}][image]", id: "good_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+      .setNewPage__detailZone
+        .setNewPage__detailZone__main
+          .subTitleRepeat
+            商品名
+            .b
+              必須
+          = f.text_field :name, placeholder: :商品名, class: :textArea
+          .subTitleRepeat
+            商品の説明
+            .b
+              必須
+          = f.text_area :expanation, placeholder: :説明, class: :detailArea
+      .setNewPage__conditionZone
+        .setNewPage__conditionZone__main
+          .f
+            商品の詳細
+          .subTitleRepeat
+            カテゴリー
+            .b
+              必須
+          %select.goodSelect#parent{name: @category_parent.id}
+            %option{value: 0} 選択してください
+            - Category.where('ancestry IS NULL').each do |cat|
+              %option{value: "#{cat.id}"} #{cat.name}
+          .child
+            %br
+            %select.goodSelect#child{name: @category_child.id}
+          .grand_child
+            %br
+            = f.collection_select(:category_id, [], :id, :name , {prompt: "選択してください"}, {id: "grand_child"})
+            .grand_child_select{name: @category_grandchild.id}
+          .subTitleRepeat
+            状態
+            .b
+              必須
+          = f.select :state, ["新品，未使用", "未使用に近い", "目立った傷や汚れがない", "やや傷や汚れがある", "傷や汚れあり", "全体的状態が悪い"],{include_blank:"選択してください"}, class: :goodSelect
+          .subTitleRepeat
+            サイズ
+          = f.select :size_id, [["S",1], ["M",2], ["L", 3], ["LL", 4], ["XL", 5]],{include_blank:"選択してください"}, class: :goodSelect
+
+      .setNewPage__deliveryZone
+        .setNewPage__deliveryZone__main
+          .f
+            配送について
+          .subTitleRepeat
+            配送方法
+            .b
+              必須
+          = f.select :delivery_method_id, [["未定",1], ["ゆうメール",2], ["レターパック", 3], ["普通郵便(定形、定形外)", 4], ["クロネコヤマト", 5]],{include_blank:"選択してください"}, class: :goodSelect
+          .subTitleRepeat
+            配送量の負担
+            .b
+              必須
+          = f.select :postage, ["送料込み(出品者負担)","着払い(購入者負担)"],{include_blank: "選択してください"}, class: :goodSelect
+          .subTitleRepeat
+            発送元の地域
+            .b
+              必須
+          = f.text_field :region, placeholder: :"例：東京", class: :textArea
+          .subTitleRepeat
+            配送に要する日数
+            .b
+              必須
+          = f.select :shipping_date, ["1~2日で発送","2~3日で発送","4~7日で発送"],{include_blank: "選択してください"}, class: :goodSelect 
+      .setNewPage__priceZone
+        .setNewPage__priceZone__main
+          .f
+            価格（¥300〜9,999,999）
+          .subTitleRepeat
+            販売価格
+            .b
+              必須
+          .putInPrice
+            .priceYen
+              ¥
+            = f.number_field :price, min: 300, max: 9999999, placeholder: :"例)500", class: :priceArea
+      .setNewPage__submitZone
+        .setNewPage__submitZone__main
+          = f.submit "編集を完了する", class: :form__btn 
+          .setNewPage__submitZone__main__returnBtn
+            = link_to "戻る", root_path,class:"returnBtn"
+          .setNewPage__submitZone__main__caution
+            禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+          %br
+.footer
+  %ul.contents
+    %li.content
+      %h2.content__title
+        FURIMAについて
+      %ul
+        %li
+          = link_to "#" do
+            %span  会社概要
+        %li
+          = link_to "#" do
+            %span  プライバシーポリシー
+        %li
+          = link_to "#" do
+            %span  FURIMA利用規約
+        %li
+          = link_to "#" do
+            %span  ポイントに関する特約
+    %li.content
+      %h2.content__title
+        FURIMAを見る
+      %ul
+        %li
+          = link_to "#" do
+            %span  カテゴリー一覧
+        %li
+          = link_to "#" do
+            %span  ブランド一覧
+    %li.content
+      %h2.content__title
+        ヘルプ＆ガイド
+      %ul  
+        %li
+          = link_to "#" do
+            %span  FURIMAガイド
+        %li
+          = link_to "#" do
+            %span  FURIMAロゴ利用ガイドライン
+        %li
+          = link_to "#" do
+            %span  お知らせ
+  .footer__logo
+    %span.image
+      = image_tag "logo-white.png", size:'134x36'
+      %p  ©︎フリマ

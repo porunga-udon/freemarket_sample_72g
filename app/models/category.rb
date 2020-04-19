@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  has_many :goods
+  has_one :good
   has_ancestry
 end

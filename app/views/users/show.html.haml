@@ -10,14 +10,19 @@
             =image_tag "background2.png", size:'750x250'
           .mypage__main__user__top__box
             .mypage__main__user__top__box__icon
-              = image_tag "dog.png", class:"icon", size:'100x100'
+              = link_to edit_user_registration_path do
+                - if "#{current_user.image}" == "" or "#{current_user.image}" == nil
+                  =image_tag "no_icon.png", class:"icon", size:'120x120'
+                - else
+                  = image_tag("#{current_user.image}", class:"icon", size:'120x120')
             .mypage__main__user__top__box__name
               = current_user.nickname
             .mypage__main__user__top__box__info
               .mypage__main__user__top__box__info__review
                 評価：7
               .mypage__main__user__top__box__info__exhibit
-                出品数：7
+                出品数：
+                = @goods.length
           
         .mypage__main__user__tags
           .mypage__main__user__tags__tag.active

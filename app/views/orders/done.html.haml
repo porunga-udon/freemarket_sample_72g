@@ -1,0 +1,77 @@
+.goRootPage
+  %h1.goRootPage__icon
+    = link_to "/" do
+      = image_tag "logo.png",size: '134x36',alt:"FURIMA"
+
+.main
+  .done
+    .done__info
+      .done__info__box
+        .done__info__box--icon
+          = icon("far", "clock")
+        .done__info__box--text
+          発送までしばらくおまちください
+      .done__info--message
+        出品者からの発送通知をお待ちください
+    .done__top
+      購入が完了しました！
+    .done__box
+      .done__box__image
+        =image_tag("#{@image.image}",size: '150x150')
+      .done__box__name
+        = @good.name
+    .done__price
+      = @good.price 
+      円(送料込み)
+    .done__btn
+      =link_to good_path(@good.id), method: :get do
+        = submit_tag "商品詳細ページに戻る" ,class: "btn"
+    .done__btn
+      = link_to user_path(current_user.id), method: :get do
+        = submit_tag "マイページに戻る" ,class: "btn"
+
+.footer
+  %ul.contents
+    %li.content
+      %h2.content__title
+        FURIMAについて
+      %ul
+        %li
+          = link_to "#" do
+            %span  会社概要
+        %li
+          = link_to "#" do
+            %span  プライバシーポリシー
+        %li
+          = link_to "#" do
+            %span  FURIMA利用規約
+        %li
+          = link_to "#" do
+            %span  ポイントに関する特約
+    %li.content
+      %h2.content__title
+        FURIMAを見る
+      %ul
+        %li
+          = link_to "#" do
+            %span  カテゴリー一覧
+        %li
+          = link_to "#" do
+            %span  ブランド一覧
+    %li.content
+      %h2.content__title
+        ヘルプ＆ガイド
+      %ul  
+        %li
+          = link_to "#" do
+            %span  FURIMAガイド
+        %li
+          = link_to "#" do
+            %span  FURIMAロゴ利用ガイドライン
+        %li
+          = link_to "#" do
+            %span  お知らせ
+  .footer__logo
+    %span.image
+      = image_tag "logo-white.png", size:'134x36'
+      %p  ©︎フリマ

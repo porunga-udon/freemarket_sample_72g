@@ -10,14 +10,17 @@
     .setBuyPage__goods
       .setBuyPage__goods__main
         .setBuyPage__goods__main__image
+          = image_tag("#{@image.image}",size: '150x150')
         .setBuyPage__goods__main__detail
           .setBuyPage__goods__main__detail__price
+            = @good.name
     .setBuyPage__price
       .setBuyPage__price__main
         .setBuyPage__price__main__word
           お支払い金額
         .setBuyPage__price__main__price
-          35億
+          = @good.price
+          円
     .setBuyPage__howToPay
       .setBuyPage__howToPay__word
         お支払い方法　　　クレジットカード（一括）
@@ -25,11 +28,12 @@
       .setBuyPage__adressZone__word
         お届け先
       .setBuyPage__adressZone__adress
-        あなたの心
+        = @address
     .setBuyPage__buyBtn
       .setBuyPage__buyBtn__main
         .setBuyPage__buyBtn__btn
-          '購入する'
+          = form_tag(pay_orders_path(@good.id), method: :post) do
+            %button.btn 購入する
 
 .footer
   %ul.contents
@@ -76,4 +80,3 @@
     %span.image
       = image_tag "logo-white.png", size:'134x36'
       %p  ©︎フリマ
-

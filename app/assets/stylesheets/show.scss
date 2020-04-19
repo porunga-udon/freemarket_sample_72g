@@ -6,9 +6,30 @@
     &__breadcrumb{
       display: flex;
       padding-left: 10px;
-      a{
-        text-decoration: none;
+      margin-bottom: 20px;
+      a {
         color: black;
+        text-decoration: none;
+        position: relative;
+        display: inline-block;
+        transition: .3s;
+      }
+      a::after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: #31aae2;
+        transition: .3s;
+        transform: translateX(-50%);
+      }
+      a:hover::after{
+        width: 100%;
+      }
+      a:hover{
+        color : #3CCACE;
       }
       &__list{
         padding-left: 10px;
@@ -20,29 +41,106 @@
       width: 700px;
       margin: 0 auto;
       padding: 24px 40px 40px;
+      &__name {
+        font-weight: 600;
+        font-size: 24px;
+      }
+      &__sold-out {
+        margin-top: 20px;
+        height: 60px;
+        background-color: rgb(233, 62, 62);
+        color: white;
+        line-height: 60px;
+        font-weight: 600;
+        font-size: 24px;
+      }
+      &__img{
+        &__bottom{
+          justify-content: center;
+          display: flex;
+        }
+      }
       ul{
         display: flex;
         justify-content: center;
         margin-top: 10px;
         }
       &__price{
-        font-size: 40px;
+        font-size: 30px;
       }
       &__buy{
+        margin-top: 20px;
         height: 60px;
         background-color: red;
         a{
           text-decoration: none;
           span{
-            font-weight: 600;
+            font-weight: 300;
             font-size: 24px;
             line-height: 2.5;
             color: white;
           }
         }
        }
+       &__edit{
+        a{
+          display: block;
+          color: white;
+          text-decoration: none;
+          line-height: 48px;
+          background: #3CCACE;
+          border: 1px solid #3CCACE;
+          width: 60%;
+          font-size: 18px;
+          border-radius: 100px;
+          margin: 0 auto 10px;
+          span{
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 2.5;
+            color: white;
+          }
+        }
+      }
+      &__destroy{
+        a{
+          display: block;
+          color: white;
+          text-decoration: none;
+          line-height: 48px;
+          background: #3CCACE;
+          border: 1px solid #3CCACE;
+          width: 60%;
+          font-size: 18px;
+          border-radius: 100px;
+          margin: 0 auto 10px;
+          span{
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 2.5;
+            color: white;
+          }
+        }
+      }
       &__introduction{
-        margin: 20px 0 ;
+        width: 500px;
+        margin: 0 auto;
+        &__title {
+          width: 500px;
+          background-color: #eee;
+          padding: 8px;
+          border: 1px solid #dedede;
+          font-size: 14px;
+          text-align: center;
+        }
+        &__text {
+          word-wrap:break-word;
+          white-space:pre-wrap;
+          text-align: left;
+          padding: 0 15px;
+          border: 1px solid #dedede;
+          font-size: 14px;
+        }
       }
       .table{
         margin-top: 20px;
@@ -120,7 +218,7 @@
         border: 1px solid #3CCACE;
         color: #fff;
         width: 60%;
-        font-size: 18px;
+        font-size: 20px;
         border-radius: 100px;
       }
     }

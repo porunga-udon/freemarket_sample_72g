@@ -22,9 +22,9 @@
               = f.fields_for :good_images do |i|
 
                 = i.file_field :image, class: "hidden-field", id:"good_images_attributes_0_image"
-                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][1][image]", id: "item_images_attributes_1_image" }
-                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][2][image]", id: "item_images_attributes_2_image" }
-                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][1][image]", id: "good_images_attributes_1_image" }
+                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][2][image]", id: "good_images_attributes_2_image" }
+                %input{class:"hidden-field", type: "file", name: "good[good_images_attributes][3][image]", id: "good_images_attributes_3_image" }
       .setNewPage__detailZone
         .setNewPage__detailZone__main
           .subTitleRepeat
@@ -51,7 +51,7 @@
               %option{value: "#{cat.id}"} #{cat.name}
           .child
             %br
-            %select.goodSelect#child　
+            %select.goodSelect#child
           .grand_child
             %br
             = f.collection_select(:category_id, [], :id, :name, {prompt: "選択してください"}, {id: "grand_child"},)
@@ -99,8 +99,7 @@
           .putInPrice
             .priceYen
               ¥
-            .priceForm
-              = f.number_field :price, min: 300, max: 9999999, placeholder: :"例)500", class: :priceArea
+            = f.number_field :price, min: 300, max: 9999999, placeholder: :"例)500", class: :priceArea
       .setNewPage__submitZone
         .setNewPage__submitZone__main
           = f.submit "出品する", class: :form__btn 
