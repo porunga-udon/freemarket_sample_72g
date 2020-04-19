@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :buyed_goods, foreign_key: "buyer_id", class_name: "Good", dependent: :destroy
   has_many :selling_goods, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Good", dependent: :destroy
   has_many :sold_goods, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Good", dependent: :destroy
+  has_many :orders
   has_many :user_addresses
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
