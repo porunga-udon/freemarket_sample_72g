@@ -27,9 +27,9 @@
 - has_many :sold_goods, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Good", dependent: :destroy
 - has_many :comments, through: :users_comments, dependent: :destroy
 - has_many :users_comments, dependent: :destroy
-- has_many :cards, dependent: :destroy
 - has_many :orders
 - has_many :user_address
+- belongs_to :card, dependent: :destroy
 
 ## user_addressテーブル
 
@@ -47,7 +47,7 @@
 
 ### Association
 - has_many   :orders
-- belongs_to :user
+- has_one :user
 
 ## cardsテーブル
 
@@ -57,10 +57,8 @@
 |customer_id|string |null: false|
 |card_id    |string |null: false|
 
-
-
 ### Association
-- belongs_to :user
+- has_one :user
 
 ## commentsテーブル
 
@@ -105,13 +103,13 @@
 |buyer                |references|foreign_key: { to_table: :users }             |
       
 ### Association
-- belongs_to :saler, class_name: "User"
-- belongs_to :buyer, class_name: "User"
-- belongs_to :category
-- belongs_to :size
+- belongs_to :seller, class_name: "User"
+- belongs_to :buyer, class_name: "User", optional: true
+- has_one :category
+- has_many :orders
 - has_many :comments, dependent: :destroy
 - has_many :good_images, dependent: :destroy
-- has_many :orders
+- accepts_nested_attributes_for :good_images, allow_destroy: true
 
 ## ordersテーブル
 
@@ -143,15 +141,7 @@
 |ancestry|string|null: false|
 
 ### Association
-- has_many :goods
+- has_one :good
 - has_ancestry
 
-## sizesテーブル
-
-|Column|Type  |Options    |
-|------|------|-----------|
-|name  |string|null: false|
-
-### Association
-- has_many :goods
 
