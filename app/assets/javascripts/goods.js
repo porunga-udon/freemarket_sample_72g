@@ -104,9 +104,6 @@ $(document).on('turbolinks:load', function(){
         if(id < 4){
           label_box.attr({id: `label-box--${id}`,for: `good_images_attributes_${id}_image`});
         }
-        if (checkbox) {
-          $("input[type=checkbox]").removeAttr('checked').prop('checked', false).change(); 
-        }
       }    
     });
   });
