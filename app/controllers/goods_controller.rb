@@ -45,7 +45,7 @@ class GoodsController < ApplicationController
   end
 
   def update
-    if @good.update(good_update_params)
+    if @good.update(good_update_params) && current_user.id == @good.seller_id
       flash[:notice] = "商品の編集が完了しました"
     else
       flash[:alert] = "商品の編集に失敗しました"
@@ -54,7 +54,7 @@ class GoodsController < ApplicationController
   end
 
   def destroy
-    if @good.destroy
+    if @good.destroy && current_user.id == @good.seller_id
       flash[:notice] = "商品の削除が完了しました"
     else
       flash[:alert] = "商品の削除に失敗しました"
