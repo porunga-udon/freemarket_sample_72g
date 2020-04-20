@@ -1,5 +1,7 @@
 class GoodsController < ApplicationController
+  before_action :move_to_index, only:[:edit, :update, :destroy]
   before_action :find_good, only: [:edit, :update, :destroy]
+  
 
   def index
     @goods_all = Good.all
@@ -82,5 +84,10 @@ class GoodsController < ApplicationController
 
   def find_good
     @good = Good.find(params[:id])
+  end
+
+  def move_to_index
+    @good = Good.find(params[:id])
+    redirect_to action: :index unless user_signed_in? && current_user.id == @good.seller_id 
   end
 end
