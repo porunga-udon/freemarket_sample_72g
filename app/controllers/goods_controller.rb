@@ -34,7 +34,7 @@ class GoodsController < ApplicationController
   end
 
   def edit
-    if user_signed_in?
+    if user_signed_in? 
       @category_grandchild = Category.find(@good.category_id)
       @category_child = @category_grandchild.parent
       @category_parent = @category_child.parent
