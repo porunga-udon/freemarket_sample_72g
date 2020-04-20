@@ -34,15 +34,20 @@ class GoodsController < ApplicationController
   end
 
   def edit
-    @category_grandchild = Category.find(@good.category_id)
-    @category_child = @category_grandchild.parent
-    @category_parent = @category_child.parent
+    if user_signed_in?
+      @category_grandchild = Category.find(@good.category_id)
+      @category_child = @category_grandchild.parent
+      @category_parent = @category_child.parent
+    else
+      flash[:alert] = "ログインしてください"
+      redirect_to root_path
+    end
   end
 
   def update
     if @good.update(good_update_params)
       flash[:notice] = "商品の編集が完了しました"
-    elsif upload_file.present?
+    else
       flash[:alert] = "商品の編集に失敗しました"
       redirect_to edit_good_path(@good.id)
     end
