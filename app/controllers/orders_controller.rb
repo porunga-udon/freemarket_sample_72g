@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
   before_action :set_good
   before_action :set_address
   before_action :set_card
+  before_action :check_current_user
+  before_action :check_buyer_id, except: :done
 
   def index
     if @card.blank?
@@ -13,7 +15,6 @@ class OrdersController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
-   
   end
 
   def pay
@@ -34,6 +35,10 @@ class OrdersController < ApplicationController
   end
   
   def done
+    if @good.buyer_id.blank?
+      redirect_to root_path
+      flash[:alert] = '不正なアクセスです'
+    end
   end
 
   private
@@ -51,4 +56,17 @@ class OrdersController < ApplicationController
     @card = Card.find_by(user_id: current_user.id)
   end
 
+  def check_current_user
+    if current_user.id == @good.seller_id
+      redirect_to root_path
+      flash[:alert] = '不正なアクセスです'
+    end
+  end
+
+  def check_buyer_id
+    if @good.buyer_id.present?
+      redirect_to root_path
+      flash[:alert] = '不正なアクセスです'
+    end
+  end
 end
