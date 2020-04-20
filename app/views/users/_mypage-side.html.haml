@@ -5,9 +5,9 @@
         %li.mypage__side--item
           =link_to user_path(current_user), class:"btn item" do
             =content
-      -if content == "出品する"
+      -elsif content == "出品する"
         %li.mypage__side--item
-          =link_to new_good_path, class:"btn item" do
+          =link_to new_good_path,data: {"turbolinks" => false}, class:"btn item" do
             =content
       -elsif content == "出品した商品-出品中"
         %li.mypage__side--item

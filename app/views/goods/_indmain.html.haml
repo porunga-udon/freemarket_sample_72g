@@ -178,7 +178,7 @@
         - @goods.zip(@good_images).each do |good, good_images|
           - if good.buyer_id == nil
             .brand__container__category__list
-              = link_to "#", class: "brand__container__category__list" do
+              = link_to good_path(good.id), class: "brand__container__category__list" do
                 %li.pick-ups__box__goods__list__pic
                   =image_tag good.good_images[0].image.url, size: "220x150"
                 .pick-ups__box__goods__list__body
