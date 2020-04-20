@@ -36,15 +36,15 @@
       .setNewPage__detailZone
         .setNewPage__detailZone__main
           .subTitleRepeat
-            商品名
+            商品名(最大40字)
             .b
               必須
-          = f.text_field :name, placeholder: :商品名, class: :textArea
+          = f.text_field :name, maxlength: 40, placeholder: :商品名, class: :textArea
           .subTitleRepeat
-            商品の説明
+            商品の説明(最大400字)
             .b
               必須
-          = f.text_area :expanation, placeholder: :説明, class: :detailArea
+          = f.text_area :expanation, maxlength: 400, placeholder: :説明, class: :detailArea
       .setNewPage__conditionZone
         .setNewPage__conditionZone__main
           .f
