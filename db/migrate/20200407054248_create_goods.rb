@@ -5,7 +5,7 @@ class CreateGoods < ActiveRecord::Migration[5.2]
       t.string :state,                   null:false
       t.string :region,                  null:false
       t.string :postage,                 null:false
-      t.string :expanation,              null:false
+      t.text :expanation,                null:false
       t.string :shipping_date,           null:false
       t.integer :delivery_method_id,     null:false, foreign_key: true
       t.integer :trading_conditions_id,  null:false, default: 1
