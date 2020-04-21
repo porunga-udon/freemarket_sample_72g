@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 
   require 'payjp'
+  before_action :authenticate_user!
   before_action :set_good
   before_action :set_address
   before_action :set_card
@@ -59,7 +60,7 @@ class OrdersController < ApplicationController
   def check_current_user
     if current_user.id == @good.seller_id
       redirect_to root_path
-      flash[:alert] = '不正なアクセスです'
+      flash[:alert] = '自分の商品は購入できません'
     end
   end
 
@@ -69,4 +70,10 @@ class OrdersController < ApplicationController
       flash[:alert] = '不正なアクセスです'
     end
   end
+
+  def authenticate_user!
+    redirect_to root_path
+    flash[:alert] = 'ログインしてください'
+  end
+
 end
