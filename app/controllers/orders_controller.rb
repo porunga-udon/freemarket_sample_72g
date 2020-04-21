@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   require 'payjp'
-  before_action :authenticate_user!
+  before_action :check_user_login
   before_action :set_good
   before_action :set_address
   before_action :set_card
@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   before_action :check_buyer_id, except: :done
 
   def index
-    if @card.blank?
+    if @card.blank? 
       redirect_to controller: "card", action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -71,9 +71,11 @@ class OrdersController < ApplicationController
     end
   end
 
-  def authenticate_user!
-    redirect_to root_path
-    flash[:alert] = 'ログインしてください'
+  def check_user_login
+    unless user_signed_in?
+      redirect_to root_path
+      flash[:alert] = 'ログインしてください'
+    end
   end
 
 end
